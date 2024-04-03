@@ -4,6 +4,7 @@ import { HeroComponent } from './hero/hero.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { DynamicContainerComponent } from './dynamic-container/dynamic-container.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +14,8 @@ import { DynamicContainerComponent } from './dynamic-container/dynamic-container
     HeaderComponent,
     HeroComponent,
     FooterComponent,
-    DynamicContainerComponent
+    DynamicContainerComponent,
+    CommonModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
