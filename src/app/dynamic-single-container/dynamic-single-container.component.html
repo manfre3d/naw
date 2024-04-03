@@ -1,1 +1,6 @@
-<p>dynamic-single-container works!</p>
+
+<ng-container [ngSwitch]="section.type">
+    <p *ngSwitchCase="'test'">dynamic-single-container generation works!</p>
+    <p *ngSwitchCase="'test2'">dynamic-single-container-2 generation works!</p>
+
+</ng-container>
