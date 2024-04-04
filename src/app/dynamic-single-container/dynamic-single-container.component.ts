@@ -1,11 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { HeroComponent } from '../hero/hero.component';
+import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-dynamic-single-container',
   standalone: true,
   imports: [
-    CommonModule
+    CommonModule,
+    HeroComponent,
+    FooterComponent,
+    HeaderComponent
   ],
   templateUrl: './dynamic-single-container.component.html',
   styleUrl: './dynamic-single-container.component.scss'
