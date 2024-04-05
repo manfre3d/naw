@@ -21,6 +21,9 @@ export class DynamicContainerComponent {
       type:"HERO"
     },
     {
+      type:"ABOUT"
+    },
+    {
       type:"FOOTER"
     },
   ];

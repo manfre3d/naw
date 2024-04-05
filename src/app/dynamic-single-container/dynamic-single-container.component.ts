@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
+import { AboutComponent } from '../about/about.component';
 
 @Component({
   selector: 'app-dynamic-single-container',
@@ -11,7 +12,8 @@ import { HeaderComponent } from '../header/header.component';
     CommonModule,
     HeroComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    AboutComponent
   ],
   templateUrl: './dynamic-single-container.component.html',
   styleUrl: './dynamic-single-container.component.scss'

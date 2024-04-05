@@ -1,8 +1,7 @@
 
 <ng-container [ngSwitch]="section.type">
-    <!-- <p *ngSwitchCase="'test'">dynamic-single-container generation works!</p>
-    <p *ngSwitchCase="'test2'">dynamic-single-container-2 generation works!</p> -->
-    <app-header *ngSwitchCase="'HEADER'"></app-header>
-    <app-hero *ngSwitchCase="'HERO'"></app-hero>
-    <app-footer *ngSwitchCase="'FOOTER'"></app-footer>
+    <app-header *ngSwitchCase="'HEADER'"/>
+    <app-hero *ngSwitchCase="'HERO'"/>
+    <app-about *ngSwitchCase="'ABOUT'"/>
+    <app-footer *ngSwitchCase="'FOOTER'"/>
 </ng-container>
