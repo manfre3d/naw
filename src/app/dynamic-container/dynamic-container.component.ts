@@ -15,16 +15,20 @@ import { CommonModule } from '@angular/common';
 export class DynamicContainerComponent {
   testDescription : any = [
     {
-      type:"HEADER"
+      type:"HEADER",
+      style:""
     },
     {
-      type:"HERO"
+      type:"HERO",
+      style:"SECTION"
     },
     {
-      type:"ABOUT"
+      type:"ABOUT",
+      style:""
     },
     {
-      type:"FOOTER"
+      type:"FOOTER",
+      style:""
     },
   ];
   ngOnInit(): void{
