@@ -1,6 +1,11 @@
-.left_hero{
-    background-color: red;
-}
-.right_hero{
-    background-color: blue;
+.hero_formatting{
+    display: flex;
+    width: 100%;
+    & .left_hero{
+        background-color: red;
+    }
+    & .right_hero{
+        background-color: blue;
+    }
+
 }
