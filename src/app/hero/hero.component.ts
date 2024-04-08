@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-hero',
@@ -7,13 +8,22 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss'
 })
-export class HeroComponent implements OnInit{
+export class HeroComponent implements OnInit, AfterViewInit{
   dynamicText: any;
 
+  constructor(@Inject(DOCUMENT) private document: Document){}
+
   ngOnInit(): void{
-    // js automation for dynamic text
-    let test = document.getElementById("dynamic_introduction") as HTMLElement
-    test.innerHTML = "test2";
-    this.dynamicText="test";
+
   }
+  ngAfterViewInit(): void{
+    // js automation for dynamic text
+    let welcomeTitle = this.document.getElementById("dynamic_introduction") as HTMLElement
+    welcomeTitle.addEventListener("animationend", ()=>{
+      welcomeTitle.classList.remove("typing-animation");
+      welcomeTitle.style.border="";
+    });
+
+  }
+
 }
