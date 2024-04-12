@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DynamicSingleContainerComponent } from '../dynamic-single-container/dynamic-single-container.component';
 import { CommonModule } from '@angular/common';
 
@@ -12,27 +12,13 @@ import { CommonModule } from '@angular/common';
   templateUrl: './dynamic-container.component.html',
   styleUrl: './dynamic-container.component.scss'
 })
-export class DynamicContainerComponent {
-  testDescription : any = [
-    {
-      type:"HEADER",
-      style:""
-    },
-    {
-      type:"HERO",
-      style:"SECTION"
-    },
-    {
-      type:"ABOUT",
-      style:""
-    },
-    {
-      type:"FOOTER",
-      style:""
-    },
-  ];
+export class DynamicContainerComponent implements OnInit{
+
+  @Input() descriptor :any;
   ngOnInit(): void{
-    // console.log(this.testDescription);
+    console.log("DYNAMICA CONTAINER INIT");
+
+    console.log(this.descriptor);
   }
 
 
