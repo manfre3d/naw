@@ -11,15 +11,40 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [
     RouterOutlet,
-    HeaderComponent,
-    HeroComponent,
-    FooterComponent,
+    CommonModule,
     DynamicContainerComponent,
-    CommonModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
   title = 'naw';
+  testDescriptor : any = [
+    {
+      type:"HEADER",
+      style:""
+    },
+    {
+      type:"HERO",
+      style:"SECTION"
+    },
+    {
+      type:"ABOUT",
+      style:"SECTION",
+      elements:[
+        {
+          type:"CARD",
+          style:''
+        },
+        {
+          type:"CARD",
+          style:''
+        }
+      ]
+    },
+    {
+      type:"FOOTER",
+      style:""
+    },
+  ];
 }
