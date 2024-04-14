@@ -1,0 +1,12 @@
+{
+    "sections": [
+        {
+            "type": "HEADER",
+            "style": ""
+        },
+        {
+            "type": "HERO",
+            "style": "SECTION"
+        }
+    ]
+}
