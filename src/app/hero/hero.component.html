@@ -5,17 +5,16 @@
         <!-- left content -->
         <div class="row gx-0 p-5 align-content-center">
             <div class="wrapper">
-                <div id="dynamic_introduction" class="typing-text typing-animation">Welcome! I am Manfredi!</div>
+                <!-- <h1 id="dynamic_introduction" class="typing-text typing-animation">Welcome! I am Manfredi!</h1> -->
+                <h1 id="dynamic_introduction" class="typing-text typing-animation">{{subDescriptor.primaryHeaderText}}</h1>
             </div>
-            <!-- <div>
-                {{dynamicText}}
-            </div> -->
         </div>          
     </div>
     <!-- Hero right section -->
     <div class ="col-12 col-sm-6 right_hero">
         <div class="hero_img_formatting">
-            <img src="../../assets/profile_mp.png" alt="">    
+            <!-- <img src="../../assets/profile_mp.png" alt="">     -->
+            <img src="{{subDescriptor.imgPath}}" alt="">    
         </div>
     </div>
 
