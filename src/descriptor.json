@@ -2,11 +2,29 @@
     "sections": [
         {
             "type": "HEADER",
-            "style": ""
+            "style": "",
+            "nav":{
+                "navigationList":[
+                    {
+                        "description":"Home",
+                        "link":"1"
+                    },
+                    {
+                        "description":"About",
+                        "link":"2"
+                    },
+                    {
+                        "description":"Contacts",
+                        "link":"3"
+                    }
+                ]
+            }
         },
         {
             "type": "HERO",
-            "style": "SECTION"
+            "style": "SECTION",
+            "imgPath":"../../assets/profile_mp.png",
+            "primaryHeaderText":"Welcome! I am Manfredi!"
         }
     ]
 }
