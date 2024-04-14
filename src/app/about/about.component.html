@@ -1,3 +1,5 @@
-<div *ngFor="let section of subDescriptor" class="about_container">
-    <app-dynamic-card class="d-flex px-2 justify-content-center"/>
-</div>
+<section class="about_container">
+    <h3>About</h3>
+    <app-dynamic-card [cardContent]="section.content" *ngFor="let section of subDescriptor" class="d-flex p-2 justify-content-center"/>
+
+</section>

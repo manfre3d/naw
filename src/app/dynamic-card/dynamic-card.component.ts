@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-dynamic-card',
@@ -8,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrl: './dynamic-card.component.scss'
 })
 export class DynamicCardComponent {
-
+  @Input() cardContent:any;
 }
