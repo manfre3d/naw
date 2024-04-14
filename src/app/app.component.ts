@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DynamicContainerComponent } from './dynamic-container/dynamic-container.component';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import descriptor from '../descriptor.json'
 
 @Component({
   selector: 'app-root',
@@ -14,34 +15,39 @@ import { RouterOutlet } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
+  ngOnInit(): void {
+    //console.log(descriptor)
+  }
   title = 'naw';
-  testDescriptor : any = [
-    {
-      type:"HEADER",
-      style:""
-    },
-    {
-      type:"HERO",
-      style:"SECTION"
-    },
-    // {
-    //   type:"ABOUT",
-    //   style:"SECTION",
-    //   elements:[
-    //     {
-    //       type:"CARD",
-    //       style:''
-    //     },
-    //     {
-    //       type:"CARD",
-    //       style:''
-    //     }
-    //   ]
-    // },
-    // {
-    //   type:"FOOTER",
-    //   style:""
-    // },
-  ];
+  siteStructure : any = descriptor.sections;
+  // [
+  //   {
+  //     type:"HEADER",
+  //     style:""
+  //   },
+  //   {
+  //     type:"HERO",
+  //     style:"SECTION"
+  //   },
+    
+  //   // {
+  //   //   type:"ABOUT",
+  //   //   style:"SECTION",
+  //   //   elements:[
+  //   //     {
+  //   //       type:"CARD",
+  //   //       style:''
+  //   //     },
+  //   //     {
+  //   //       type:"CARD",
+  //   //       style:''
+  //   //     }
+  //   //   ]
+  //   // },
+  //   // {
+  //   //   type:"FOOTER",
+  //   //   style:""
+  //   // },
+  // ];
 }
