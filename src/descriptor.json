@@ -7,24 +7,57 @@
                 "navigationList":[
                     {
                         "description":"Home",
-                        "link":"1"
+                        "link":"#home"
                     },
                     {
                         "description":"About",
-                        "link":"2"
+                        "link":"#about"
                     },
                     {
                         "description":"Contacts",
-                        "link":"3"
+                        "link":"#contacts"
                     }
                 ]
             }
         },
         {
+            "id":"home",
             "type": "HERO",
             "style": "SECTION",
             "imgPath":"../../assets/profile_mp.png",
-            "primaryHeaderText":"Welcome! I am Manfredi!"
-        }
+            "primaryHeaderText":"Welcome! I am Manfredi!",
+            "secondaryHeaderText":"I'm a Web Developer"
+        },        
+        {
+            "id":"about",
+            "type": "ABOUT",
+            "style": "SECTION",
+            "elements":[
+                {
+                    "type":"CARD",
+                    "content":{
+                        "img":"../../assets/leonardo-logo.png",
+                        "title":"Leonardo S.p.A",
+                        "description":"test desc leo"
+                    }
+                },
+                {
+                    "type":"CARD",
+                    "content":{
+                        "img":"../../assets/bper-banca.png",
+                        "title":"Bper S.p.A",
+                        "description":"test desc Bper"
+                    }
+                },
+                {
+                    "type":"CARD",
+                    "content":{
+                        "img":"../../assets/reale-mutua-logo.png",
+                        "title":"Reale Mutua S.p.A",
+                        "description":"test desc reale where I did some stuff lorem test desc reale where I did some stuff lorem test desc reale where I did some stuff lorem test desc reale where I did some stuff lorem "
+                    }
+                }
+            ]
+        }  
     ]
 }
