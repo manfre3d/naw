@@ -1,7 +1,7 @@
 
 <section  class="row gx-0" [ngSwitch]="section.type">
-    <app-header class="col-12" [class]="section.style?'SECTION':''" *ngSwitchCase="'HEADER'"/>
-    <app-hero class="col-12 px-0" [class]="section.style?'SECTION':''" *ngSwitchCase="'HERO'"/>
+    <app-header class="col-12" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'HEADER'"/>
+    <app-hero class="col-12 px-0" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'HERO'"/>
     <app-about class="col-12" [subDescriptor]="section.elements" [class]="section.style?'SECTION':''" *ngSwitchCase="'ABOUT'"/>
     <app-footer class="col-12" [class]="section.style?'SECTION':''" *ngSwitchCase="'FOOTER'"/>
 </section>

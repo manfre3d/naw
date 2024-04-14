@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Inject, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-hero',
@@ -10,7 +10,8 @@ import { AfterViewInit, Component, Inject, OnInit } from '@angular/core';
 })
 export class HeroComponent implements OnInit, AfterViewInit{
   dynamicText: any;
-
+  @Input() subDescriptor:any;
+  
   constructor(@Inject(DOCUMENT) private document: Document){}
 
   ngOnInit(): void{
