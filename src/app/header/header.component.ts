@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit{
   @Input() subDescriptor:any;
 
   ngOnInit(): void{
-
+    
   }
 
 
