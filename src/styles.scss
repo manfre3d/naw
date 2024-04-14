@@ -5,9 +5,20 @@
 @import '../node_modules/font-awesome/css/font-awesome.css';
 $fa-font-path: "../../../node_modules/font-awesome/fonts";
 
+// reset
+// *{
+//     box-sizing: border-box;
+//     margin: 0;
+//     padding: 0;
 
+// }
+// .row > *{
+//     --bs-gutter-x: 1.5rem;
+//     margin-right: 0 !important;
+//     margin-left: 0!important;
+// }
 html{
     width: 100%;
-    font-family: monospace;
+    font-family: "SF UI Text", "Helvetica Neue", "Segoe UI", "Oxygen",    "Ubuntu", "Cantarell", "Open Sans", sans-serif;
 
 }
