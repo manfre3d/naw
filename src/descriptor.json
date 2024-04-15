@@ -38,7 +38,9 @@
                     "content":{
                         "img":"../../assets/leonardo-logo.png",
                         "title":"Leonardo S.p.A",
-                        "description":"test desc leo"
+                        "subtitle":"Aug 2024 - now",
+                        "location":"Turin, Italy",
+                        "description":"test desc reale where I did some stuff lorem test desc reale where I did test desc reale where I did some stuff lorem test desc reale where I did "
                     }
                 },
                 {
@@ -46,7 +48,9 @@
                     "content":{
                         "img":"../../assets/bper-banca.png",
                         "title":"Bper S.p.A",
-                        "description":"test desc Bper"
+                        "subtitle":"Aug 2024 - now",
+                        "location":"Turin, Italy",
+                        "description":"ttest desc reale where I did some stuff lorem test desc reale where I did test desc reale where I did some stuff lorem test desc reale where I did "
                     }
                 },
                 {
@@ -54,7 +58,9 @@
                     "content":{
                         "img":"../../assets/reale-mutua-logo.png",
                         "title":"Reale Mutua S.p.A",
-                        "description":"test desc reale where I did some stuff lorem test desc reale where I did some stuff lorem test desc reale where I did some stuff lorem test desc reale where I did some stuff lorem "
+                        "subtitle":"Aug 2024 - now",
+                        "location":"Turin, Italy",
+                        "description":"test desc reale where I did some stuff lorem test  desc reale where I did some stuff lorem test desc reale where I did some stuff lorem "
                     }
                 }
             ]
