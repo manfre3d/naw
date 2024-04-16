@@ -1,5 +1,9 @@
 <div class="card align-items-center">
-    <img class="card-img-top" src="{{cardContent.img}}" alt="Card image cap">
+    <div class="custom_top_card_container">
+        <div class="custom_top_card_overlay" [class]="cardContent.backgroundColor">
+            <img class="custom_top_img_setting" src="{{cardContent.img}}" alt="Card image cap">
+        </div>
+    </div>
     <div class="card-body">
         <h5 class="card-title">{{cardContent.title}}</h5>
         <h5 class="card-subtitle">{{cardContent.subtitle}}</h5>

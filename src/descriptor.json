@@ -37,6 +37,7 @@
                     "type":"CARD",
                     "content":{
                         "img":"../../assets/leonardo-logo.png",
+                        "backgroundColor":"red",
                         "title":"Leonardo S.p.A",
                         "subtitle":"Aug 2024 - now",
                         "location":"Turin, Italy",
@@ -46,7 +47,8 @@
                 {
                     "type":"CARD",
                     "content":{
-                        "img":"../../assets/bper-banca.png",
+                        "img":"../../assets/bper_logo.png",
+                        "backgroundColor":"green",
                         "title":"Bper S.p.A",
                         "subtitle":"Aug 2024 - now",
                         "location":"Turin, Italy",
@@ -57,6 +59,7 @@
                     "type":"CARD",
                     "content":{
                         "img":"../../assets/reale-mutua-logo.png",
+                        "backgroundColor":"blue",
                         "title":"Reale Mutua S.p.A",
                         "subtitle":"Aug 2024 - now",
                         "location":"Turin, Italy",
