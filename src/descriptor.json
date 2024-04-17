@@ -72,8 +72,9 @@
             "id":"contacts",
             "type": "CONTACTS",
             "style": "SECTION",
-            "primaryHeaderText":"Welcome! I am Manfredi!",
-            "secondaryHeaderText":"I'm a Web Developer"
+            "mail":"manfredipiraino@gmail.com",
+            "primaryTitleText":"Contact Me!",
+            "secondaryTitleText":"DISCUSS A PROJECT OR JUST WANT TO SAY HI? MY INBOX IS OPEN FOR EVERYONE"
         }
     ]
 }
