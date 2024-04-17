@@ -5,6 +5,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
 import { AboutComponent } from '../about/about.component';
 import { DynamicCardComponent } from '../dynamic-card/dynamic-card.component';
+import { ContactsComponent } from '../contacts/contacts.component';
 
 @Component({
   selector: 'app-dynamic-single-container',
@@ -15,7 +16,8 @@ import { DynamicCardComponent } from '../dynamic-card/dynamic-card.component';
     FooterComponent,
     HeaderComponent,
     DynamicCardComponent,
-    AboutComponent
+    AboutComponent,
+    ContactsComponent
   ],
   templateUrl: './dynamic-single-container.component.html',
   styleUrl: './dynamic-single-container.component.scss'

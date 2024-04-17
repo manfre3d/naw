@@ -67,6 +67,13 @@
                     }
                 }
             ]
-        }  
+        },
+        {
+            "id":"contacts",
+            "type": "CONTACTS",
+            "style": "SECTION",
+            "primaryHeaderText":"Welcome! I am Manfredi!",
+            "secondaryHeaderText":"I'm a Web Developer"
+        }
     ]
 }
