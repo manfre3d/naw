@@ -75,6 +75,14 @@
             "mail":"manfredipiraino@gmail.com",
             "primaryTitleText":"Contact Me!",
             "secondaryTitleText":"DISCUSS A PROJECT OR JUST WANT TO SAY HI? MY INBOX IS OPEN FOR EVERYONE"
+        },
+        {
+            "id":"contacts",
+            "type": "FOOTER",
+            "style": "SECTION",
+            "mail":"manfredipiraino@gmail.com",
+            "primaryTitleText":"Contact Me!",
+            "secondaryTitleText":"DISCUSS A PROJECT OR JUST WANT TO SAY HI? MY INBOX IS OPEN FOR EVERYONE"
         }
     ]
 }
