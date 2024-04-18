@@ -1,13 +1,16 @@
 .row{
     margin: 0;
     padding: 0;
+    justify-content: center;
+
 }
 .SECTION{
     // height: 80vh;
-    width: 100%;
+    width: 90%;
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    // align-content: center;
     justify-content: space-between;
     // padding: 10px 0;
 }

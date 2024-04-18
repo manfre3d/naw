@@ -4,11 +4,14 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    .icon_links_formatting{
+    .icon_links_container_formatting{
         font-size: 1.4em;
         padding: 0 0.2em;
+        a{
+            color: inherit;
+        }
     }
-    .icon_links_formatting:hover{
+    .icon_links_container_formatting:hover{
         color: rgb(77, 76, 76);
         transition: all linear .1s;
         cursor: pointer;
@@ -16,5 +19,8 @@
     .bottom_text_formatting{
         width: 100%;
         text-align: center;
+        i{
+            color: red;
+        }
     }
 }
