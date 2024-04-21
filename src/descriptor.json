@@ -1,8 +1,10 @@
 {
     "sections": [
         {
+            "id":"header",
             "type": "HEADER",
             "style": "",
+            "animation": false,
             "nav":{
                 "navigationList":[
                     {
@@ -77,7 +79,7 @@
             "secondaryTitleText":"DISCUSS A PROJECT OR JUST WANT TO SAY HI? MY INBOX IS OPEN FOR EVERYONE"
         },
         {
-            "id":"contacts",
+            "id":"footer",
             "type": "FOOTER",
             "style": "SECTION",
             "mail":"manfredipiraino@gmail.com",

@@ -11,7 +11,8 @@
     flex-wrap: wrap;
     align-items: center;
     // align-content: center;
-    justify-content: space-between;
+    // justify-content: space-between;
+    justify-content: center;
     // padding: 10px 0;
 }
 .sticky{
@@ -21,4 +22,11 @@
     z-index: 99;
     top:0;
     
+}
+.hidden{
+    opacity: 0;
+    transition: all 1s;
+}
+.show{
+    opacity: 1;
 }
