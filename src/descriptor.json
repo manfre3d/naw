@@ -81,10 +81,24 @@
         {
             "id":"footer",
             "type": "FOOTER",
-            "style": "SECTION",
-            "mail":"manfredipiraino@gmail.com",
-            "primaryTitleText":"Contact Me!",
-            "secondaryTitleText":"DISCUSS A PROJECT OR JUST WANT TO SAY HI? MY INBOX IS OPEN FOR EVERYONE"
+            "linkElements":[
+                {
+                    "link":"https://github.com/manfre3d?tab=overview&from=2024-04-01&to=2024-04-14",
+                    "icon":"fa-brands fa-github",
+                    "color":"grey"
+                },
+                {
+                    "link":"https://www.linkedin.com/in/manfredi-piraino/",
+                    "icon":"fa-brands fa-linkedin",
+                    "color":"dark-blue"
+                },
+                {
+                    "link":"mailto:manfredipiraino@gmail.com",
+                    "icon":"fa-solid fa-envelope",
+                    "color":"blue"
+                }
+            ],
+            "style": "SECTION"
         }
     ]
 }
