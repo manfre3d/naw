@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [SharedModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

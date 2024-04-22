@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicContainerComponent } from './dynamic-container/dynamic-container.component';
-import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import descriptor from '../descriptor.json'
+import { SharedModule } from './shared/shared.module';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    CommonModule,
+    SharedModule,
     DynamicContainerComponent,
   ],
   templateUrl: './app.component.html',

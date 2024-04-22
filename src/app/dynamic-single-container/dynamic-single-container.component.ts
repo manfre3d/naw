@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -6,12 +5,13 @@ import { HeaderComponent } from '../header/header.component';
 import { AboutComponent } from '../about/about.component';
 import { DynamicCardComponent } from '../dynamic-card/dynamic-card.component';
 import { ContactsComponent } from '../contacts/contacts.component';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-dynamic-single-container',
   standalone: true,
   imports: [
-    CommonModule,
+    SharedModule,
     HeroComponent,
     FooterComponent,
     HeaderComponent,

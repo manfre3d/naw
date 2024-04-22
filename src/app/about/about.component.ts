@@ -1,7 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DynamicContainerComponent } from '../dynamic-container/dynamic-container.component';
 import { DynamicCardComponent } from "../dynamic-card/dynamic-card.component";
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
     selector: 'app-about',
@@ -9,9 +8,8 @@ import { CommonModule } from '@angular/common';
     templateUrl: './about.component.html',
     styleUrl: './about.component.scss',
     imports: [
-        DynamicContainerComponent,
         DynamicCardComponent,
-        CommonModule
+        SharedModule
     ]
 })
 export class AboutComponent implements OnInit{

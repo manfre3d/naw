@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DynamicSingleContainerComponent } from '../dynamic-single-container/dynamic-single-container.component';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-dynamic-container',
   standalone: true,
   imports: [
     DynamicSingleContainerComponent,
-    CommonModule
+    SharedModule
   ],
   templateUrl: './dynamic-container.component.html',
   styleUrl: './dynamic-container.component.scss'

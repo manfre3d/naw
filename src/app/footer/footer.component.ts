@@ -1,10 +1,10 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [SharedModule],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
