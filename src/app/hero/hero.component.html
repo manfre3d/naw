@@ -5,14 +5,12 @@
         <!-- left content -->
         <div class="row gx-0 p-5 align-content-center">
             <div class="wrapper">
-                <!-- <h1 id="dynamic_introduction" class="typing-text typing-animation">Welcome! I am Manfredi!</h1> -->
                 <h1 id="dynamic_introduction" class="typing-text typing-animation-primary">{{subDescriptor.primaryHeaderText}}</h1>
             </div>
             <div *ngIf="secondaryTextActive" class="wrapper">
-                <!-- <h1 id="dynamic_introduction" class="typing-text typing-animation">Welcome! I am Manfredi!</h1> -->
                 <h5 id="dynamic_introduction" class="typing-text typing-animation-secondary">{{subDescriptor.secondaryHeaderText}}</h5>
             </div>
-            <div class="d-flex justify-content-center my-2">
+            <div class="d-flex justify-content-center my-4">
                 <button type="button" class="btn btn-dark col-5 mx-3 ">
                 <a (click)="downloadPdf()">CV</a>    
                 </button>
@@ -26,7 +24,6 @@
     <!-- Hero right section -->
     <div class ="col-12 col-sm-6 right_hero">
         <div class="hero_img_formatting">
-            <!-- <img src="../../assets/profile_mp.png" alt="">     -->
             <img src="{{subDescriptor.imgPath}}" alt="">    
         </div>
     </div>

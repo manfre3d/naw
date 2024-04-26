@@ -8,7 +8,6 @@
     height: 90vh;
     & .left_hero {
         display: flex;
-        // background-color: red;
         a{
             color: inherit;
             text-decoration: none;
@@ -18,8 +17,6 @@
         }
 
         & .wrapper {
-            //   height: 100vh;
-            /*This part is important for centering*/
             display: grid;
             place-items: center;
             
@@ -60,14 +57,12 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        // background-color: blue;
         & .hero_img_formatting {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 70%;
             height: 70%;
-            // box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
         }
         
         img {
@@ -83,22 +78,11 @@
 }
 
 @media (max-width: 577px) {
-    // .typing-text {
-    //     white-space: nowrap;
-    //     overflow: hidden;
-    //     font-size: 3vw !important;
-    // }
 
     .hero_formatting {
-        // display: flex;
-        // width: 100%;
-        // height: 90vh;
         & .left_hero {
-            // display: flex;
-            // background-color: red;
     
             .row {
-                // flex-grow: 1;
             }
     
             & .wrapper {
@@ -149,14 +133,4 @@
         }
         
     }
-    // .hero_formatting {
-
-    //     & .left_hero {
-
-    //         & .wrapper {
-
-
-    //         }
-    //     }
-    // }
 }
