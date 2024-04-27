@@ -38,10 +38,21 @@
                 {
                     "type":"CARD",
                     "content":{
+                        "img":"../../assets/bit-logo.png",
+                        "backgroundColor":"background-color: rgb(0 255 249);",
+                        "title":"Bit S.p.A",
+                        "subtitle":"March 2022 - now",
+                        "location":"Turin, Italy",
+                        "description":"I'm working on Full Stack Web development projects developing microservices, middleware infrastructures and interfaces for a multitude of companies."
+                    }
+                },
+                {
+                    "type":"CARD",
+                    "content":{
                         "img":"../../assets/leonardo-logo.png",
-                        "backgroundColor":"red",
+                        "backgroundColor":"background-color: rgb(251, 52, 67);",
                         "title":"Leonardo S.p.A",
-                        "subtitle":"Aug 2024 - now",
+                        "subtitle":"March 2022 - October 2022",
                         "location":"Turin, Italy",
                         "description":"test desc reale where I did some stuff lorem test desc reale where I did test desc reale where I did some stuff lorem test desc reale where I did "
                     }
@@ -50,9 +61,9 @@
                     "type":"CARD",
                     "content":{
                         "img":"../../assets/bper_logo.png",
-                        "backgroundColor":"green",
+                        "backgroundColor":"background-color: rgb(0, 153, 43);",
                         "title":"Bper S.p.A",
-                        "subtitle":"Aug 2024 - now",
+                        "subtitle":"Dic 2022 - Jul 2023",
                         "location":"Turin, Italy",
                         "description":"ttest desc reale where I did some stuff lorem test desc reale where I did test desc reale where I did some stuff lorem test desc reale where I did "
                     }
@@ -61,7 +72,7 @@
                     "type":"CARD",
                     "content":{
                         "img":"../../assets/reale-mutua-logo.png",
-                        "backgroundColor":"blue",
+                        "backgroundColor":"background-color: rgb(38, 0, 255);",
                         "title":"Reale Mutua S.p.A",
                         "subtitle":"Aug 2024 - now",
                         "location":"Turin, Italy",
@@ -90,12 +101,12 @@
                 {
                     "link":"https://www.linkedin.com/in/manfredi-piraino/",
                     "icon":"fa-brands fa-linkedin",
-                    "color":"dark-blue"
+                    "color":"grey"
                 },
                 {
                     "link":"mailto:manfredipiraino@gmail.com",
                     "icon":"fa-solid fa-envelope",
-                    "color":"blue"
+                    "color":"grey"
                 }
             ],
             "style": "SECTION"
