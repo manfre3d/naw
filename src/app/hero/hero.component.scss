@@ -80,46 +80,7 @@
 @media (max-width: 577px) {
 
     .hero_formatting {
-        & .left_hero {
-    
-            .row {
-            }
-    
-            & .wrapper {
-                //   height: 100vh;
-                /*This part is important for centering*/
-                // display: grid;
-                // place-items: center;
-                
-                .typing-text {
-                    white-space: nowrap;
-                    overflow: hidden;
-                    font-size: 1.5em;
 
-                }
-                
-                .typing-animation {
-                    width: 23ch;
-                    animation: typing 2s steps(23), blink .5s step-end infinite alternate;
-                    border-right: 3px solid;
-                }
-                
-                @keyframes typing {
-                    from {
-                        width: 0
-                    }
-                }
-    
-                @keyframes blink {
-                    50% {
-                        border-color: transparent
-                    }
-                }
-            }
-
-            
-        }
-        
         & .right_hero {
 
             img {

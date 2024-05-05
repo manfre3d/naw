@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
@@ -22,16 +22,15 @@ import { SharedModule } from '../shared/shared.module';
   templateUrl: './dynamic-single-container.component.html',
   styleUrl: './dynamic-single-container.component.scss'
 })
-export class DynamicSingleContainerComponent {
+export class DynamicSingleContainerComponent implements AfterViewInit {
+  ngAfterViewInit(): void {
+    this.onScrollAnimationInit();
+  }
 
   @Input() section :any;
   // ngSwitchCase: any
 
-  ngOnInit(): void{
-    // console.log(this.section);
-    this.onScrollAnimationInit();
-  }
-
+  
   onScrollAnimationInit(){
     let observer = new IntersectionObserver((entries)=>{
       entries.forEach((entry)=>{
