@@ -5,10 +5,12 @@
         <!-- left content -->
         <div class="row gx-0 p-5 align-content-center">
             <div class="wrapper">
-                <h1 id="dynamic_introduction" class="typing-text typing-animation-primary">{{subDescriptor.primaryHeaderText}}</h1>
+                <!-- class="typing-text typing-animation-primary" -->
+                <h1 id="dynamic_introduction" >{{subDescriptor.primaryHeaderText}}</h1>
             </div>
             <div *ngIf="secondaryTextActive" class="wrapper">
-                <h5 id="dynamic_introduction" class="typing-text typing-animation-secondary">{{subDescriptor.secondaryHeaderText}}</h5>
+                <!-- class="typing-text typing-animation-secondary" -->
+                <h5 id="dynamic_introduction" >{{subDescriptor.secondaryHeaderText}}</h5>
             </div>
             <div class="d-flex justify-content-center my-4">
                 <button type="button" class="btn btn-dark col-5 mx-3 ">
