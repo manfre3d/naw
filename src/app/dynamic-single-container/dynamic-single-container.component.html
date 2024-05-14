@@ -1,9 +1,0 @@
-
-<section [ngClass]="section.type==='HEADER'?'sticky':''" class="row gx-0 hidden"
- [ngSwitch]="section.type">
-    <app-header id="{{section.id}}" class="col-12" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'HEADER'"/>
-    <app-hero id="{{section.id}}" class="col-12 px-0" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'HERO'"/>
-    <app-about id="{{section.id}}" class="col-12" [subDescriptor]="section.elements" [class]="section.style?'SECTION':''" *ngSwitchCase="'ABOUT'"/>
-    <app-contacts id="{{section.id}}" class="col-12" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'CONTACTS'"/>
-    <app-footer id="{{section.id}}" class="col-12" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'FOOTER'"/>
-</section>
