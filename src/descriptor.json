@@ -26,7 +26,7 @@
             "id":"home",
             "type": "HERO",
             "style": "SECTION",
-            "imgPath":"../../assets/profile_mp.png",
+            "imgPath":"assets/profile_mp.png",
             "primaryHeaderText":"Welcome! I am Manfredi!",
             "secondaryHeaderText":"I'm a Web Developer"
         },        
@@ -38,7 +38,7 @@
                 {
                     "type":"CARD",
                     "content":{
-                        "img":"../../assets/bit-logo.png",
+                        "img":"assets/bit-logo.png",
                         "backgroundColor":"background-color: rgb(0 255 249);",
                         "title":"Bit S.p.A",
                         "subtitle":"March 2022 - now",
@@ -49,7 +49,7 @@
                 {
                     "type":"CARD",
                     "content":{
-                        "img":"../../assets/leonardo-logo.png",
+                        "img":"assets/leonardo-logo.png",
                         "backgroundColor":"background-color: rgb(251, 52, 67);",
                         "title":"Leonardo S.p.A",
                         "subtitle":"March 2022 - October 2022",
@@ -60,7 +60,7 @@
                 {
                     "type":"CARD",
                     "content":{
-                        "img":"../../assets/bper_logo.png",
+                        "img":"assets/bper_logo.png",
                         "backgroundColor":"background-color: rgb(0, 153, 43);",
                         "title":"Bper S.p.A",
                         "subtitle":"Dic 2022 - Jul 2023",
@@ -71,7 +71,7 @@
                 {
                     "type":"CARD",
                     "content":{
-                        "img":"../../assets/reale-mutua-logo.png",
+                        "img":"assets/reale-mutua-logo.png",
                         "backgroundColor":"background-color: rgb(38, 0, 255);",
                         "title":"Reale Mutua S.p.A",
                         "subtitle":"Aug 2024 - now",
