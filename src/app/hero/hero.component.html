@@ -1,34 +1,41 @@
-
-<div class="hero_formatting gx-0  row">
-    <!-- Hero left section -->
-    <div class ="col-12 col-sm-6 left_hero">  
-        <!-- left content -->
-        <div class="row gx-0 p-5 align-content-center">
-            <div class="wrapper">
-                <!-- class="typing-text typing-animation-primary" -->
-                <h1 id="dynamic_introduction" >{{subDescriptor.primaryHeaderText}}</h1>
-            </div>
-            <div *ngIf="secondaryTextActive" class="wrapper">
-                <!-- class="typing-text typing-animation-secondary" -->
-                <h5 id="dynamic_introduction" >{{subDescriptor.secondaryHeaderText}}</h5>
-            </div>
-            <div class="d-flex justify-content-center my-4">
-                <button type="button" class="btn btn-dark col-5 mx-3 ">
-                <a (click)="downloadPdf()">CV</a>    
-                </button>
-                <button type="button" class="btn btn-dark col-5 mx-3">
-                    <a href="#contacts">Contacts</a>
-                </button>
-            </div>
-        </div>       
-
+<div class="hero_formatting gx-0 row">
+  <!-- Hero left section -->
+  <div class="col-12 col-sm-6 left_hero">
+    <!-- left content -->
+    <div class="row gx-0 p-5 align-content-center">
+      <div class="wrapper">
+        <!-- class="typing-text typing-animation-primary" -->
+        <h1 id="dynamic_introduction">{{ subDescriptor.primaryHeaderText }}</h1>
+      </div>
+      <div *ngIf="secondaryTextActive" class="wrapper">
+        <!-- class="typing-text typing-animation-secondary" -->
+        <h5 id="dynamic_introduction">
+          {{ subDescriptor.secondaryHeaderText }}
+        </h5>
+      </div>
+      <div class="d-flex justify-content-center my-4">
+        <button type="button" class="btn btn-dark col-5 mx-3">
+          <a (click)="downloadPdf()">CV</a>
+        </button>
+        <button type="button" class="btn btn-dark col-5 mx-3">
+          <a href="#contacts">Contacts</a>
+        </button>
+      </div>
+      <div class="icon_container_formatting">
+          <div
+            *ngFor="let link of subDescriptor.linkElements"
+            class="{{ link.color }} icon_links_container_formatting px-2">
+            <a href="{{ link.link }}" target="_blank">
+              <i class="{{ link.icon }}"></i>
+            </a>
+          </div>
+      </div>
     </div>
-    <!-- Hero right section -->
-    <div class ="col-12 col-sm-6 right_hero">
-        <div class="hero_img_formatting">
-            <img src="{{subDescriptor.imgPath}}" alt="">    
-        </div>
+  </div>
+  <!-- Hero right section -->
+  <div class="col-12 col-sm-6 right_hero">
+    <div class="hero_img_formatting">
+      <img src="{{ subDescriptor.imgPath }}" alt="" />
     </div>
-
+  </div>
 </div>
-

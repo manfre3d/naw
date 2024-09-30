@@ -1,9 +1,10 @@
 .card{
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    width: 19rem;
+    width: 18rem;
+    border-radius: 1em;
     // max-height: 19rem;
-    min-height: 17rem;
+    min-height: 19rem;
     // img{
     //     background-color: red;
     // }
@@ -19,13 +20,13 @@
         background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .2));
     }
     .custom_top_img_setting{
-        width: 4em;
+        width: 6em;
         margin: 0.5em;
         // border-radius: 100%;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
         background-color: transparent;
         // background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .2));
-        height: 4em;
+        height: 6em;
         border-radius: 100%;
         object-fit: cover;
     }

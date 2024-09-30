@@ -28,7 +28,24 @@
             "style": "SECTION",
             "imgPath":"assets/profile_mp.png",
             "primaryHeaderText":"Welcome! I am Manfredi!",
-            "secondaryHeaderText":"I'm a Web Developer"
+            "secondaryHeaderText":"I'm a Web Developer",
+            "linkElements":[
+                {
+                    "link":"https://github.com/manfre3d?tab=overview&from=2024-04-01&to=2024-04-14",
+                    "icon":"fa-brands fa-github",
+                    "color":"grey"
+                },
+                {
+                    "link":"https://www.linkedin.com/in/manfredi-piraino/",
+                    "icon":"fa-brands fa-linkedin",
+                    "color":"grey"
+                },
+                {
+                    "link":"mailto:manfredipiraino@gmail.com",
+                    "icon":"fa-solid fa-envelope",
+                    "color":"grey"
+                }
+            ]
         },        
         {
             "id":"about",
