@@ -18,7 +18,7 @@
 
         & .wrapper {
             display: grid;
-            place-items: center;
+            place-items: start;
             
             .typing-text {
                 white-space: nowrap;
@@ -51,15 +51,26 @@
         }
         & .icon_container_formatting{
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
+            width: 100%;
         }
         & .icon_links_container_formatting{
             font-size: 2rem;
+            border-radius: .8rem;
+            background-color: #212020;
+            // box-shadow: rgb(0 0 0 / 15%) 0px 5px 15px 0px;
+            box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+            margin-right: .6rem;
         }
         & .icon_links_container_formatting:hover{
             color: rgb(116, 116, 116);
-            transition: all linear .1s;
+            transition: all linear .3s;
+            background-color: #ffffff;
+            scale: 1.1;
             cursor: pointer;
+        }
+        .white{
+            color: rgb(255, 255, 255);
         }
     }
     

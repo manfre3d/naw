@@ -2,7 +2,7 @@
   <!-- Hero left section -->
   <div class="col-12 col-sm-6 left_hero">
     <!-- left content -->
-    <div class="row gx-0 p-5 align-content-center">
+    <div class="row gx-0 px-5 align-content-center">
       <div class="wrapper">
         <!-- class="typing-text typing-animation-primary" -->
         <h1 id="dynamic_introduction">{{ subDescriptor.primaryHeaderText }}</h1>
@@ -13,11 +13,11 @@
           {{ subDescriptor.secondaryHeaderText }}
         </h5>
       </div>
-      <div class="d-flex justify-content-center my-4">
-        <button type="button" class="btn btn-dark col-5 mx-3">
+      <div class="d-flex justify-content-between w-100 my-4">
+        <button type="button" class="btn btn-dark col-5">
           <a (click)="downloadPdf()">CV</a>
         </button>
-        <button type="button" class="btn btn-dark col-5 mx-3">
+        <button type="button" class="btn btn-dark col-5">
           <a href="#contacts">Contacts</a>
         </button>
       </div>
