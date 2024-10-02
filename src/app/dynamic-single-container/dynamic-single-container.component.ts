@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HeroComponent } from '../hero/hero.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
@@ -17,33 +18,40 @@ import { SharedModule } from '../shared/shared.module';
     HeaderComponent,
     DynamicCardComponent,
     AboutComponent,
-    ContactsComponent
+    ContactsComponent,
   ],
   templateUrl: './dynamic-single-container.component.html',
-  styleUrl: './dynamic-single-container.component.scss'
+  styleUrls: [
+    './dynamic-single-container.component.scss', // Corrected from 'styleUrl' to 'styleUrls'
+  ],
 })
 export class DynamicSingleContainerComponent implements AfterViewInit {
+  @Input() section: any;
+
+  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+
   ngAfterViewInit(): void {
-    this.onScrollAnimationInit();
+    if (isPlatformBrowser(this.platformId)) {
+      this.onScrollAnimationInit();
+    }
   }
 
-  @Input() section :any;
-  // ngSwitchCase: any
-
-  
-  onScrollAnimationInit(){
-    let observer = new IntersectionObserver((entries)=>{
-      entries.forEach((entry)=>{
-        console.log(entry);
-        if(entry.isIntersecting){
-          entry.target.classList.add("show");
-        }else{
-          entry.target.classList.remove("show");
-        }
+  onScrollAnimationInit(): void {
+    if ('IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('show');
+          } else {
+            entry.target.classList.remove('show');
+          }
+        });
       });
-    });
-    let hiddenElements = document.querySelectorAll(".hidden");
-    hiddenElements.forEach((element)=> observer.observe(element));
-  }
 
+      const hiddenElements = document.querySelectorAll('.hidden');
+      hiddenElements.forEach((element) => observer.observe(element));
+    } else {
+      console.warn('IntersectionObserver is not supported in this browser.');
+    }
+  }
 }
