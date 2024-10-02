@@ -12,15 +12,19 @@
         background-color: #212020;
         box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
         margin-right: .5rem;
+        transform: scale(1);
+        transition: ease-in-out .3s;
+
         a{
             color: inherit;
         }
     }
     .icon_links_container_formatting:hover{
-        color: rgb(116, 116, 116);
-        transition: ease-in-out .3s;
-        scale: 1.1;
+        color: rgb(0, 0, 0);
+        background-color: #ffffff87;
+        transform: scale(1.2);
         cursor: pointer;
+        box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
     }
     .bottom_text_formatting{
         width: 100%;
