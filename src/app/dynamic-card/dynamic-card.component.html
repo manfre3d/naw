@@ -1,5 +1,23 @@
 <!-- TO DO: APPLY DYNAMIC CARD STYLE WITH MOTION -->
-<div class="card align-items-center">
+
+
+<div class="card border-light mb-3" style="max-width: 540px;">
+    <div class="row g-0 align-items-center">
+      <div class="col-md-4">
+        <img src="{{cardContent.img}}" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">{{cardContent.title}} <br>{{cardContent.subtitle}}</h5>
+            <h5 class="card-location">{{cardContent.location}}</h5>
+
+          <p class="card-text">{{cardContent.description}}</p>
+          <!-- <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- <div class="card border-light align-items-center">
     <div class="custom_top_card_container">
         <div class="custom_top_card_overlay" [style]="cardContent.backgroundColor">
             <img class="custom_top_img_setting" src="{{cardContent.img}}" alt="Card image cap">
@@ -11,4 +29,4 @@
         <h5 class="card-location">{{cardContent.location}}</h5>
         <p class="card-text">{{cardContent.description}}</p>
     </div>
-</div>
+</div> -->
