@@ -1,132 +1,99 @@
 {
     "sections": [
-        {
-            "id":"header",
-            "type": "HEADER",
-            "style": "",
-            "animation": false,
-            "nav":{
-                "navigationList":[
-                    {
-                        "description":"Home",
-                        "link":"#home"
-                    },
-                    {
-                        "description":"About",
-                        "link":"#about"
-                    },
-                    {
-                        "description":"Contacts",
-                        "link":"#contacts"
-                    }
-                ]
-            }
-        },
-        {
-            "id":"home",
-            "type": "HERO",
-            "style": "SECTION",
-            "imgPath":"assets/profile_mp.png",
-            "primaryHeaderText":"Welcome! I am Manfredi!",
-            "secondaryHeaderText":"I'm a Web Developer",
-            "linkElements":[
-                {
-                    "link":"https://github.com/manfre3d?tab=overview&from=2024-04-01&to=2024-04-14",
-                    "icon":"fa-brands fa-github",
-                    "color":"white"
-                },
-                {
-                    "link":"https://www.linkedin.com/in/manfredi-piraino/",
-                    "icon":"fa-brands fa-linkedin",
-                    "color":"white"
-                },
-                {
-                    "link":"mailto:manfredipiraino@gmail.com",
-                    "icon":"fa-solid fa-envelope",
-                    "color":"white"
-                }
-            ]
-        },        
-        {
-            "id":"about",
-            "type": "ABOUT",
-            "style": "SECTION",
-            "elements":[
-                {
-                    "type":"CARD",
-                    "content":{
-                        "img":"assets/bit-logo.png",
-                        "backgroundColor":"background-color: rgb(0 255 249);",
-                        "title":"Bit S.p.A",
-                        "subtitle":"March 2022 - now",
-                        "location":"Turin, Italy",
-                        "description":"I'm working on Full Stack Web development projects developing microservices, middleware infrastructures and interfaces for a multitude of companies."
-                    }
-                },
-                {
-                    "type":"CARD",
-                    "content":{
-                        "img":"assets/leonardo-logo.png",
-                        "backgroundColor":"background-color: rgb(251, 52, 67);",
-                        "title":"Leonardo S.p.A",
-                        "subtitle":"March 2022 - October 2022",
-                        "location":"Turin, Italy",
-                        "description":"test desc reale where I did some stuff lorem test desc reale where I did test desc reale where I did some stuff lorem test desc reale where I did "
-                    }
-                },
-                {
-                    "type":"CARD",
-                    "content":{
-                        "img":"assets/bper_logo.png",
-                        "backgroundColor":"background-color: rgb(0, 153, 43);",
-                        "title":"Bper S.p.A",
-                        "subtitle":"Dic 2022 - Jul 2023",
-                        "location":"Turin, Italy",
-                        "description":"ttest desc reale where I did some stuff lorem test desc reale where I did test desc reale where I did some stuff lorem test desc reale where I did "
-                    }
-                },
-                {
-                    "type":"CARD",
-                    "content":{
-                        "img":"assets/reale-mutua-logo.png",
-                        "backgroundColor":"background-color: rgb(38, 0, 255);",
-                        "title":"Reale Mutua S.p.A",
-                        "subtitle":"Aug 2024 - now",
-                        "location":"Turin, Italy",
-                        "description":"test desc reale where I did some stuff lorem test  desc reale where I did some stuff lorem test desc reale where I did some stuff lorem "
-                    }
-                }
-            ]
-        },
-        {
-            "id":"contacts",
-            "type": "CONTACTS",
-            "style": "SECTION",
-            "mail":"manfredipiraino@gmail.com",
-            "primaryTitleText":"Contact Me!",
-            "secondaryTitleText":"DISCUSS A PROJECT OR JUST WANT TO SAY HI? MY INBOX IS OPEN FOR EVERYONE"
-        },
-        {
-            "id":"footer",
-            "type": "FOOTER",
-            "linkElements":[
-                {
-                    "link":"https://github.com/manfre3d?tab=overview&from=2024-04-01&to=2024-04-14",
-                    "icon":"fa-brands fa-github",
-                    "color":"white"
-                },
-                {
-                    "link":"https://www.linkedin.com/in/manfredi-piraino/",
-                    "icon":"fa-brands fa-linkedin",
-                    "color":"white"
-                },
-                {
-                    "link":"mailto:manfredipiraino@gmail.com",
-                    "icon":"fa-solid fa-envelope",
-                    "color":"white"
-                }
-            ],
-            "style": "SECTION"
+      {
+        "id": "header",
+        "type": "HEADER",
+        "animation": false,
+        "nav": {
+          "navigationList": [
+            { "description": "Home", "link": "#home" },
+            { "description": "About", "link": "#about" },
+            { "description": "Contacts", "link": "#contacts" }
+          ]
         }
+      },
+      {
+        "id": "home",
+        "type": "HERO",
+        "style": "SECTION",
+        "imgPath": "assets/profile_mp.png",
+        "primaryHeaderText": "Welcome! I'm Manfredi!",
+        "secondaryHeaderText": "Web Developer",
+        "linkElements": [
+          { "link": "https://github.com/manfre3d", "icon": "fa-brands fa-github", "color": "white" },
+          { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "white" },
+          { "link": "mailto:manfredipiraino@gmail.com", "icon": "fa-solid fa-envelope", "color": "white" }
+        ]
+      },
+      {
+        "id": "about",
+        "type": "ABOUT",
+        "style": "SECTION",
+        "elements": [
+          {
+            "type": "CARD",
+            "content": {
+              "img": "assets/bit-logo.png",
+              "backgroundColor": "background-color: rgb(0, 255, 249)",
+              "title": "Bit S.p.A",
+              "subtitle": "Mar 2022 – Present",
+              "location": "Turin, Italy",
+              "description": "Developing microservices, middleware infrastructures, and interfaces for multiple clients as a Full Stack Developer."
+            }
+          },
+          {
+            "type": "CARD",
+            "content": {
+              "img": "assets/leonardo-logo.png",
+              "backgroundColor": "background-color: rgb(251, 52, 67)",
+              "title": "Leonardo S.p.A",
+              "subtitle": "Mar 2022 – Oct 2022",
+              "location": "Turin, Italy",
+              "description": "Performed testing, maintenance, and development tasks for INESS Avionic management software."
+            }
+          },
+          {
+            "type": "CARD",
+            "content": {
+              "img": "assets/bper_logo.png",
+              "backgroundColor": "background-color: rgb(0, 153, 43)",
+              "title": "Bper S.p.A",
+              "subtitle": "Dec 2022 – Present",
+              "location": "Turin, Italy",
+              "description": "Working on ESB integration, microservices, middleware, ticket management, bug resolution, and on-call support averaging 60–70 hours/month."
+            }
+          },
+          {
+            "type": "CARD",
+            "content": {
+              "img": "assets/reale-mutua-logo.png",
+              "backgroundColor": "background-color: rgb(38, 0, 255)",
+              "title": "Reale Mutua S.p.A",
+              "subtitle": "Aug 2024 – Present",
+              "location": "Turin, Italy",
+              "description": "Actively contributing to developing the VITES web application, managing insurance policies, addressing production and development issues."
+            }
+          }
+        ]
+      },
+      {
+        "id": "contacts",
+        "type": "CONTACTS",
+        "style": "SECTION",
+        "mail": "manfredipiraino@gmail.com",
+        "primaryTitleText": "Contact Me!",
+        "secondaryTitleText": "Discuss a project or just say hi—my inbox is open!"
+      },
+      {
+        "id": "footer",
+        "type": "FOOTER",
+        "style": "SECTION",
+        "linkElements": [
+          { "link": "https://github.com/manfre3d", "icon": "fa-brands fa-github", "color": "white" },
+          { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "white" },
+          { "link": "mailto:manfredipiraino@gmail.com", "icon": "fa-solid fa-envelope", "color": "white" }
+        ]
+      }
     ]
-}
+  }
+  

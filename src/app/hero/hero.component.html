@@ -5,7 +5,11 @@
     <div class="row gx-0 px-5 align-content-center">
       <div class="wrapper">
         <!-- class="typing-text typing-animation-primary" -->
-        <h1 id="dynamic_introduction">{{ subDescriptor.primaryHeaderText }}</h1>
+        <div>
+          <h1 class="text" data-flicker="i" contenteditable>{{ subDescriptor.primaryHeaderText }}</h1>
+          <span class="text" aria-hidden="true">i</span>
+        </div>
+        <!-- <h1 id="dynamic_introduction">{{ subDescriptor.primaryHeaderText }}</h1> -->
       </div>
       <div *ngIf="secondaryTextActive" class="wrapper">
         <!-- class="typing-text typing-animation-secondary" -->
@@ -22,13 +26,14 @@
         </button>
       </div>
       <div class="icon_container_formatting">
-          <div
-            *ngFor="let link of subDescriptor.linkElements"
-            class="{{ link.color }} icon_links_container_formatting px-2">
-            <a href="{{ link.link }}" target="_blank">
-              <i class="{{ link.icon }}"></i>
-            </a>
-          </div>
+        <div
+          *ngFor="let link of subDescriptor.linkElements"
+          class="{{ link.color }} icon_links_container_formatting px-2"
+        >
+          <a href="{{ link.link }}" target="_blank">
+            <i class="{{ link.icon }}"></i>
+          </a>
+        </div>
       </div>
     </div>
   </div>
