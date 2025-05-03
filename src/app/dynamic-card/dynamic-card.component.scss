@@ -57,12 +57,17 @@
 //     }
 // }
 
+.card:hover {
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(240, 99, 99, 0.3);
+  // background-color: rgba(0, 0, 0, 0.1);
+  // background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .2));
+  transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
+}
 
-.card:hover{
-    cursor: pointer;
-    box-shadow: 0 0 20px rgba(240, 99, 99, 0.3);
-    // background-color: rgba(0, 0, 0, 0.1);
-    // background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .2));
-    transform: scale(1.02);
-    transition: all 0.3s ease-in-out;
+@media (max-width: 767px) {
+  .rounded-start {
+    border-radius: 0.5rem 0 0 0.5rem !important;
+  }
 }

@@ -18,7 +18,7 @@
         "style": "SECTION",
         "imgPath": "assets/profile_mp.png",
         "primaryHeaderText": "Welcome! I'm Manfredi!",
-        "secondaryHeaderText": "Web Developer",
+        "secondaryHeaderText": "Software Engineer",
         "linkElements": [
           { "link": "https://github.com/manfre3d", "icon": "fa-brands fa-github", "color": "white" },
           { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "white" },

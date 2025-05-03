@@ -21,12 +21,12 @@ export class HeroComponent implements OnInit, AfterViewInit{
   }
   ngAfterViewInit(): void{
     // js automation for dynamic text
-    let welcomeTitle = this.document.getElementById("dynamic_introduction") as HTMLElement
-    welcomeTitle.addEventListener("animationend", ()=>{
-      welcomeTitle.classList.remove("typing-animation-primary");
-      welcomeTitle.style.border="";
-      this.secondaryTextActive=true;
-    });
+    // let welcomeTitle = this.document.getElementById("dynamic_introduction") as HTMLElement
+    // welcomeTitle.addEventListener("animationend", ()=>{
+    //   welcomeTitle.classList.remove("typing-animation-primary");
+    //   welcomeTitle.style.border="";
+    //   this.secondaryTextActive=true;
+    // });
 
   }
   downloadPdf(){

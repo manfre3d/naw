@@ -1,10 +1,17 @@
-<footer class="footer_formatting">
-  <div *ngFor="let link of subDescriptor.linkElements" class="{{link.color}} icon_links_container_formatting">
-    <a href="{{link.link}}" target="_blank">
-      <i class="{{link.icon}}"></i>
-    </a>
+<footer>
+  <div>
+    <div
+      *ngFor="let link of subDescriptor.linkElements"
+      class=" {{
+        link.color
+      }} feature-icon mx-1 d-inline-flex align-items-center justify-content-center text-bg-dark bg-gradient fs-2 mb-3"
+    >
+      <a href="{{ link.link }}" target="_blank">
+        <i class="{{ link.icon }}"></i>
+      </a>
+    </div>
   </div>
-  <span class="p-2 bottom_text_formatting">
+  <span class="p-2">
     Made with <i class='fa fa-heart pulse fa-beat'></i> by Manfredi Piraino!
   </span>
 </footer>
