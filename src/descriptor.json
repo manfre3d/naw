@@ -1,99 +1,139 @@
 {
-    "sections": [
-      {
-        "id": "header",
-        "type": "HEADER",
-        "animation": false,
-        "nav": {
-          "navigationList": [
-            { "description": "Home", "link": "#home" },
-            { "description": "About", "link": "#about" },
-            { "description": "Contacts", "link": "#contacts" }
-          ]
-        }
-      },
-      {
-        "id": "home",
-        "type": "HERO",
-        "style": "SECTION",
-        "imgPath": "assets/profile_mp.png",
-        "primaryHeaderText": "Welcome! I'm Manfredi!",
-        "secondaryHeaderText": "Software Engineer",
-        "linkElements": [
-          { "link": "https://github.com/manfre3d", "icon": "fa-brands fa-github", "color": "white" },
-          { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "white" },
-          { "link": "mailto:manfredipiraino@gmail.com", "icon": "fa-solid fa-envelope", "color": "white" }
-        ]
-      },
-      {
-        "id": "about",
-        "type": "ABOUT",
-        "style": "SECTION",
-        "elements": [
-          {
-            "type": "CARD",
-            "content": {
-              "img": "assets/bit-logo.png",
-              "backgroundColor": "background-color: rgb(0, 255, 249)",
-              "title": "Bit S.p.A",
-              "subtitle": "Mar 2022 – Present",
-              "location": "Turin, Italy",
-              "description": "Developing microservices, middleware infrastructures, and interfaces for multiple clients as a Full Stack Developer."
-            }
-          },
-          {
-            "type": "CARD",
-            "content": {
-              "img": "assets/leonardo-logo.png",
-              "backgroundColor": "background-color: rgb(251, 52, 67)",
-              "title": "Leonardo S.p.A",
-              "subtitle": "Mar 2022 – Oct 2022",
-              "location": "Turin, Italy",
-              "description": "Performed testing, maintenance, and development tasks for INESS Avionic management software."
-            }
-          },
-          {
-            "type": "CARD",
-            "content": {
-              "img": "assets/bper_logo.png",
-              "backgroundColor": "background-color: rgb(0, 153, 43)",
-              "title": "Bper S.p.A",
-              "subtitle": "Dec 2022 – Present",
-              "location": "Turin, Italy",
-              "description": "Working on ESB integration, microservices, middleware, ticket management, bug resolution, and on-call support averaging 60–70 hours/month."
-            }
-          },
-          {
-            "type": "CARD",
-            "content": {
-              "img": "assets/reale-mutua-logo.png",
-              "backgroundColor": "background-color: rgb(38, 0, 255)",
-              "title": "Reale Mutua S.p.A",
-              "subtitle": "Aug 2024 – Present",
-              "location": "Turin, Italy",
-              "description": "Actively contributing to developing the VITES web application, managing insurance policies, addressing production and development issues."
-            }
-          }
-        ]
-      },
-      {
-        "id": "contacts",
-        "type": "CONTACTS",
-        "style": "SECTION",
-        "mail": "manfredipiraino@gmail.com",
-        "primaryTitleText": "Contact Me!",
-        "secondaryTitleText": "Discuss a project or just say hi—my inbox is open!"
-      },
-      {
-        "id": "footer",
-        "type": "FOOTER",
-        "style": "SECTION",
-        "linkElements": [
-          { "link": "https://github.com/manfre3d", "icon": "fa-brands fa-github", "color": "white" },
-          { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "white" },
-          { "link": "mailto:manfredipiraino@gmail.com", "icon": "fa-solid fa-envelope", "color": "white" }
+  "sections": [
+    {
+      "id": "header",
+      "type": "HEADER",
+      "animation": false,
+      "nav": {
+        "navigationList": [
+          { "description": "Home", "link": "#home" },
+          { "description": "About", "link": "#about" },
+          { "description": "Contacts", "link": "#contacts" }
         ]
       }
-    ]
-  }
-  
+    },
+    {
+      "id": "home",
+      "type": "HERO",
+      "style": "SECTION",
+      "imgPath": "assets/profile_mp.png",
+      "primaryHeaderText": "Welcome! I'm Manfredi!",
+      "secondaryHeaderText": "Software Engineer",
+      "linkElements": [
+        {
+          "link": "https://github.com/manfre3d",
+          "icon": "fa-brands fa-github",
+          "color": "white"
+        },
+        {
+          "link": "https://www.linkedin.com/in/manfredi-piraino",
+          "icon": "fa-brands fa-linkedin",
+          "color": "white"
+        },
+        {
+          "link": "mailto:manfredipiraino@gmail.com",
+          "icon": "fa-solid fa-envelope",
+          "color": "white"
+        }
+      ]
+    },
+    {
+      "id": "about",
+      "type": "ABOUT",
+      "style": "SECTION",
+      "elements": [
+        {
+          "type": "CARD",
+          "content": {
+            "img": "assets/unipegaso.jpeg",
+            "backgroundColor": "background-color: rgb(251, 52, 67)",
+              
+            "title": "Bacherlor's Degree in Computer Science - University of Pegaso",
+            "subtitle": "2024 – 2025",
+            "location": "score 109/110 Turin, Italy",
+            "description": "Completing a Bachelor's degree in Computer Science at Pegaso University, focusing on software development, algorithms, and data structures. Engaging in hands-on projects to apply theoretical knowledge in real-world scenarios."
+          }
+        },
+        {
+          "type": "CARD",
+          "content": {
+            "img": "assets/bit-logo.png",
+            "backgroundColor": "background-color: rgb(251, 52, 67)",
+              
+            "title": "Bit S.p.A",
+            "subtitle": "Mar 2022 – Present",
+            "location": "Turin, Italy",
+            "description": "Built and maintained applications with Spring Boot, Angular, and WPF (.NET), integrating Oracle DBMS to streamline operations and improve user experience. Designed and deployed microservices using Spring Boot, Jenkins, and Azure for improved scalability. Integrated Apache Camel for seamless backend communication.Delivered scalable software solutions for aviation, finance, and insurance sectors, enhancing user engagement and system reliability"
+          }
+        },
+        {
+            "type": "CARD",
+            "content": {
+              "img": "assets/boolean.png",
+              "backgroundColor": "background-color: rgb(251, 52, 67)",
+              
+              "title": "Master in Software Development - Boolean Careers",
+              "subtitle": "2022 – 2021",
+              "location": "Milan, Italy",
+              "description": "700 hours web development course divided into daily practice and theory lessons, in which, starting from basic knowledge of programming logic, I had the opportunity to learn and apply basic web development concepts, both on the frontend side and backend side. The course finished with a team project where, through precise coordination and division of tasks, we were able to realize a food delivery website complete in all its parts and functionalities."
+            }
+          },
+          {
+            "type": "CARD",
+            "content": {
+                "img": "assets/unipegaso.jpeg",
+                "backgroundColor": "background-color: rgb(251, 52, 67)",
+              
+              "title": "Master's Degree in Security Engineering - University of Pegaso",
+              "subtitle": "2022 – 2021",
+              "location": "score 110*/110 Palermo, Italy",
+              "description": "Master degree in Security Engineering at Pegaso University, focusing on cybersecurity, network security, and workplace security."
+            }
+          },
+          
+          {
+            "type": "CARD",
+            "content": {
+                "img": "assets/unipegaso.jpeg",
+                "backgroundColor": "background-color: rgb(251, 52, 67)",
+              
+              "title": "Bachelor's Degree in Civil Engineering - University of Pegaso",
+              "subtitle": "2022 – 2021",
+              "location": "score 100/110 Palermo, Italy",
+              "description": "Bachelor degree in Civil Engineering at Pegaso University, focusing on structural engineering, geotechnical engineering, and construction management. Engaging in hands-on projects to apply theoretical knowledge in real-world scenarios."}
+            }
+          
+      ]
+    },
+    {
+      "id": "contacts",
+      "type": "CONTACTS",
+      "style": "SECTION",
+      "mail": "manfredipiraino@gmail.com",
+      "primaryTitleText": "Contact Me!",
+      "secondaryTitleText": "Discuss a project or just say hi—my inbox is open!"
+    },
+    {
+      "id": "footer",
+      "type": "FOOTER",
+      "style": "SECTION",
+      "linkElements": [
+        {
+          "link": "https://github.com/manfre3d",
+          "icon": "fa-brands fa-github",
+          "color": "white"
+        },
+        {
+          "link": "https://www.linkedin.com/in/manfredi-piraino",
+          "icon": "fa-brands fa-linkedin",
+          "color": "white"
+        },
+        {
+          "link": "mailto:manfredipiraino@gmail.com",
+          "icon": "fa-solid fa-envelope",
+          "color": "white"
+        }
+      ]
+    }
+  ]
+}

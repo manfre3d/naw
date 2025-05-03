@@ -1,10 +1,55 @@
 <section class="about-container py-5">
-    <h3 class="text-center mb-4">About</h3>
+  <!-- <h3 class="text-center mb-4">About</h3>
     <div class="d-flex flex-wrap justify-content-center gap-4">
       <app-dynamic-card 
         *ngFor="let section of subDescriptor" 
         [cardContent]="section.content"
         class="flex-grow-1"
       ></app-dynamic-card>
+    </div> -->
+  <h3 class="text-center mb-4">About</h3>
+  <p class="text-center mb-4">Work experience, education, and skills</p>
+  <div class="container">
+    <div class="timeline position-relative">
+      <div
+        class="timeline-item"
+        *ngFor="let section of subDescriptor; let i = index"
+      >
+        <div class="row align-items-center">
+          <div
+            class="col-md-6"
+            [ngClass]="{
+              'order-md-1 text-md-end': i % 2 === 0,
+              'order-md-2 text-md-start': i % 2 !== 0
+            }"
+          >
+            <div class="duration position-relative">
+              <img
+                [src]="section.content.img"
+                class="img-fluid rounded-circle"
+                alt="Card image"
+                style="width: 40px; height: 40px"
+              />
+              <small class="text-muted d-block">{{
+                section.content.subtitle
+              }}</small>
+            </div>
+          </div>
+          <div
+            class="col-md-6"
+            [ngClass]="{ 'order-md-2': i % 2 === 0, 'order-md-1': i % 2 !== 0 }"
+          >
+            <div class="event float-start text-start">
+              <h5 class="card-title my-2">
+                {{ section.content.title }} - 
+                <small class="text-muted">{{ section.content.location }}</small>
+              </h5>
+              <p class="card-text">{{ section.content.description }}</p>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" />
+      </div>
     </div>
-  </section>
+  </div>
+</section>
