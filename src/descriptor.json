@@ -51,7 +51,8 @@
             "title": "Bacherlor's Degree in Computer Science - University of Pegaso",
             "subtitle": "2024 – 2025",
             "location": "score 109/110 Turin, Italy",
-            "description": "Completing a Bachelor's degree in Computer Science at Pegaso University, focusing on software development, algorithms, and data structures. Engaging in hands-on projects to apply theoretical knowledge in real-world scenarios."
+            "old_description": "Completing a Bachelor's degree in Computer Science at Pegaso University, focusing on software development, algorithms, and data structures. Engaging in hands-on projects to apply theoretical knowledge in real-world scenarios.",
+            "description": ""
           }
         },
         {
@@ -60,10 +61,12 @@
             "img": "assets/bit-logo.png",
             "backgroundColor": "background-color: rgb(251, 52, 67)",
               
-            "title": "Bit S.p.A",
+            "title": "Bit S.p.A - Consultant Software Engineer",
             "subtitle": "Mar 2022 – Present",
             "location": "Turin, Italy",
-            "description": "Built and maintained applications with Spring Boot, Angular, and WPF (.NET), integrating Oracle DBMS to streamline operations and improve user experience. Designed and deployed microservices using Spring Boot, Jenkins, and Azure for improved scalability. Integrated Apache Camel for seamless backend communication.Delivered scalable software solutions for aviation, finance, and insurance sectors, enhancing user engagement and system reliability"
+            "old_description": "Built and maintained applications with Spring Boot, Angular, and WPF (.NET), integrating Oracle DBMS to streamline operations and improve user experience. Designed and deployed microservices using Spring Boot, Jenkins, and Azure for improved scalability. Integrated Apache Camel for seamless backend communication.Delivered scalable software solutions for aviation, finance, and insurance sectors, enhancing user engagement and system reliability",
+            "description": ""
+            
           }
         },
         {
@@ -75,7 +78,8 @@
               "title": "Master in Software Development - Boolean Careers",
               "subtitle": "2022 – 2021",
               "location": "Milan, Italy",
-              "description": "700 hours web development course divided into daily practice and theory lessons, in which, starting from basic knowledge of programming logic, I had the opportunity to learn and apply basic web development concepts, both on the frontend side and backend side. The course finished with a team project where, through precise coordination and division of tasks, we were able to realize a food delivery website complete in all its parts and functionalities."
+              "old_description": "700 hours web development course divided into daily practice and theory lessons, in which, starting from basic knowledge of programming logic, I had the opportunity to learn and apply basic web development concepts, both on the frontend side and backend side. The course finished with a team project where, through precise coordination and division of tasks, we were able to realize a food delivery website complete in all its parts and functionalities.",
+              "description": ""
             }
           },
           {
@@ -87,7 +91,8 @@
               "title": "Master's Degree in Security Engineering - University of Pegaso",
               "subtitle": "2022 – 2021",
               "location": "score 110*/110 Palermo, Italy",
-              "description": "Master degree in Security Engineering at Pegaso University, focusing on cybersecurity, network security, and workplace security."
+              "old_description": "Master degree in Security Engineering at Pegaso University, focusing on cybersecurity, network security, and workplace security.",
+              "description": ""
             }
           },
           
@@ -100,9 +105,10 @@
               "title": "Bachelor's Degree in Civil Engineering - University of Pegaso",
               "subtitle": "2022 – 2021",
               "location": "score 100/110 Palermo, Italy",
-              "description": "Bachelor degree in Civil Engineering at Pegaso University, focusing on structural engineering, geotechnical engineering, and construction management. Engaging in hands-on projects to apply theoretical knowledge in real-world scenarios."}
+              "old_description": "Bachelor degree in Civil Engineering at Pegaso University, focusing on structural engineering, geotechnical engineering, and construction management. Engaging in hands-on projects to apply theoretical knowledge in real-world scenarios.",
+              "description":""
             }
-          
+          }
       ]
     },
     {

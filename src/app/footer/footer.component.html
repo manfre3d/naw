@@ -1,17 +1,24 @@
-<footer>
-  <div>
-    <div
+<footer class="py-4 text-center">
+  <div class="d-flex justify-content-center my-3 gap-3">
+    <a
       *ngFor="let link of subDescriptor.linkElements"
-      class=" {{
-        link.color
-      }} feature-icon mx-1 d-inline-flex align-items-center justify-content-center text-bg-dark bg-gradient fs-2 mb-3"
+      [href]="link.link"
+      target="_blank"
+      class="text-decoration-none d-inline-flex align-items-center justify-content-center rounded-circle shadow-sm fs-3"
+      [ngClass]="link.color"
+      style="
+        background-color: rgba(0, 0, 0, 0);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        height: 3rem;
+        width: 3rem;
+        transition: all 0.3s ease;
+      "
     >
-      <a href="{{ link.link }}" target="_blank">
-        <i class="{{ link.icon }}"></i>
-      </a>
-    </div>
+      <i [class]="link.icon"></i>
+    </a>
   </div>
-  <span class="p-2">
-    Made with <i class='fa fa-heart pulse fa-beat'></i> by Manfredi Piraino!
+  <span class="small">
+    Made with <i class="fa fa-heart text-danger fa-beat"></i> by Manfredi
+    Piraino!
   </span>
 </footer>

@@ -1,5 +1,6 @@
 .contacts_formatting{
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
@@ -9,8 +10,7 @@
         text-align: center;
 
     }
-    .contact_title{
-    }
+
     .contact_sub_title{
         font-size: 0.8em;
     }

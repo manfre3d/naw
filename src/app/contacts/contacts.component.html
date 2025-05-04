@@ -1,12 +1,11 @@
-<div class="contacts_formatting">
-  <h2 class="full-with_alligned contact_title">
+<div class="contacts_formatting my-3">
+  <h2 class="contact_title">
     {{ subDescriptor.primaryTitleText }}
   </h2>
-  <h4 class="full-with_alligned contact_sub_title">
+  <h4 class="text-muted contact_sub_title">
     {{ subDescriptor.secondaryTitleText }}
   </h4>
-  <button type="button" class="my-2 btn btn-dark custom_button_formatting">
-    <a href="mailto:{{ subDescriptor?.mail }}">{{ subDescriptor?.mail }}</a>
-  </button>
+  <a href="mailto:{{ subDescriptor?.mail }}" class="btn btn-outline-light my-2">
+    {{ subDescriptor?.mail }}
+  </a>
 </div>
-
