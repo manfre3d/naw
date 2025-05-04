@@ -32,7 +32,7 @@ export class HeroComponent implements OnInit, AfterViewInit{
   downloadPdf(){
     let link = document.createElement("a");
     link.download = "Manfredi_Piraino_CV.pdf";
-    link.href="assets/cv_Manfredi_Piraino_2024.pdf";
+    link.href="assets/cv_Manfredi_Piraino_2025.pdf";
     link.setAttribute("target","_blank");
     link.click();
   }
