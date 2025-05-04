@@ -8,6 +8,7 @@
         "navigationList": [
           { "description": "Home", "link": "#home" },
           { "description": "About", "link": "#about" },
+          { "description": "Projects", "link": "#projects" },
           { "description": "Contacts", "link": "#contacts" }
         ]
       }
@@ -98,6 +99,32 @@
             "location": "score 100/110 Palermo, Italy",
             "description": "Specialized in structural and geotechnical engineering with practical construction management experience."
           }
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "type": "PROJECTS",
+      "style": "SECTION",
+      "imgPath":"assets/projects.jpg",
+      "elements": [
+        {
+          "img":"assets/project_work.png",
+          "proj_name":"University Project Work",
+          "description":"Developed a hotel booking and reservation web application using Python, HTML, and CSS. The aim was to reconstruct a basic framework for routing and scalability using fundamental tools. Features include user authentication, room availability checks, and booking management.",
+          "link":"https://github.com/manfre3d/project_work"
+        },
+        {
+          "img":"assets/aipocondriaco.png",
+          "proj_name":"AiPocondriaco",
+          "description":"A symptom-analysis web app using machine learning to suggest possible diseases and provide detailed health information based on user input.",
+          "link":"https://github.com/manfre3d/AiPocondriaco"
+        },
+        {
+          "img":"assets/deliveboo.jpg",
+          "proj_name":"Deliveboo",
+          "description":"Team project of a food delivery web app inspired by Deliveroo, featuring restaurant browsing, menus, order tracking, authentication, and secure payment processing.",
+          "link":"https://github.com/manfre3d/team-7-deliveboo"
         }
       ]
     },

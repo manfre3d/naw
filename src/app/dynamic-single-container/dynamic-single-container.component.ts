@@ -7,6 +7,7 @@ import { AboutComponent } from '../about/about.component';
 import { DynamicCardComponent } from '../dynamic-card/dynamic-card.component';
 import { ContactsComponent } from '../contacts/contacts.component';
 import { SharedModule } from '../shared/shared.module';
+import { ProjectsComponent } from '../projects/projects.component';
 
 @Component({
   selector: 'app-dynamic-single-container',
@@ -19,6 +20,7 @@ import { SharedModule } from '../shared/shared.module';
     DynamicCardComponent,
     AboutComponent,
     ContactsComponent,
+    ProjectsComponent
   ],
   templateUrl: './dynamic-single-container.component.html',
   styleUrls: [

@@ -1,0 +1,52 @@
+<section>
+  <div class="container my-5 py-4">
+    <div class="text-center rounded-3">
+      <p class="h2 mb-3">Project Works</p>
+      <div class="col-12 col-sm-6 mx-auto">
+        <img
+          [src]="subDescriptor.imgPath"
+          class="img-fluid rounded mb-4"
+          alt="Hero Image"
+        />
+      </div>
+      <p class="lead mb-4">Explore some of the projects I've worked on.</p>
+
+      <div
+        *ngFor="let project of subDescriptor.elements; let i = index"
+        class="row featurette align-items-center mb-5"
+      >
+        <div class="col-md-7">
+          <h3 class="featurette-heading fw-normal lh-1">
+            <a
+              href="{{ project.link }}"
+              target="_blank"
+              class="text-decoration-none text-dark"
+              >{{ project.proj_name }}</a
+            >
+          </h3>
+          <p class="lead">
+            {{ project.description }}
+          </p>
+          <div class="d-grid d-md-block">
+            <a
+              href="{{ project.link }}"
+              target="_blank"
+              class="btn btn-outline-dark my-3 btn-sm mt-2"
+              >View Project</a
+            >
+          </div>
+        </div>
+        <div class="col-md-5">
+          <a href="{{ project.link }}" target="_blank">
+            <img
+              [src]="project.img"
+              [alt]="project.proj_name"
+              class="img-fluid rounded shadow-sm"
+            />
+          </a>
+        </div>
+        <hr class="featurette-divider mt-4" />
+      </div>
+    </div>
+  </div>
+</section>
