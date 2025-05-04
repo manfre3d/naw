@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, Inject, PLATFORM_ID } from '@angular/core';
+import { AfterViewInit, Component, Input, Inject, PLATFORM_ID, OnInit } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { HeroComponent } from '../hero/hero.component';
 import { FooterComponent } from '../footer/footer.component';
@@ -25,10 +25,13 @@ import { SharedModule } from '../shared/shared.module';
     './dynamic-single-container.component.scss', // Corrected from 'styleUrl' to 'styleUrls'
   ],
 })
-export class DynamicSingleContainerComponent implements AfterViewInit {
+export class DynamicSingleContainerComponent implements AfterViewInit, OnInit {
   @Input() section: any;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  ngOnInit(): void {
+    console.log("DYNAMIC SINGLE CONTAINER SECTION", this.section);
+  }
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {

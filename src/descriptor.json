@@ -37,9 +37,11 @@
         }
       ]
     },
+
     {
       "id": "about",
       "type": "ABOUT",
+      "imgPath": "assets/generated_work_image_mp.png",
       "style": "SECTION",
       "elements": [
         {
@@ -47,12 +49,10 @@
           "content": {
             "img": "assets/unipegaso.jpeg",
             "backgroundColor": "background-color: rgb(251, 52, 67)",
-              
-            "title": "Bacherlor's Degree in Computer Science - University of Pegaso",
+            "title": "Bachelor's Degree in Computer Science - University of Pegaso",
             "subtitle": "2024 – 2025",
             "location": "score 109/110 Turin, Italy",
-            "old_description": "Completing a Bachelor's degree in Computer Science at Pegaso University, focusing on software development, algorithms, and data structures. Engaging in hands-on projects to apply theoretical knowledge in real-world scenarios.",
-            "description": ""
+            "description": "Focused on software development, algorithms, and practical project implementations."
           }
         },
         {
@@ -60,55 +60,45 @@
           "content": {
             "img": "assets/bit-logo.png",
             "backgroundColor": "background-color: rgb(251, 52, 67)",
-              
             "title": "Bit S.p.A - Consultant Software Engineer",
             "subtitle": "Mar 2022 – Present",
             "location": "Turin, Italy",
-            "old_description": "Built and maintained applications with Spring Boot, Angular, and WPF (.NET), integrating Oracle DBMS to streamline operations and improve user experience. Designed and deployed microservices using Spring Boot, Jenkins, and Azure for improved scalability. Integrated Apache Camel for seamless backend communication.Delivered scalable software solutions for aviation, finance, and insurance sectors, enhancing user engagement and system reliability",
-            "description": ""
-            
+            "description": "Developed scalable web and desktop applications using Spring Boot, Angular, WPF, and Oracle DBMS; deployed microservices with Jenkins and Azure; integrated Apache Camel for backend processes."
           }
         },
         {
-            "type": "CARD",
-            "content": {
-              "img": "assets/boolean.png",
-              "backgroundColor": "background-color: rgb(251, 52, 67)",
-              
-              "title": "Master in Software Development - Boolean Careers",
-              "subtitle": "2022 – 2021",
-              "location": "Milan, Italy",
-              "old_description": "700 hours web development course divided into daily practice and theory lessons, in which, starting from basic knowledge of programming logic, I had the opportunity to learn and apply basic web development concepts, both on the frontend side and backend side. The course finished with a team project where, through precise coordination and division of tasks, we were able to realize a food delivery website complete in all its parts and functionalities.",
-              "description": ""
-            }
-          },
-          {
-            "type": "CARD",
-            "content": {
-                "img": "assets/unipegaso.jpeg",
-                "backgroundColor": "background-color: rgb(251, 52, 67)",
-              
-              "title": "Master's Degree in Security Engineering - University of Pegaso",
-              "subtitle": "2022 – 2021",
-              "location": "score 110*/110 Palermo, Italy",
-              "old_description": "Master degree in Security Engineering at Pegaso University, focusing on cybersecurity, network security, and workplace security.",
-              "description": ""
-            }
-          },
-          
-          {
-            "type": "CARD",
-            "content": {
-                "img": "assets/unipegaso.jpeg",
-                "backgroundColor": "background-color: rgb(251, 52, 67)",
-              
-              "title": "Bachelor's Degree in Civil Engineering - University of Pegaso",
-              "subtitle": "2022 – 2021",
-              "location": "score 100/110 Palermo, Italy",
-              "old_description": "Bachelor degree in Civil Engineering at Pegaso University, focusing on structural engineering, geotechnical engineering, and construction management. Engaging in hands-on projects to apply theoretical knowledge in real-world scenarios.",
-              "description":""
-            }
+          "type": "CARD",
+          "content": {
+            "img": "assets/boolean.png",
+            "backgroundColor": "background-color: rgb(251, 52, 67)",
+            "title": "Master in Software Development - Boolean Careers",
+            "subtitle": "2021 – 2022",
+            "location": "Milan, Italy",
+            "description": "Intensive 700-hour program in frontend and backend web development, culminating in a comprehensive food delivery application developed in a collaborative team environment."
           }
+        },
+        {
+          "type": "CARD",
+          "content": {
+            "img": "assets/unipegaso.jpeg",
+            "backgroundColor": "background-color: rgb(251, 52, 67)",
+            "title": "Master's Degree in Security Engineering - University of Pegaso",
+            "subtitle": "2021 – 2022",
+            "location": "score 110*/110 Palermo, Italy",
+            "description": "Specialized in cybersecurity, network security, and workplace safety."
+          }
+        },
+        {
+          "type": "CARD",
+          "content": {
+            "img": "assets/unipegaso.jpeg",
+            "backgroundColor": "background-color: rgb(251, 52, 67)",
+            "title": "Bachelor's Degree in Civil Engineering - University of Pegaso",
+            "subtitle": "2021 – 2022",
+            "location": "score 100/110 Palermo, Italy",
+            "description": "Specialized in structural and geotechnical engineering with practical construction management experience."
+          }
+        }
       ]
     },
     {
