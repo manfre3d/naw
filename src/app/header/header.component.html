@@ -1,6 +1,6 @@
 <div class="et-hero-tabs-container">
-    <a *ngFor="let listElement of subDescriptor.nav.navigationList" class="et-hero-tab"
-        href="{{listElement.link}}">{{listElement.description}}</a>
-    <span class="et-hero-tab-slider"></span>
+  @for (item of subDescriptor.nav.navigationList; track item.link) {
+    <a class="et-hero-tab" [href]="item.link">{{ item.description }}</a>
+  }
+  <span class="et-hero-tab-slider"></span>
 </div>
-

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ContactsSection } from '../models/descriptor.model';
 
 @Component({
   selector: 'app-contacts',
@@ -8,10 +9,5 @@ import { Component, Input } from '@angular/core';
   styleUrl: './contacts.component.scss'
 })
 export class ContactsComponent {
-  @Input() subDescriptor:any;
-
-  ngOnInit(): void {
-    console.log("contacts INIT");
-    console.log(this.subDescriptor);
-  }
+  @Input() subDescriptor!: ContactsSection;
 }

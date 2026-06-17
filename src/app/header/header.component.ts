@@ -1,20 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { Component, Input } from '@angular/core';
+import { HeaderSection } from '../models/descriptor.model';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [SharedModule],
+  imports: [],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit{
-
-  @Input() subDescriptor:any;
-
-  ngOnInit(): void{
-    
-  }
-
-
+export class HeaderComponent {
+  @Input() subDescriptor!: HeaderSection;
 }

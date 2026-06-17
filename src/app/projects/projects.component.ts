@@ -1,14 +1,13 @@
 import { Component, Input } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { ProjectsSection } from '../models/descriptor.model';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [SharedModule],
+  imports: [],
   templateUrl: './projects.component.html',
   styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
-  @Input() subDescriptor:any;
-
+  @Input() subDescriptor!: ProjectsSection;
 }

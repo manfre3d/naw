@@ -1,14 +1,14 @@
 import { Component, Input } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { NgClass } from '@angular/common';
+import { FooterSection } from '../models/descriptor.model';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [SharedModule],
+  imports: [NgClass],
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  @Input() subDescriptor:any;
-
+  @Input() subDescriptor!: FooterSection;
 }

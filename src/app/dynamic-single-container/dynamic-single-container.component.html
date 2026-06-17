@@ -1,10 +1,22 @@
-
-<section [ngClass]="section.type==='HEADER'?'sticky':''" class="row gx-0 hidden"
- [ngSwitch]="section.type">
-    <app-header id="{{section.id}}" class="col-12" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'HEADER'"/>
-    <app-hero id="{{section.id}}" class="col-12 px-0 hero" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'HERO'"/>
-    <app-about id="{{section.id}}" class="col-12" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'ABOUT'"/>
-    <app-contacts id="{{section.id}}" class="col-12" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'CONTACTS'"/>
-    <app-footer id="{{section.id}}" class="col-12 footer" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'FOOTER'"/>
-    <app-projects  id="{{section.id}}" class="col-12" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'PROJECTS'"/>
+<section [class.sticky]="section.type === 'HEADER'" class="row gx-0 hidden">
+  @switch (section.type) {
+    @case ('HEADER') {
+      <app-header id="{{ section.id }}" class="col-12" [class.SECTION]="section.style" [subDescriptor]="section" />
+    }
+    @case ('HERO') {
+      <app-hero id="{{ section.id }}" class="col-12 px-0 hero" [class.SECTION]="section.style" [subDescriptor]="section" />
+    }
+    @case ('ABOUT') {
+      <app-about id="{{ section.id }}" class="col-12" [class.SECTION]="section.style" [subDescriptor]="section" />
+    }
+    @case ('CONTACTS') {
+      <app-contacts id="{{ section.id }}" class="col-12" [class.SECTION]="section.style" [subDescriptor]="section" />
+    }
+    @case ('FOOTER') {
+      <app-footer id="{{ section.id }}" class="col-12 footer" [class.SECTION]="section.style" [subDescriptor]="section" />
+    }
+    @case ('PROJECTS') {
+      <app-projects id="{{ section.id }}" class="col-12" [class.SECTION]="section.style" [subDescriptor]="section" />
+    }
+  }
 </section>

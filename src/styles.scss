@@ -1,11 +1,23 @@
 @import 'bootstrap/scss/bootstrap';
 
-html{
-    width: 100%;
-    font-family: "Fira Mono", monospace,"SF UI Text", "Helvetica Neue", "Segoe UI", "Oxygen",    "Ubuntu", "Cantarell", "Open Sans", sans-serif;
+html {
+  width: 100%;
+  font-family: "Fira Mono", monospace, "SF UI Text", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
 }
 
-p{
-    text-align: center;
+p {
+  text-align: center;
+}
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.social-icon {
+  background-color: transparent;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 3rem;
+  width: 3rem;
+  transition: all 0.3s ease;
 }
