@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { HeaderSection } from '../models/descriptor.model';
 
 @Component({
@@ -6,9 +6,9 @@ import { HeaderSection } from '../models/descriptor.model';
   standalone: true,
   imports: [],
   templateUrl: './header.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {
-  @Input() subDescriptor!: HeaderSection;
+  subDescriptor = input.required<HeaderSection>();
 }

@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { ProjectsSection } from '../models/descriptor.model';
 
 @Component({
@@ -6,9 +6,9 @@ import { ProjectsSection } from '../models/descriptor.model';
   standalone: true,
   imports: [],
   templateUrl: './projects.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './projects.component.scss'
 })
 export class ProjectsComponent {
-  @Input() subDescriptor!: ProjectsSection;
+  subDescriptor = input.required<ProjectsSection>();
 }

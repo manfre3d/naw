@@ -1,15 +1,14 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { NgClass } from '@angular/common';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { FooterSection } from '../models/descriptor.model';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [NgClass],
+  imports: [],
   templateUrl: './footer.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  @Input() subDescriptor!: FooterSection;
+  subDescriptor = input.required<FooterSection>();
 }

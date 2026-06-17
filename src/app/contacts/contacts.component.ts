@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { ContactsSection } from '../models/descriptor.model';
 
 @Component({
@@ -6,9 +6,9 @@ import { ContactsSection } from '../models/descriptor.model';
   standalone: true,
   imports: [],
   templateUrl: './contacts.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './contacts.component.scss'
 })
 export class ContactsComponent {
-  @Input() subDescriptor!: ContactsSection;
+  subDescriptor = input.required<ContactsSection>();
 }

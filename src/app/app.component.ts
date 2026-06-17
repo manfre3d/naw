@@ -8,9 +8,9 @@ import descriptor from '../descriptor.json';
   standalone: true,
   imports: [DynamicContainerComponent],
   templateUrl: './app.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  siteStructure: DescriptorSection[] = descriptor.sections as DescriptorSection[];
+  readonly siteStructure: DescriptorSection[] = descriptor.sections as DescriptorSection[];
 }

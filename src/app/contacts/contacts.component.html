@@ -1,22 +1,9 @@
-<div class="contacts_formatting my-3">
-  <h2 class="contact_title">
-    {{ subDescriptor.primaryTitleText }}
-    <img
-      alt="☎️"
-      draggable="false"
-      src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/72x72/260e.png"
-      style="
-        height: 1em;
-        width: 1em;
-        margin: 0px 0.05em 0px 0.1em;
-        vertical-align: -0.1em;
-      "
-    />
-  </h2>
-  <h4 class="text-muted contact_sub_title">
-    {{ subDescriptor.secondaryTitleText }}
-  </h4>
-  <a href="mailto:{{ subDescriptor.mail }}" class="btn btn-outline-light my-2">
-    {{ subDescriptor.mail }}
+<div class="section-wrapper contacts-wrapper">
+  <p class="section-label">Say hello</p>
+  <h2 class="section-title">{{ subDescriptor().primaryTitleText }}</h2>
+  <p class="contacts-sub">{{ subDescriptor().secondaryTitleText }}</p>
+  <a href="mailto:{{ subDescriptor().mail }}" class="contacts-email">
+    {{ subDescriptor().mail }}
+    <i class="fa-solid fa-arrow-right"></i>
   </a>
 </div>

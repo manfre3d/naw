@@ -1,23 +1,107 @@
-@import 'bootstrap/scss/bootstrap';
+// ── Bootstrap ────────────────────────────────────────────────────────────────
+@use 'bootstrap/scss/bootstrap';
 
-html {
-  width: 100%;
-  font-family: "Fira Mono", monospace, "SF UI Text", "Helvetica Neue", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Open Sans", sans-serif;
+// ── Design tokens ────────────────────────────────────────────────────────────
+:root {
+  --color-bg:           #0a0a0a;
+  --color-surface:      #111111;
+  --color-surface-2:    #1a1a1a;
+  --color-border:       #2a2a2a;
+  --color-text:         #f0f0f0;
+  --color-muted:        #888888;
+  --color-accent:       #6366f1;
+  --color-accent-hover: #818cf8;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
 }
 
-p {
-  text-align: center;
+// ── Bootstrap dark mode overrides ────────────────────────────────────────────
+[data-bs-theme='dark'] {
+  --bs-body-bg:             var(--color-bg);
+  --bs-body-color:          var(--color-text);
+  --bs-border-color:        var(--color-border);
+  --bs-card-bg:             var(--color-surface);
+  --bs-secondary-bg:        var(--color-surface-2);
+  --bs-font-sans-serif:     'Inter', system-ui, -apple-system, sans-serif;
+  --bs-font-monospace:      'Space Mono', 'Fira Mono', monospace;
+  --bs-body-font-family:    var(--bs-font-sans-serif);
+}
+
+// ── Base ─────────────────────────────────────────────────────────────────────
+html, body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+  transition: color var(--transition-fast);
 }
 
+// ── Scroll reveal ─────────────────────────────────────────────────────────────
+.hidden {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// ── Section layout ────────────────────────────────────────────────────────────
+.section-wrapper {
+  padding: 6rem 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 3rem;
+}
+
+// ── Social icon ──────────────────────────────────────────────────────────────
 .social-icon {
-  background-color: transparent;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height: 3rem;
-  width: 3rem;
-  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-muted);
+  font-size: 1rem;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+}
+
+// ── Divider ──────────────────────────────────────────────────────────────────
+hr {
+  border-color: var(--color-border);
+  opacity: 1;
 }

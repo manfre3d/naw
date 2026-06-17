@@ -1,0 +1,23 @@
+<div class="section-wrapper">
+  <p class="section-label">Background</p>
+  <h2 class="section-title">{{ subDescriptor().title }}</h2>
+
+  <div class="edu-grid">
+    @for (item of subDescriptor().elements; track item.degree) {
+      <div class="edu-card">
+        <div class="edu-logo-wrapper">
+          <img [src]="item.img" [alt]="item.institution" class="edu-logo" />
+        </div>
+        <div class="edu-body">
+          <p class="edu-degree">{{ item.degree }}</p>
+          <p class="edu-institution">{{ item.institution }}</p>
+          <div class="edu-meta">
+            <span class="badge-period">{{ item.period }}</span>
+            <span class="badge-location">{{ item.location }}</span>
+          </div>
+          <p class="edu-desc">{{ item.description }}</p>
+        </div>
+      </div>
+    }
+  </div>
+</div>

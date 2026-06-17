@@ -1,31 +1,26 @@
-<section>
-  <div class="container my-5 py-4">
-    <div class="text-center rounded-3">
-      <p class="h2 mb-3">Project Works</p>
-      <div class="col-12 col-sm-6 mx-auto">
-        <img [src]="subDescriptor.imgPath" class="img-fluid rounded mb-4" alt="Projects" />
-      </div>
-      <p class="lead mb-4">Explore some of the projects I've worked on.</p>
+<div class="section-wrapper">
+  <p class="section-label">Work</p>
+  <h2 class="section-title">Projects</h2>
 
-      @for (project of subDescriptor.elements; track project.link; let i = $index) {
-        <div class="row featurette align-items-center mb-5" [class.flex-md-row-reverse]="i % 2 !== 0">
-          <div class="col-md-7">
-            <h3 class="featurette-heading fw-normal lh-1">
-              <a [href]="project.link" target="_blank" class="text-dark">{{ project.name }}</a>
-            </h3>
-            <p class="lead">{{ project.description }}</p>
-            <div class="d-grid d-md-block">
-              <a [href]="project.link" target="_blank" class="btn btn-outline-dark my-3 btn-sm mt-2">View Project</a>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <a [href]="project.link" target="_blank">
-              <img [src]="project.img" [alt]="project.name" class="img-fluid rounded shadow-sm" />
-            </a>
-          </div>
-          <hr class="featurette-divider mt-4" />
+  <div class="projects-list">
+    @for (project of subDescriptor().elements; track project.link; let i = $index) {
+      <div class="project-card" [class.reverse]="i % 2 !== 0">
+        <div class="project-image-wrapper">
+          <a [href]="project.link" target="_blank" rel="noopener">
+            <img [src]="project.img" [alt]="project.name" class="project-image" />
+          </a>
         </div>
-      }
-    </div>
+        <div class="project-info">
+          <p class="project-index">{{ (i + 1).toString().padStart(2, '0') }}</p>
+          <h3 class="project-name">
+            <a [href]="project.link" target="_blank" rel="noopener">{{ project.name }}</a>
+          </h3>
+          <p class="project-desc">{{ project.description }}</p>
+          <a [href]="project.link" target="_blank" rel="noopener" class="project-link">
+            View on GitHub <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    }
   </div>
-</section>
+</div>

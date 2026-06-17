@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
 import { DynamicSingleContainerComponent } from '../dynamic-single-container/dynamic-single-container.component';
 import { DescriptorSection } from '../models/descriptor.model';
 
@@ -7,9 +7,9 @@ import { DescriptorSection } from '../models/descriptor.model';
   standalone: true,
   imports: [DynamicSingleContainerComponent],
   templateUrl: './dynamic-container.component.html',
-  changeDetection: ChangeDetectionStrategy.Eager,
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './dynamic-container.component.scss'
 })
 export class DynamicContainerComponent {
-  @Input() descriptor: DescriptorSection[] = [];
+  descriptor = input<DescriptorSection[]>([]);
 }

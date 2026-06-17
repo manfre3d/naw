@@ -7,7 +7,9 @@
       "nav": {
         "navigationList": [
           { "description": "Home", "link": "#home" },
-          { "description": "About", "link": "#about" },
+          { "description": "Skills", "link": "#skills" },
+          { "description": "Experience", "link": "#experience" },
+          { "description": "Education", "link": "#education" },
           { "description": "Projects", "link": "#projects" },
           { "description": "Contacts", "link": "#contacts" }
         ]
@@ -18,8 +20,12 @@
       "type": "HERO",
       "style": "SECTION",
       "imgPath": "assets/profile_mp.png",
-      "primaryHeaderText": "Welcome! I'm Manfredi!",
-      "secondaryHeaderText": "Software Engineer",
+      "primaryHeaderText": "Manfredi Piraino",
+      "typingPhrases": [
+        "Software Engineer",
+        "Full Stack Developer",
+        "Angular & Spring Enthusiast"
+      ],
       "linkElements": [
         { "link": "https://github.com/manfre3d", "icon": "fa-brands fa-github", "color": "white" },
         { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "white" },
@@ -27,60 +33,93 @@
       ]
     },
     {
-      "id": "about",
-      "type": "ABOUT",
-      "imgPath": "assets/generated_work_image_mp.png",
+      "id": "skills",
+      "type": "SKILLS",
       "style": "SECTION",
+      "title": "Tech Stack",
+      "categories": [
+        {
+          "name": "Frontend",
+          "skills": [
+            { "name": "Angular", "icon": "fa-brands fa-angular" },
+            { "name": "TypeScript" },
+            { "name": "Bootstrap" },
+            { "name": "HTML / CSS" }
+          ]
+        },
+        {
+          "name": "Backend",
+          "skills": [
+            { "name": "Spring Boot" },
+            { "name": "Java" },
+            { "name": "Apache Camel" },
+            { "name": "Python" }
+          ]
+        },
+        {
+          "name": "Database & Cloud",
+          "skills": [
+            { "name": "Oracle DBMS" },
+            { "name": "Azure" },
+            { "name": "Jenkins" },
+            { "name": "WPF / C#" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "type": "EXPERIENCE",
+      "style": "SECTION",
+      "title": "Work Experience",
       "elements": [
         {
-          "type": "CARD",
-          "content": {
-            "img": "assets/bit-logo.png",
-            "title": "Bit S.p.A - Software Engineer",
-            "subtitle": "Mar 2022 – Present",
-            "location": "Turin, Italy",
-            "description": "Developed scalable web and desktop applications using Spring Boot, Angular, WPF, and Oracle DBMS; deployed microservices with Jenkins and Azure; integrated Apache Camel for backend processes."
-          }
+          "img": "assets/bit-logo.png",
+          "company": "Bit S.p.A",
+          "role": "Software Engineer",
+          "period": "Mar 2022 – Present",
+          "location": "Turin, Italy",
+          "description": "Developed scalable web and desktop applications using Spring Boot, Angular, WPF, and Oracle DBMS; deployed microservices with Jenkins and Azure; integrated Apache Camel for backend processes."
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "type": "EDUCATION",
+      "style": "SECTION",
+      "title": "Education",
+      "elements": [
+        {
+          "img": "assets/unipegaso.jpeg",
+          "institution": "University of Pegaso",
+          "degree": "Bachelor's Degree in Computer Science",
+          "period": "2024 – 2025",
+          "location": "score 109/110 · Turin, Italy",
+          "description": "Focused on software development, algorithms, and practical project implementations."
         },
         {
-          "type": "CARD",
-          "content": {
-            "img": "assets/unipegaso.jpeg",
-            "title": "Bachelor's Degree in Computer Science - University of Pegaso",
-            "subtitle": "2024 – 2025",
-            "location": "score 109/110 Turin, Italy",
-            "description": "Focused on software development, algorithms, and practical project implementations."
-          }
+          "img": "assets/boolean.png",
+          "institution": "Boolean Careers",
+          "degree": "Master in Software Engineering",
+          "period": "2021 – 2022",
+          "location": "Milan, Italy",
+          "description": "Intensive 700-hour program in frontend and backend web development, culminating in a comprehensive food delivery application developed in a collaborative team environment."
         },
         {
-          "type": "CARD",
-          "content": {
-            "img": "assets/boolean.png",
-            "title": "Master in Software Engineering - Boolean Careers",
-            "subtitle": "2021 – 2022",
-            "location": "Milan, Italy",
-            "description": "Intensive 700-hour program in frontend and backend web development, culminating in a comprehensive food delivery application developed in a collaborative team environment."
-          }
+          "img": "assets/unipegaso.jpeg",
+          "institution": "University of Pegaso",
+          "degree": "Master's Degree in Security Engineering",
+          "period": "2019 – 2021",
+          "location": "score 110*/110 · Palermo, Italy",
+          "description": "Specialized in cybersecurity, network security, and workplace safety."
         },
         {
-          "type": "CARD",
-          "content": {
-            "img": "assets/unipegaso.jpeg",
-            "title": "Master's Degree in Security Engineering - University of Pegaso",
-            "subtitle": "2019 – 2021",
-            "location": "score 110*/110 Palermo, Italy",
-            "description": "Specialized in cybersecurity, network security, and workplace safety."
-          }
-        },
-        {
-          "type": "CARD",
-          "content": {
-            "img": "assets/unipegaso.jpeg",
-            "title": "Bachelor's Degree in Civil Engineering - University of Pegaso",
-            "subtitle": "2016 – 2019",
-            "location": "score 100/110 Palermo, Italy",
-            "description": "Specialized in structural and geotechnical engineering with practical construction management experience."
-          }
+          "img": "assets/unipegaso.jpeg",
+          "institution": "University of Pegaso",
+          "degree": "Bachelor's Degree in Civil Engineering",
+          "period": "2016 – 2019",
+          "location": "score 100/110 · Palermo, Italy",
+          "description": "Specialized in structural and geotechnical engineering with practical construction management experience."
         }
       ]
     },
@@ -88,12 +127,11 @@
       "id": "projects",
       "type": "PROJECTS",
       "style": "SECTION",
-      "imgPath": "assets/projects.jpg",
       "elements": [
         {
           "img": "assets/project_work.png",
           "name": "University Project Work",
-          "description": "Developed a hotel booking and reservation web application using Python, HTML, and CSS. The aim was to reconstruct a basic framework for routing and scalability using fundamental tools. Features include user authentication, room availability checks, and booking management.",
+          "description": "Developed a hotel booking and reservation web application using Python, HTML, and CSS. Features include user authentication, room availability checks, and booking management.",
           "link": "https://github.com/manfre3d/project_work"
         },
         {
@@ -115,8 +153,8 @@
       "type": "CONTACTS",
       "style": "SECTION",
       "mail": "manfredipiraino@gmail.com",
-      "primaryTitleText": "Contact Me!",
-      "secondaryTitleText": "Discuss a project or just say hi—my inbox is open!"
+      "primaryTitleText": "Get in Touch",
+      "secondaryTitleText": "Discuss a project or just say hi — my inbox is always open."
     },
     {
       "id": "footer",

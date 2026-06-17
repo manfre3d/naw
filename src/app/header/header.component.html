@@ -1,6 +1,8 @@
-<div class="et-hero-tabs-container">
-  @for (item of subDescriptor.nav.navigationList; track item.link) {
-    <a class="et-hero-tab" [href]="item.link">{{ item.description }}</a>
-  }
-  <span class="et-hero-tab-slider"></span>
-</div>
+<nav class="nav-inner">
+  <span class="nav-brand">mp<span class="accent">.</span></span>
+  <div class="nav-links">
+    @for (item of subDescriptor().nav.navigationList; track item.link) {
+      <a class="nav-link" [href]="item.link">{{ item.description }}</a>
+    }
+  </div>
+</nav>
