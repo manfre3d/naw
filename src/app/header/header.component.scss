@@ -35,3 +35,34 @@
 
   &:hover { color: var(--color-text); }
 }
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.lang-sep {
+  font-size: 0.75rem;
+  color: var(--color-border);
+  user-select: none;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  padding: 0.15rem 0.25rem;
+  font-size: 0.72rem;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+
+  &:hover { color: var(--color-text); }
+
+  &.active {
+    color: var(--color-accent);
+  }
+}

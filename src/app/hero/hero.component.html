@@ -1,33 +1,49 @@
 <div class="hero-wrapper">
-  <div class="hero-content">
-    <div class="hero-avatar-wrapper">
-      <img [src]="subDescriptor().imgPath" class="hero-avatar" alt="Manfredi Piraino" />
-    </div>
+  <div class="hero-layout">
 
-    <p class="hero-greeting">Hi, I'm</p>
-    <h1 class="hero-name">{{ subDescriptor().primaryHeaderText }}</h1>
-
-    <div class="hero-typing-row">
-      <span class="hero-typing">{{ displayedText() }}</span><span class="hero-cursor">|</span>
-    </div>
-
-    <div class="hero-actions">
-      <a
-        href="assets/cv_Manfredi_Piraino_2025.pdf"
-        download="Manfredi_Piraino_CV.pdf"
-        class="btn-primary-dark"
-      >
-        Download CV
-      </a>
-      <a href="#contacts" class="btn-outline-dark">Get in Touch</a>
-    </div>
-
-    <div class="hero-socials">
-      @for (link of subDescriptor().linkElements; track link.link) {
-        <a [href]="link.link" target="_blank" class="social-icon" [attr.aria-label]="link.icon">
-          <i [class]="link.icon"></i>
-        </a>
+    <!-- Left: text hierarchy -->
+    <div class="hero-text">
+      @if (subDescriptor().availableForWork) {
+        <span class="hero-badge">
+          <span class="badge-dot"></span>
+          {{ subDescriptor().availableBadge }}
+        </span>
       }
+
+      <h1 class="hero-name">{{ subDescriptor().primaryHeaderText }}</h1>
+
+      <div class="hero-role-row">
+        <span class="hero-role">{{ displayedText() }}</span><span class="hero-cursor">|</span>
+      </div>
+
+      <p class="hero-bio">{{ subDescriptor().bio }}</p>
+
+      <div class="hero-actions">
+        <a
+          [href]="subDescriptor().cvPath"
+          download="Manfredi_Piraino_CV.pdf"
+          class="btn-primary"
+        >
+          <i class="fa-solid fa-download"></i> {{ subDescriptor().ctaDownload }}
+        </a>
+        <a href="#contacts" class="btn-outline">{{ subDescriptor().ctaContact }}</a>
+      </div>
+
+      <div class="hero-socials">
+        @for (link of subDescriptor().linkElements; track link.link) {
+          <a [href]="link.link" target="_blank" class="social-icon" [attr.aria-label]="link.icon">
+            <i [class]="link.icon"></i>
+          </a>
+        }
+      </div>
     </div>
+
+    <!-- Right: photo — clean, no decoration -->
+    <div class="hero-visual">
+      <div class="hero-photo-frame">
+        <img [src]="subDescriptor().imgPath" alt="Manfredi Piraino" class="hero-photo" />
+      </div>
+    </div>
+
   </div>
 </div>

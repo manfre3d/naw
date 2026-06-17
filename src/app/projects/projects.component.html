@@ -1,6 +1,6 @@
 <div class="section-wrapper">
-  <p class="section-label">Work</p>
-  <h2 class="section-title">Projects</h2>
+  <p class="section-label">{{ subDescriptor().label }}</p>
+  <h2 class="section-title">{{ subDescriptor().title }}</h2>
 
   <div class="projects-list">
     @for (project of subDescriptor().elements; track project.link; let i = $index) {
@@ -17,7 +17,7 @@
           </h3>
           <p class="project-desc">{{ project.description }}</p>
           <a [href]="project.link" target="_blank" rel="noopener" class="project-link">
-            View on GitHub <i class="fa-brands fa-github"></i>
+            {{ subDescriptor().linkLabel }} <i class="fa-brands fa-github"></i>
           </a>
         </div>
       </div>

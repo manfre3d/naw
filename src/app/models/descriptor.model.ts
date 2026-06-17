@@ -16,6 +16,12 @@ export interface HeroSection {
   style: string;
   imgPath: string;
   primaryHeaderText: string;
+  bio: string;
+  availableForWork: boolean;
+  availableBadge: string;
+  cvPath: string;
+  ctaDownload: string;
+  ctaContact: string;
   typingPhrases: string[];
   linkElements: LinkElement[];
 }
@@ -35,24 +41,32 @@ export interface SkillsSection {
   id: string;
   type: 'SKILLS';
   style: string;
+  label: string;
   title: string;
   categories: SkillCategory[];
 }
 
 // --- Experience ---
+export interface ExperienceProject {
+  client: string;
+  name: string;
+  img?: string;
+  description: string;
+}
+
 export interface ExperienceElement {
-  img: string;
+  img?: string;
   company: string;
   role: string;
   period: string;
-  location: string;
-  description: string;
+  projects: ExperienceProject[];
 }
 
 export interface ExperienceSection {
   id: string;
   type: 'EXPERIENCE';
   style: string;
+  label: string;
   title: string;
   elements: ExperienceElement[];
 }
@@ -71,6 +85,7 @@ export interface EducationSection {
   id: string;
   type: 'EDUCATION';
   style: string;
+  label: string;
   title: string;
   elements: EducationElement[];
 }
@@ -87,6 +102,9 @@ export interface ProjectsSection {
   id: string;
   type: 'PROJECTS';
   style: string;
+  label: string;
+  title: string;
+  linkLabel: string;
   elements: ProjectElement[];
 }
 
@@ -95,6 +113,7 @@ export interface ContactsSection {
   id: string;
   type: 'CONTACTS';
   style: string;
+  label: string;
   mail: string;
   primaryTitleText: string;
   secondaryTitleText: string;
@@ -114,6 +133,7 @@ export interface FooterSection {
   id: string;
   type: 'FOOTER';
   style: string;
+  footerText: string;
   linkElements: LinkElement[];
 }
 

@@ -1,7 +1,9 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, computed, inject } from '@angular/core';
 import { DynamicContainerComponent } from './dynamic-container/dynamic-container.component';
 import { DescriptorSection } from './models/descriptor.model';
-import descriptor from '../descriptor.json';
+import { LanguageService } from './services/language.service';
+import descriptorEn from '../descriptor.en.json';
+import descriptorIt from '../descriptor.it.json';
 
 @Component({
   selector: 'app-root',
@@ -12,5 +14,11 @@ import descriptor from '../descriptor.json';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  readonly siteStructure: DescriptorSection[] = descriptor.sections as DescriptorSection[];
+  private langService = inject(LanguageService);
+
+  siteStructure = computed<DescriptorSection[]>(() =>
+    this.langService.currentLang() === 'en'
+      ? descriptorEn.sections as unknown as DescriptorSection[]
+      : descriptorIt.sections as unknown as DescriptorSection[]
+  );
 }

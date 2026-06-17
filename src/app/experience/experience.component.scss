@@ -1,93 +1,146 @@
 .timeline {
-  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0;
+  gap: 1.75rem;
+}
 
-  &::before {
-    content: '';
-    position: absolute;
-    left: 20px;
-    top: 28px;
-    bottom: 0;
-    width: 1px;
-    background: var(--color-border);
+.employer-block {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  transition: border-color var(--transition-base);
+
+  &:hover {
+    border-color: rgba(212, 102, 138, 0.35);
   }
 }
 
-.timeline-item {
+.employer-header {
   display: flex;
-  gap: 1.5rem;
-  padding-bottom: 2.5rem;
-  position: relative;
-
-  &:last-child { padding-bottom: 0; }
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.timeline-marker {
+.employer-marker {
   flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: var(--color-surface);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-2);
   border: 1px solid var(--color-border);
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
-  z-index: 1;
+  overflow: hidden;
 }
 
-.timeline-logo {
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
+.employer-logo {
+  width: 30px;
+  height: 30px;
   object-fit: contain;
 }
 
-.timeline-body {
-  padding-top: 0.5rem;
-  flex: 1;
-}
-
-.timeline-header {
-  margin-bottom: 0.5rem;
-}
-
-.timeline-role {
+.employer-initial {
+  font-family: 'Space Mono', monospace;
   font-size: 1.1rem;
-  font-weight: 600;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.employer-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.employer-name {
+  font-size: 1.1rem;
+  font-weight: 700;
   color: var(--color-text);
   margin-bottom: 0.15rem;
 }
 
-.timeline-company {
-  font-size: 0.875rem;
+.employer-role {
+  font-size: 0.82rem;
   color: var(--color-accent);
   font-weight: 500;
 }
 
-.timeline-meta {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-bottom: 0.75rem;
+.badge-period {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent-light);
+  border: 1px solid rgba(212, 102, 138, 0.25);
+  color: var(--color-accent);
+  white-space: nowrap;
 }
 
-.badge-period,
-.badge-location {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.7rem;
-  padding: 0.2rem 0.6rem;
+.projects-track {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-left: 2px solid var(--color-border);
+  padding-left: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.project-entry {
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
+}
+
+.project-bullet {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
   border-radius: var(--radius-sm);
   background-color: var(--color-surface-2);
   border: 1px solid var(--color-border);
-  color: var(--color-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 1px;
 }
 
-.timeline-desc {
-  font-size: 0.9rem;
+.project-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.project-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-muted);
+}
+
+.project-body {
+  flex: 1;
+}
+
+.project-header {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.project-name-label {
   color: var(--color-muted);
-  line-height: 1.7;
+  font-weight: 400;
+}
+
+.project-desc {
+  font-size: 0.83rem;
+  color: var(--color-muted);
+  line-height: 1.65;
   text-align: left;
 }

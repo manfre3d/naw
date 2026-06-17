@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, input } from '@angular/core';
 import { HeaderSection } from '../models/descriptor.model';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-header',
@@ -11,4 +12,5 @@ import { HeaderSection } from '../models/descriptor.model';
 })
 export class HeaderComponent {
   subDescriptor = input.required<HeaderSection>();
+  langService = inject(LanguageService);
 }

@@ -1,23 +1,44 @@
 <div class="section-wrapper">
-  <p class="section-label">Career</p>
+  <p class="section-label">{{ subDescriptor().label }}</p>
   <h2 class="section-title">{{ subDescriptor().title }}</h2>
 
   <div class="timeline">
     @for (item of subDescriptor().elements; track item.company) {
-      <div class="timeline-item">
-        <div class="timeline-marker">
-          <img [src]="item.img" [alt]="item.company" class="timeline-logo" />
+      <div class="employer-block">
+        <div class="employer-header">
+          <div class="employer-marker">
+            @if (item.img) {
+              <img [src]="item.img" [alt]="item.company" class="employer-logo" />
+            } @else {
+              <span class="employer-initial">{{ item.company.charAt(0) }}</span>
+            }
+          </div>
+          <div class="employer-meta">
+            <h3 class="employer-name">{{ item.company }}</h3>
+            <p class="employer-role">{{ item.role }}</p>
+          </div>
+          <span class="badge-period">{{ item.period }}</span>
         </div>
-        <div class="timeline-body">
-          <div class="timeline-header">
-            <h3 class="timeline-role">{{ item.role }}</h3>
-            <span class="timeline-company">{{ item.company }}</span>
-          </div>
-          <div class="timeline-meta">
-            <span class="badge-period">{{ item.period }}</span>
-            <span class="badge-location">{{ item.location }}</span>
-          </div>
-          <p class="timeline-desc">{{ item.description }}</p>
+
+        <div class="projects-track">
+          @for (project of item.projects; track project.name) {
+            <div class="project-entry">
+              <div class="project-bullet">
+                @if (project.img) {
+                  <img [src]="project.img" [alt]="project.client" class="project-logo" />
+                } @else {
+                  <span class="project-dot"></span>
+                }
+              </div>
+              <div class="project-body">
+                <p class="project-header">
+                  <strong>{{ project.client }}</strong>
+                  <span class="project-name-label"> — {{ project.name }}</span>
+                </p>
+                <p class="project-desc">{{ project.description }}</p>
+              </div>
+            </div>
+          }
         </div>
       </div>
     }
