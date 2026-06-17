@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { HeaderSection } from '../models/descriptor.model';
 
 @Component({
@@ -6,6 +6,7 @@ import { HeaderSection } from '../models/descriptor.model';
   standalone: true,
   imports: [],
   templateUrl: './header.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent {

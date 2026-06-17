@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
@@ -20,6 +20,7 @@ import { ScrollAnimationService } from '../services/scroll-animation.service';
     ProjectsComponent
   ],
   templateUrl: './dynamic-single-container.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './dynamic-single-container.component.scss',
 })
 export class DynamicSingleContainerComponent implements AfterViewInit {

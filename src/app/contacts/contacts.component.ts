@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { ContactsSection } from '../models/descriptor.model';
 
 @Component({
@@ -6,6 +6,7 @@ import { ContactsSection } from '../models/descriptor.model';
   standalone: true,
   imports: [],
   templateUrl: './contacts.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './contacts.component.scss'
 })
 export class ContactsComponent {

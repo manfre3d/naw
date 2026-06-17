@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { NgClass } from '@angular/common';
 import { AboutSection } from '../models/descriptor.model';
 
@@ -7,6 +7,7 @@ import { AboutSection } from '../models/descriptor.model';
   standalone: true,
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss',
+  changeDetection: ChangeDetectionStrategy.Eager,
   imports: [NgClass],
 })
 export class AboutComponent {

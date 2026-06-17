@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { DynamicContainerComponent } from './dynamic-container/dynamic-container.component';
 import { DescriptorSection } from './models/descriptor.model';
 import descriptor from '../descriptor.json';
@@ -8,6 +8,7 @@ import descriptor from '../descriptor.json';
   standalone: true,
   imports: [DynamicContainerComponent],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
