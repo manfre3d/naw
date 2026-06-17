@@ -42,11 +42,11 @@
   align-items: center;
   gap: 0.45rem;
   padding: 0.28rem 0.8rem;
-  border: 1px solid var(--color-border);
+  border: 1px solid rgba(212, 102, 138, 0.3);
   border-radius: 999px;
   font-size: 0.73rem;
-  color: var(--color-muted);
-  background-color: var(--color-surface);
+  color: var(--color-accent);
+  background-color: var(--color-accent-light);
   letter-spacing: 0.02em;
 }
 

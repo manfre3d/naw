@@ -1,8 +1,15 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
 .nav-inner {
   max-width: 960px;
+  width: 100%;
   margin: 0 auto;
   padding: 0 1.5rem;
-  height: 100%;
+  height: 56px;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -107,6 +114,7 @@
   overflow: hidden;
   max-height: 0;
   transition: max-height 0.28s ease;
+  background-color: var(--color-bg);
 
   &.open {
     max-height: 400px;

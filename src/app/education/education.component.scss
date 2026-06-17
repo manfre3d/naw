@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  background-color: var(--color-surface-2);
+}
+
 .edu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

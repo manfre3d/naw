@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  background-color: var(--color-text);
+}
+
 .footer-inner {
   max-width: 960px;
   margin: 0 auto;
@@ -11,9 +16,20 @@
 .footer-socials {
   display: flex;
   gap: 0.75rem;
+
+  .social-icon {
+    border-color: rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.5);
+
+    &:hover {
+      border-color: var(--color-accent);
+      color: var(--color-accent);
+      background-color: rgba(212, 102, 138, 0.12);
+    }
+  }
 }
 
 .footer-copy {
   font-size: 0.8rem;
-  color: var(--color-muted);
+  color: rgba(255, 255, 255, 0.35);
 }
