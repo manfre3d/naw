@@ -1,20 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { DynamicCardComponent } from '../dynamic-card/dynamic-card.component';
-import { SharedModule } from '../shared/shared.module';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
+// AboutComponent is no longer used — content split into ExperienceComponent and EducationComponent.
+// Kept as an empty shell to avoid breaking any potential external references during migration.
 @Component({
   selector: 'app-about',
   standalone: true,
-  templateUrl: './about.component.html',
-  styleUrl: './about.component.scss',
-  imports: [DynamicCardComponent, SharedModule],
+  imports: [],
+  template: '',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutComponent implements OnInit {
-  @Input() subDescriptor: any;
-  test: any = [{}];
-
-  ngOnInit(): void {
-    console.log('ABOUT INIT');
-    console.log(this.subDescriptor);
-  }
-}
+export class AboutComponent {}

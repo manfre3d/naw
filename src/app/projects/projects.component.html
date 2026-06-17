@@ -1,0 +1,26 @@
+<div class="section-wrapper">
+  <p class="section-label">{{ subDescriptor().label }}</p>
+  <h2 class="section-title">{{ subDescriptor().title }}</h2>
+
+  <div class="projects-list">
+    @for (project of subDescriptor().elements; track project.link; let i = $index) {
+      <div class="project-card" [class.reverse]="i % 2 !== 0">
+        <div class="project-image-wrapper">
+          <a [href]="project.link" target="_blank" rel="noopener">
+            <img [src]="project.img" [alt]="project.name" class="project-image" />
+          </a>
+        </div>
+        <div class="project-info">
+          <p class="project-index">{{ (i + 1).toString().padStart(2, '0') }}</p>
+          <h3 class="project-name">
+            <a [href]="project.link" target="_blank" rel="noopener">{{ project.name }}</a>
+          </h3>
+          <p class="project-desc">{{ project.description }}</p>
+          <a [href]="project.link" target="_blank" rel="noopener" class="project-link">
+            {{ subDescriptor().linkLabel }} <i class="fa-brands fa-github"></i>
+          </a>
+        </div>
+      </div>
+    }
+  </div>
+</div>

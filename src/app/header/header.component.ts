@@ -1,20 +1,16 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { Component, ChangeDetectionStrategy, inject, input } from '@angular/core';
+import { HeaderSection } from '../models/descriptor.model';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [SharedModule],
+  imports: [],
   templateUrl: './header.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './header.component.scss'
 })
-export class HeaderComponent implements OnInit{
-
-  @Input() subDescriptor:any;
-
-  ngOnInit(): void{
-    
-  }
-
-
+export class HeaderComponent {
+  subDescriptor = input.required<HeaderSection>();
+  langService = inject(LanguageService);
 }

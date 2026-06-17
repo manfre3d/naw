@@ -1,0 +1,146 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.employer-block {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  transition: border-color var(--transition-base);
+
+  &:hover {
+    border-color: rgba(212, 102, 138, 0.35);
+  }
+}
+
+.employer-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.employer-marker {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.employer-logo {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.employer-initial {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-accent);
+}
+
+.employer-meta {
+  flex: 1;
+  min-width: 0;
+}
+
+.employer-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 0.15rem;
+}
+
+.employer-role {
+  font-size: 0.82rem;
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.badge-period {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-accent-light);
+  border: 1px solid rgba(212, 102, 138, 0.25);
+  color: var(--color-accent);
+  white-space: nowrap;
+}
+
+.projects-track {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  border-left: 2px solid var(--color-border);
+  padding-left: 1.5rem;
+  margin-left: 0.5rem;
+}
+
+.project-entry {
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
+}
+
+.project-bullet {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-sm);
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-top: 1px;
+}
+
+.project-logo {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.project-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: var(--color-muted);
+}
+
+.project-body {
+  flex: 1;
+}
+
+.project-header {
+  font-size: 0.875rem;
+  color: var(--color-text);
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  line-height: 1.4;
+}
+
+.project-name-label {
+  color: var(--color-muted);
+  font-weight: 400;
+}
+
+.project-desc {
+  font-size: 0.83rem;
+  color: var(--color-muted);
+  line-height: 1.65;
+  text-align: left;
+}

@@ -1,39 +1,53 @@
-import { DOCUMENT } from '@angular/common';
-import { AfterViewInit, Component, Inject, Input, OnInit } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { Component, ChangeDetectionStrategy, input, signal, afterNextRender } from '@angular/core';
+import { HeroSection } from '../models/descriptor.model';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [SharedModule],
+  imports: [],
   templateUrl: './hero.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './hero.component.scss'
 })
-export class HeroComponent implements OnInit, AfterViewInit{
-  secondaryTextActive: boolean=false;
+export class HeroComponent {
+  subDescriptor = input.required<HeroSection>();
 
-  @Input() subDescriptor:any;
-  
-  constructor(@Inject(DOCUMENT) private document: Document){}
+  displayedText = signal('');
+  showCursor = signal(true);
 
-  ngOnInit(): void{
-
+  constructor() {
+    afterNextRender(() => this.startTyping());
   }
-  ngAfterViewInit(): void{
-    // js automation for dynamic text
-    let welcomeTitle = this.document.getElementById("dynamic_introduction") as HTMLElement
-    welcomeTitle.addEventListener("animationend", ()=>{
-      welcomeTitle.classList.remove("typing-animation-primary");
-      welcomeTitle.style.border="";
-      this.secondaryTextActive=true;
-    });
 
-  }
-  downloadPdf(){
-    let link = document.createElement("a");
-    link.download = "Manfredi_Piraino_CV.pdf";
-    link.href="assets/cv_Manfredi_Piraino_2024.pdf";
-    link.setAttribute("target","_blank");
-    link.click();
+  private startTyping(): void {
+    const phrases = this.subDescriptor().typingPhrases;
+    if (!phrases?.length) return;
+
+    let phraseIdx = 0;
+    let charIdx = 0;
+    let deleting = false;
+
+    const tick = () => {
+      const current = phrases[phraseIdx];
+      if (!deleting) {
+        charIdx++;
+        this.displayedText.set(current.slice(0, charIdx));
+        if (charIdx === current.length) {
+          deleting = true;
+          setTimeout(tick, 2200);
+          return;
+        }
+      } else {
+        charIdx--;
+        this.displayedText.set(current.slice(0, charIdx));
+        if (charIdx === 0) {
+          deleting = false;
+          phraseIdx = (phraseIdx + 1) % phrases.length;
+        }
+      }
+      setTimeout(tick, deleting ? 45 : 80);
+    };
+
+    setTimeout(tick, 600);
   }
 }

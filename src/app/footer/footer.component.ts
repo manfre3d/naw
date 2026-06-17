@@ -1,14 +1,14 @@
-import { Component, Input } from '@angular/core';
-import { SharedModule } from '../shared/shared.module';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
+import { FooterSection } from '../models/descriptor.model';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [SharedModule],
+  imports: [],
   templateUrl: './footer.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './footer.component.scss'
 })
 export class FooterComponent {
-  @Input() subDescriptor:any;
-
+  subDescriptor = input.required<FooterSection>();
 }

@@ -1,45 +1,49 @@
-<div class="hero_formatting gx-0 row">
-  <!-- Hero left section -->
-  <div class="col-12 col-sm-6 left_hero">
-    <!-- left content -->
-    <div class="row gx-0 px-5 align-content-center">
-      <div class="wrapper">
-        <div>
-          <h1 class="text" data-flicker="i" contenteditable>{{ subDescriptor.primaryHeaderText }}</h1>
-          <span class="text" aria-hidden="true">i</span>
-        </div>
-        <!-- <h1 id="dynamic_introduction">{{ subDescriptor.primaryHeaderText }}</h1> -->
+<div class="hero-wrapper">
+  <div class="hero-layout">
+
+    <!-- Left: text hierarchy -->
+    <div class="hero-text">
+      @if (subDescriptor().availableForWork) {
+        <span class="hero-badge">
+          <span class="badge-dot"></span>
+          {{ subDescriptor().availableBadge }}
+        </span>
+      }
+
+      <h1 class="hero-name">{{ subDescriptor().primaryHeaderText }}</h1>
+
+      <div class="hero-role-row">
+        <span class="hero-role">{{ displayedText() }}</span><span class="hero-cursor">|</span>
       </div>
-      <div *ngIf="secondaryTextActive" class="wrapper">
-        <!-- class="typing-text typing-animation-secondary" -->
-        <h5 id="dynamic_introduction">
-          {{ subDescriptor.secondaryHeaderText }}
-        </h5>
-      </div>
-      <div class="d-flex justify-content-between w-100 my-4">
-        <button type="button" class="btn btn-dark col-5">
-          <a (click)="downloadPdf()">CV</a>
-        </button>
-        <button type="button" class="btn btn-dark col-5">
-          <a href="#contacts">Contacts</a>
-        </button>
-      </div>
-      <div class="icon_container_formatting">
-        <div
-          *ngFor="let link of subDescriptor.linkElements"
-          class="{{ link.color }} icon_links_container_formatting px-2"
+
+      <p class="hero-bio">{{ subDescriptor().bio }}</p>
+
+      <div class="hero-actions">
+        <a
+          [href]="subDescriptor().cvPath"
+          download="Manfredi_Piraino_CV.pdf"
+          class="btn-primary"
         >
-          <a href="{{ link.link }}" target="_blank">
-            <i class="{{ link.icon }}"></i>
+          <i class="fa-solid fa-download"></i> {{ subDescriptor().ctaDownload }}
+        </a>
+        <a href="#contacts" class="btn-outline">{{ subDescriptor().ctaContact }}</a>
+      </div>
+
+      <div class="hero-socials">
+        @for (link of subDescriptor().linkElements; track link.link) {
+          <a [href]="link.link" target="_blank" class="social-icon" [attr.aria-label]="link.icon">
+            <i [class]="link.icon"></i>
           </a>
-        </div>
+        }
       </div>
     </div>
-  </div>
-  <!-- Hero right section -->
-  <div class="col-12 col-sm-6 right_hero">
-    <div class="hero_img_formatting">
-      <img src="{{ subDescriptor.imgPath }}" alt="" />
+
+    <!-- Right: photo — clean, no decoration -->
+    <div class="hero-visual">
+      <div class="hero-photo-frame">
+        <img [src]="subDescriptor().imgPath" alt="Manfredi Piraino" class="hero-photo" />
+      </div>
     </div>
+
   </div>
 </div>

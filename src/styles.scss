@@ -1,6 +1,108 @@
-@import 'bootstrap/scss/bootstrap';
+// ── Bootstrap ────────────────────────────────────────────────────────────────
+@use 'bootstrap/scss/bootstrap';
 
-html{
-    width: 100%;
-    font-family: "Fira Mono", monospace,"SF UI Text", "Helvetica Neue", "Segoe UI", "Oxygen",    "Ubuntu", "Cantarell", "Open Sans", sans-serif;
+// ── Design tokens — Warm Light ────────────────────────────────────────────────
+:root {
+  --color-bg:           #FAFAF8;
+  --color-surface:      #FFFFFF;
+  --color-surface-2:    #F4F4F1;
+  --color-border:       #E8E8E4;
+  --color-text:         #1C1C2E;
+  --color-muted:        #6B7280;
+  --color-accent:       #D4668A;
+  --color-accent-hover: #B84E72;
+  --color-accent-light: rgba(212, 102, 138, 0.09);
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+}
+
+// ── Bootstrap overrides (light) ───────────────────────────────────────────────
+body {
+  --bs-body-bg:          var(--color-bg);
+  --bs-body-color:       var(--color-text);
+  --bs-border-color:     var(--color-border);
+  --bs-card-bg:          var(--color-surface);
+  --bs-secondary-bg:     var(--color-surface-2);
+  --bs-body-font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+// ── Base ─────────────────────────────────────────────────────────────────────
+html, body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--transition-fast);
+}
+
+// ── Scroll reveal ─────────────────────────────────────────────────────────────
+.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+// ── Section layout ────────────────────────────────────────────────────────────
+.section-wrapper {
+  padding: 6rem 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.section-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 0.6rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 3rem;
+}
+
+// ── Social icon ──────────────────────────────────────────────────────────────
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  transition: border-color var(--transition-fast), color var(--transition-fast),
+              background-color var(--transition-fast);
+
+  &:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background-color: var(--color-accent-light);
+  }
+}
+
+// ── Divider ──────────────────────────────────────────────────────────────────
+hr {
+  border-color: var(--color-border);
+  opacity: 1;
 }

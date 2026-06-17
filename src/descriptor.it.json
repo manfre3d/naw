@@ -1,0 +1,263 @@
+{
+  "sections": [
+    {
+      "id": "header",
+      "type": "HEADER",
+      "animation": false,
+      "nav": {
+        "navigationList": [
+          { "description": "Home",        "link": "#home" },
+          { "description": "Competenze",  "link": "#skills" },
+          { "description": "Esperienza",  "link": "#experience" },
+          { "description": "Formazione",  "link": "#education" },
+          { "description": "Progetti",    "link": "#projects" },
+          { "description": "Contatti",    "link": "#contacts" }
+        ]
+      }
+    },
+    {
+      "id": "home",
+      "type": "HERO",
+      "style": "SECTION",
+      "imgPath": "assets/profesional_profile_picture_mp.png",
+      "primaryHeaderText": "Manfredi Piraino",
+      "bio": "Consultant Software Engineer in Blue Reply. Realizzo applicazioni enterprise con Angular, Spring Boot e microservizi cloud.",
+      "availableForWork": true,
+      "availableBadge": "Disponibile per nuove opportunità",
+      "cvPath": "assets/cv_manfredi_piraino_ita_2026.pdf",
+      "ctaDownload": "Scarica il CV",
+      "ctaContact": "Contattami",
+      "typingPhrases": [
+        "Enterprise Full Stack Engineer",
+        "AI & Cloud Native Developer",
+        "Scalable Systems Architect"
+      ],
+      "linkElements": [
+        { "link": "https://github.com/manfre3d",                    "icon": "fa-brands fa-github",   "color": "white" },
+        { "link": "https://www.linkedin.com/in/manfredi-piraino",   "icon": "fa-brands fa-linkedin", "color": "white" },
+        { "link": "mailto:manfredipiraino@gmail.com",               "icon": "fa-solid fa-envelope",  "color": "white" }
+      ]
+    },
+    {
+      "id": "skills",
+      "type": "SKILLS",
+      "style": "SECTION",
+      "label": "Tecnologie",
+      "title": "Tech Stack",
+      "categories": [
+        {
+          "name": "Frontend",
+          "skills": [
+            { "name": "Angular",    "icon": "fa-brands fa-angular" },
+            { "name": "TypeScript" },
+            { "name": "Vue.js",     "icon": "fa-brands fa-vuejs" },
+            { "name": "HTML / CSS" },
+            { "name": "Bootstrap" }
+          ]
+        },
+        {
+          "name": "Backend",
+          "skills": [
+            { "name": "Spring Boot" },
+            { "name": "Java" },
+            { "name": "Apache Camel" },
+            { "name": "Express.js", "icon": "fa-brands fa-node-js" },
+            { "name": "Flask" },
+            { "name": ".NET / WPF" }
+          ]
+        },
+        {
+          "name": "Database",
+          "skills": [
+            { "name": "Oracle" },
+            { "name": "SQL Server" },
+            { "name": "PostgreSQL" },
+            { "name": "Cassandra" }
+          ]
+        },
+        {
+          "name": "Messaggistica & Integrazione",
+          "skills": [
+            { "name": "Apache Kafka" },
+            { "name": "ESB / Apache Camel" },
+            { "name": "REST APIs" }
+          ]
+        },
+        {
+          "name": "Cloud & DevOps",
+          "skills": [
+            { "name": "Docker",       "icon": "fa-brands fa-docker" },
+            { "name": "Kubernetes" },
+            { "name": "AWS",          "icon": "fa-brands fa-aws" },
+            { "name": "Azure" },
+            { "name": "OpenShift" },
+            { "name": "Jenkins" },
+            { "name": "CI/CD Pipeline" },
+            { "name": "Git",          "icon": "fa-brands fa-git-alt" }
+          ]
+        },
+        {
+          "name": "Monitoraggio",
+          "skills": [
+            { "name": "Kibana" },
+            { "name": "Dynatrace" },
+            { "name": "Splunk" }
+          ]
+        },
+        {
+          "name": "AI & Dati",
+          "skills": [
+            { "name": "OpenAI API" },
+            { "name": "Vector Databases" },
+            { "name": "Embeddings" },
+            { "name": "Python", "icon": "fa-brands fa-python" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "experience",
+      "type": "EXPERIENCE",
+      "style": "SECTION",
+      "label": "Carriera",
+      "title": "Esperienza Lavorativa",
+      "elements": [
+        {
+          "company": "Blue Reply",
+          "role": "Consultant Software Engineer",
+          "period": "2026 – Presente",
+          "img": "assets/blue_reply_it_logo.jpg",
+          "projects": [
+            {
+              "client": "Avio Aero",
+              "name": "Sviluppo Applicativo Aeronautico",
+              "img": "assets/geavioaero_logo.jpg",
+              "description": "Sviluppo e manutenzione di un applicativo critico per il motore EJ200 dell'Eurofighter. Migrazione da architettura monolitica a microservizi e implementazione di nuove funzionalità in collaborazione con team cross-funzionali."
+            }
+          ]
+        },
+        {
+          "company": "Bit S.p.A.",
+          "role": "Full Stack Software Engineer · consulente per Blue Reply",
+          "period": "2022 – 2025",
+          "img": "assets/bit-logo.png",
+          "projects": [
+            {
+              "client": "Reale Mutua Assicurazioni",
+              "name": "Progetto Vites",
+              "img": "assets/reale-mutua-logo.png",
+              "description": "Sviluppatore chiave per la trasformazione digitale dei sistemi assicurativi enterprise. Progettazione di un generatore di interfacce JSON-configurable integrato con microservizi Spring Boot, con riduzione >50% dei tempi di implementazione frontend. Frontend Angular moderno e scalabile."
+            },
+            {
+              "client": "BPER Banca",
+              "name": "Progetto Middleware ESB",
+              "img": "assets/bper_logo.png",
+              "description": "Sviluppo e manutenzione microservizi layer ESB con Apache Camel e Spring Boot. Gestione code Kafka per message brokering tra sistemi core bancari. Monitoring con Kibana e Dynatrace. Pipeline CI/CD tramite Jenkins su OpenShift."
+            },
+            {
+              "client": "Faber",
+              "name": "Progetto IoT Asset Monitoring",
+              "img": "assets/Faber_logo_darkforest_P3435C.png",
+              "description": "Monitoraggio real-time sensori industriali IoT. Frontend Angular, backend Express.js, dati sensori gestiti con Cassandra (DB distribuito NoSQL)."
+            },
+            {
+              "client": "Leonardo Velivoli",
+              "name": "Progetto INESS",
+              "img": "assets/leonardo-logo.png",
+              "description": "Sviluppo e manutenzione dell'applicazione INESS (WPF/.NET, MVVM) per logistica aeronautica. Creazione test automatici con Telerik Test Studio e Eggplant, riducendo l'effort QA."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "type": "EDUCATION",
+      "style": "SECTION",
+      "label": "Formazione",
+      "title": "Percorso Accademico",
+      "elements": [
+        {
+          "img": "assets/unipegaso.jpeg",
+          "institution": "Università Pegaso",
+          "degree": "Laurea Triennale in Informatica",
+          "period": "2024 – 2025",
+          "location": "109/110 · Torino",
+          "description": "Incentrato sullo sviluppo software, algoritmi e implementazioni pratiche di progetto."
+        },
+        {
+          "img": "assets/boolean.png",
+          "institution": "Boolean Careers",
+          "degree": "Master in Sviluppo Web",
+          "period": "2021 – 2022",
+          "location": "Milano",
+          "description": "Programma intensivo di 700 ore nello sviluppo web frontend e backend. Progetto finale: applicazione di food delivery sviluppata in team."
+        },
+        {
+          "img": "assets/unipegaso.jpeg",
+          "institution": "Università Pegaso",
+          "degree": "Laurea Magistrale in Ingegneria della Sicurezza",
+          "period": "2019 – 2021",
+          "location": "110/110 con lode · Palermo",
+          "description": "Percorso multidisciplinare in ingegneria della sicurezza: gestione del rischio, resilienza dei sistemi e processi safety-critical, con moduli di sicurezza informatica."
+        },
+        {
+          "img": "assets/unipegaso.jpeg",
+          "institution": "Università Pegaso",
+          "degree": "Laurea Triennale in Ingegneria Civile",
+          "period": "2017 – 2019",
+          "location": "100/110 · Palermo",
+          "description": "Specializzazione in ingegneria strutturale e geotecnica con esperienza pratica nella gestione dei cantieri."
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "type": "PROJECTS",
+      "style": "SECTION",
+      "label": "Lavori",
+      "title": "Progetti",
+      "linkLabel": "Vedi su GitHub",
+      "elements": [
+        {
+          "img": "assets/project_work.png",
+          "name": "University Project Work",
+          "description": "Applicazione web per prenotazione hotel realizzata con Python, HTML e CSS. Framework di routing personalizzato da zero, senza librerie esterne. Funzionalità: autenticazione utente, verifica disponibilità camere, gestione prenotazioni.",
+          "link": "https://github.com/manfre3d/project_work"
+        },
+        {
+          "img": "assets/aipocondriaco.png",
+          "name": "AiPocondriaco",
+          "description": "Web app di analisi sintomi basata su machine learning. L'utente inserisce i sintomi e riceve una lista ordinata di possibili condizioni con informazioni sanitarie dettagliate.",
+          "link": "https://github.com/manfre3d/AiPocondriaco"
+        },
+        {
+          "img": "assets/deliveboo.jpg",
+          "name": "Deliveboo",
+          "description": "Progetto di team — app di food delivery ispirata a Deliveroo. Navigazione ristoranti, menu, tracking ordini, autenticazione utenti e pagamenti sicuri.",
+          "link": "https://github.com/manfre3d/team-7-deliveboo"
+        }
+      ]
+    },
+    {
+      "id": "contacts",
+      "type": "CONTACTS",
+      "style": "SECTION",
+      "label": "Contatti",
+      "mail": "manfredipiraino@gmail.com",
+      "primaryTitleText": "Parliamo",
+      "secondaryTitleText": "Aperto a nuove opportunità e collaborazioni. Scrivimi, rispondo sempre!"
+    },
+    {
+      "id": "footer",
+      "type": "FOOTER",
+      "style": "SECTION",
+      "footerText": "Realizzato con ❤ da Manfredi Piraino",
+      "linkElements": [
+        { "link": "https://github.com/manfre3d",                  "icon": "fa-brands fa-github",   "color": "white" },
+        { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "white" },
+        { "link": "mailto:manfredipiraino@gmail.com",             "icon": "fa-solid fa-envelope",  "color": "white" }
+      ]
+    }
+  ]
+}

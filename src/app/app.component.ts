@@ -1,53 +1,60 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, computed, effect, inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
+import { Meta, Title } from '@angular/platform-browser';
 import { DynamicContainerComponent } from './dynamic-container/dynamic-container.component';
-import { RouterOutlet } from '@angular/router';
-import descriptor from '../descriptor.json'
-import { SharedModule } from './shared/shared.module';
+import { DescriptorSection } from './models/descriptor.model';
+import { LanguageService } from './services/language.service';
+import descriptorEn from '../descriptor.en.json';
+import descriptorIt from '../descriptor.it.json';
+
+const META = {
+  en: {
+    title:         'Manfredi Piraino — Software Engineer',
+    description:   'Portfolio of Manfredi Piraino, Consultant Software Engineer at Blue Reply. Specialised in Angular, Spring Boot, cloud microservices, and enterprise-grade applications.',
+    ogDescription: 'Consultant Software Engineer at Blue Reply. Angular, Spring Boot, cloud microservices, enterprise applications.',
+    locale:        'en_GB',
+  },
+  it: {
+    title:         'Manfredi Piraino — Software Engineer',
+    description:   'Portfolio di Manfredi Piraino, Consultant Software Engineer in Blue Reply. Specializzato in Angular, Spring Boot, microservizi cloud e applicazioni enterprise.',
+    ogDescription: 'Consultant Software Engineer in Blue Reply. Angular, Spring Boot, microservizi cloud, applicazioni enterprise.',
+    locale:        'it_IT',
+  },
+};
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    SharedModule,
-    DynamicContainerComponent
-  ],
+  imports: [DynamicContainerComponent],
   templateUrl: './app.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements OnInit{
-  ngOnInit(): void {
-    //console.log(descriptor)
+export class AppComponent {
+  private langService  = inject(LanguageService);
+  private titleService = inject(Title);
+  private metaService  = inject(Meta);
+  private doc          = inject(DOCUMENT);
+
+  siteStructure = computed<DescriptorSection[]>(() =>
+    this.langService.currentLang() === 'en'
+      ? descriptorEn.sections as unknown as DescriptorSection[]
+      : descriptorIt.sections as unknown as DescriptorSection[]
+  );
+
+  constructor() {
+    effect(() => {
+      const lang = this.langService.currentLang();
+      const m = META[lang];
+
+      this.doc.documentElement.lang = lang;
+      this.titleService.setTitle(m.title);
+      this.metaService.updateTag({ name: 'description',         content: m.description });
+      this.metaService.updateTag({ property: 'og:title',        content: m.title });
+      this.metaService.updateTag({ property: 'og:description',  content: m.ogDescription });
+      this.metaService.updateTag({ property: 'og:locale',       content: m.locale });
+      this.metaService.updateTag({ name: 'twitter:title',       content: m.title });
+      this.metaService.updateTag({ name: 'twitter:description', content: m.ogDescription });
+    });
   }
-  title = 'naw';
-  siteStructure : any = descriptor.sections;
-  // [
-  //   {
-  //     type:"HEADER",
-  //     style:""
-  //   },
-  //   {
-  //     type:"HERO",
-  //     style:"SECTION"
-  //   },
-    
-  //   // {
-  //   //   type:"ABOUT",
-  //   //   style:"SECTION",
-  //   //   elements:[
-  //   //     {
-  //   //       type:"CARD",
-  //   //       style:''
-  //   //     },
-  //   //     {
-  //   //       type:"CARD",
-  //   //       style:''
-  //   //     }
-  //   //   ]
-  //   // },
-  //   // {
-  //   //   type:"FOOTER",
-  //   //   style:""
-  //   // },
-  // ];
 }

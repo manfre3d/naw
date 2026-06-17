@@ -1,57 +1,50 @@
-import { AfterViewInit, Component, Input, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
+import { AfterViewInit, Component, ChangeDetectionStrategy, inject, input } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
-import { AboutComponent } from '../about/about.component';
-import { DynamicCardComponent } from '../dynamic-card/dynamic-card.component';
 import { ContactsComponent } from '../contacts/contacts.component';
-import { SharedModule } from '../shared/shared.module';
+import { ProjectsComponent } from '../projects/projects.component';
+import { SkillsComponent } from '../skills/skills.component';
+import { ExperienceComponent } from '../experience/experience.component';
+import { EducationComponent } from '../education/education.component';
+import {
+  DescriptorSection, HeaderSection, HeroSection, SkillsSection,
+  ExperienceSection, EducationSection, ProjectsSection, ContactsSection, FooterSection
+} from '../models/descriptor.model';
+import { ScrollAnimationService } from '../services/scroll-animation.service';
 
 @Component({
   selector: 'app-dynamic-single-container',
   standalone: true,
   imports: [
-    SharedModule,
     HeroComponent,
     FooterComponent,
     HeaderComponent,
-    DynamicCardComponent,
-    AboutComponent,
     ContactsComponent,
+    ProjectsComponent,
+    SkillsComponent,
+    ExperienceComponent,
+    EducationComponent,
   ],
   templateUrl: './dynamic-single-container.component.html',
-  styleUrls: [
-    './dynamic-single-container.component.scss', // Corrected from 'styleUrl' to 'styleUrls'
-  ],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styleUrl: './dynamic-single-container.component.scss',
 })
 export class DynamicSingleContainerComponent implements AfterViewInit {
-  @Input() section: any;
+  section = input.required<DescriptorSection>();
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  private scrollAnimation = inject(ScrollAnimationService);
 
   ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      this.onScrollAnimationInit();
-    }
+    this.scrollAnimation.init();
   }
 
-  onScrollAnimationInit(): void {
-    if ('IntersectionObserver' in window) {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('show');
-          } else {
-            entry.target.classList.remove('show');
-          }
-        });
-      });
-
-      const hiddenElements = document.querySelectorAll('.hidden');
-      hiddenElements.forEach((element) => observer.observe(element));
-    } else {
-      console.warn('IntersectionObserver is not supported in this browser.');
-    }
-  }
+  asHeader(s: DescriptorSection) { return s as HeaderSection; }
+  asHero(s: DescriptorSection) { return s as HeroSection; }
+  asSkills(s: DescriptorSection) { return s as SkillsSection; }
+  asExperience(s: DescriptorSection) { return s as ExperienceSection; }
+  asEducation(s: DescriptorSection) { return s as EducationSection; }
+  asProjects(s: DescriptorSection) { return s as ProjectsSection; }
+  asContacts(s: DescriptorSection) { return s as ContactsSection; }
+  asFooter(s: DescriptorSection) { return s as FooterSection; }
 }

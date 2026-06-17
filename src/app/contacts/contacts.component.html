@@ -1,7 +1,9 @@
-<div class="contacts_formatting">
-    <h2 class="full-with_alligned contact_title">{{subDescriptor.primaryTitleText}}</h2>
-    <h4 class="full-with_alligned contact_sub_title">{{subDescriptor.secondaryTitleText}}</h4>
-    <button type="button" class="my-2 btn btn-dark custom_button_formatting">
-        <a href="mailto:{{subDescriptor?.mail}}">{{subDescriptor?.mail}}</a>
-    </button>
+<div class="section-wrapper contacts-wrapper">
+  <p class="section-label">{{ subDescriptor().label }}</p>
+  <h2 class="section-title">{{ subDescriptor().primaryTitleText }}</h2>
+  <p class="contacts-sub">{{ subDescriptor().secondaryTitleText }}</p>
+  <a href="mailto:{{ subDescriptor().mail }}" class="contacts-email">
+    {{ subDescriptor().mail }}
+    <i class="fa-solid fa-arrow-right"></i>
+  </a>
 </div>

@@ -1,55 +1,68 @@
-.et-hero-tabs-container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    height: 100%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    background: #fff;
-
-}
-.et-hero-tab {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1;
-    color: #000;
-    letter-spacing: 0.1rem;
-    transition: all 0.5s ease;
-    font-size: 0.8rem;
-
-    &:hover {
-        color: white;
-        background: rgba(102, 177, 241, 0.8);
-        transition: all 0.5s ease;
-    }
-}
-a {
-    text-decoration: none;
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.et-hero-tab-slider {
-    position: absolute;
-    bottom: 0;
-    width: 0;
-    height: 6px;
-    background: #66B1F1;
-    transition: left 0.3s ease;
+.nav-brand {
+  font-family: 'Space Mono', monospace;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+
+  .accent { color: var(--color-accent); }
 }
 
-@media (min-width: 800px) {
+.nav-links {
+  display: flex;
+  gap: 2rem;
 
-    .et-hero-tabs,
-    .et-slide {
-        h1 {
-            font-size: 3rem;
-        }
+  @media (max-width: 600px) {
+    gap: 1rem;
+  }
+}
 
-        h3 {
-            font-size: 1rem;
-        }
-    }
+.nav-link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+  transition: color var(--transition-fast);
 
-    .et-hero-tab {
-        font-size: 1rem;
-    }
+  &:hover { color: var(--color-text); }
+}
+
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+}
+
+.lang-sep {
+  font-size: 0.75rem;
+  color: var(--color-border);
+  user-select: none;
+}
+
+.lang-btn {
+  background: none;
+  border: none;
+  padding: 0.15rem 0.25rem;
+  font-size: 0.72rem;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--color-muted);
+  cursor: pointer;
+  transition: color var(--transition-fast);
+
+  &:hover { color: var(--color-text); }
+
+  &.active {
+    color: var(--color-accent);
+  }
 }

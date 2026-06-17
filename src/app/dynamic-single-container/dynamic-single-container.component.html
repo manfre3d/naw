@@ -1,9 +1,28 @@
-
-<section [ngClass]="section.type==='HEADER'?'sticky':''" class="row gx-0 hidden"
- [ngSwitch]="section.type">
-    <app-header id="{{section.id}}" class="col-12" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'HEADER'"/>
-    <app-hero id="{{section.id}}" class="col-12 px-0" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'HERO'"/>
-    <app-about id="{{section.id}}" class="col-12" [subDescriptor]="section.elements" [class]="section.style?'SECTION':''" *ngSwitchCase="'ABOUT'"/>
-    <app-contacts id="{{section.id}}" class="col-12" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'CONTACTS'"/>
-    <app-footer id="{{section.id}}" class="col-12 footer" [subDescriptor]="section" [class]="section.style?'SECTION':''" *ngSwitchCase="'FOOTER'"/>
+<section [class.sticky]="section().type === 'HEADER'" class="row gx-0 hidden">
+  @switch (section().type) {
+    @case ('HEADER') {
+      <app-header id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asHeader(section())" />
+    }
+    @case ('HERO') {
+      <app-hero id="{{ section().id }}" class="col-12 hero" [class.SECTION]="section().style" [subDescriptor]="asHero(section())" />
+    }
+    @case ('SKILLS') {
+      <app-skills id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asSkills(section())" />
+    }
+    @case ('EXPERIENCE') {
+      <app-experience id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asExperience(section())" />
+    }
+    @case ('EDUCATION') {
+      <app-education id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asEducation(section())" />
+    }
+    @case ('PROJECTS') {
+      <app-projects id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asProjects(section())" />
+    }
+    @case ('CONTACTS') {
+      <app-contacts id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asContacts(section())" />
+    }
+    @case ('FOOTER') {
+      <app-footer id="{{ section().id }}" class="col-12 footer" [class.SECTION]="section().style" [subDescriptor]="asFooter(section())" />
+    }
+  }
 </section>

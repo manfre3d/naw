@@ -1,10 +1,12 @@
-<footer class="footer_formatting">
-  <div *ngFor="let link of subDescriptor.linkElements" class="{{link.color}} icon_links_container_formatting">
-    <a href="{{link.link}}" target="_blank">
-      <i class="{{link.icon}}"></i>
-    </a>
+<footer class="footer-inner">
+  <div class="footer-socials">
+    @for (link of subDescriptor().linkElements; track link.link) {
+      <a [href]="link.link" target="_blank" rel="noopener" class="social-icon" [attr.aria-label]="link.icon">
+        <i [class]="link.icon"></i>
+      </a>
+    }
   </div>
-  <span class="p-2 bottom_text_formatting">
-    Made with <i class='fa fa-heart pulse fa-beat'></i> by Manfredi Piraino!
-  </span>
+  <p class="footer-copy">
+    {{ subDescriptor().footerText }}
+  </p>
 </footer>
