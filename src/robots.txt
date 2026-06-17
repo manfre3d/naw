@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://manfre3d.github.io/naw/sitemap.xml
