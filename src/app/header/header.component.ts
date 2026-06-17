@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, inject, input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, input, signal } from '@angular/core';
 import { HeaderSection } from '../models/descriptor.model';
 import { LanguageService } from '../services/language.service';
 
@@ -13,4 +13,5 @@ import { LanguageService } from '../services/language.service';
 export class HeaderComponent {
   subDescriptor = input.required<HeaderSection>();
   langService = inject(LanguageService);
+  menuOpen = signal(false);
 }

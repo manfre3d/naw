@@ -21,8 +21,8 @@
   display: flex;
   gap: 2rem;
 
-  @media (max-width: 600px) {
-    gap: 1rem;
+  @media (max-width: 768px) {
+    display: none;
   }
 }
 
@@ -34,6 +34,13 @@
   transition: color var(--transition-fast);
 
   &:hover { color: var(--color-text); }
+}
+
+// --- Right slot: lang toggle + hamburger ---
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .lang-toggle {
@@ -60,9 +67,70 @@
   cursor: pointer;
   transition: color var(--transition-fast);
 
-  &:hover { color: var(--color-text); }
+  &:hover  { color: var(--color-text); }
+  &.active { color: var(--color-accent); }
+}
 
-  &.active {
-    color: var(--color-accent);
+// --- Hamburger button ---
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+
+  span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--color-text);
+    border-radius: 2px;
+    transition: transform 0.22s ease, opacity 0.22s ease;
+  }
+
+  &.open {
+    span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  }
+
+  @media (max-width: 768px) {
+    display: flex;
+  }
+}
+
+// --- Mobile dropdown ---
+.mobile-menu {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.28s ease;
+
+  &.open {
+    max-height: 400px;
+  }
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+}
+
+.mobile-link {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-muted);
+  padding: 0.75rem 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-fast), background-color var(--transition-fast);
+
+  &:first-child { border-top: 1px solid var(--color-border); }
+  &:last-child  { border-bottom: none; }
+
+  &:hover {
+    color: var(--color-text);
+    background-color: var(--color-surface-2);
   }
 }
