@@ -1,16 +1,41 @@
-import { AngularAppEngine, createRequestHandler } from '@angular/ssr';
-import { getAllowedHosts, getContext, getTrustProxyHeaders } from '@netlify/angular-runtime/app-engine.js';
+import { AngularNodeAppEngine, createNodeRequestHandler, isMainModule, writeResponseToNodeResponse } from '@angular/ssr/node';
+import express from 'express';
+import { fileURLToPath } from 'node:url';
+import { dirname, resolve } from 'node:path';
 
-const angularAppEngine = new AngularAppEngine({
-  allowedHosts: getAllowedHosts(),
-  trustProxyHeaders: getTrustProxyHeaders(),
-});
+const serverDistFolder = dirname(fileURLToPath(import.meta.url));
+const browserDistFolder = resolve(serverDistFolder, '../browser');
 
-export async function netlifyAppEngineHandler(request: Request): Promise<Response> {
-  const context = getContext();
+export function app(): express.Express {
+  const server = express();
+  const angularApp = new AngularNodeAppEngine();
 
-  const result = await angularAppEngine.handle(request, context);
-  return result || new Response('Not found', { status: 404 });
+  server.get('*.*', express.static(browserDistFolder, { maxAge: '1y' }));
+
+  server.use('/**', createNodeRequestHandler(async (req, res, next) => {
+    try {
+      const response = await angularApp.handle(req, { server: 'express' });
+      if (response) {
+        await writeResponseToNodeResponse(response, res);
+      } else {
+        next();
+      }
+    } catch (err) {
+      next(err);
+    }
+  }));
+
+  return server;
 }
 
-export const reqHandler = createRequestHandler(netlifyAppEngineHandler);
+function run(): void {
+  const port = process.env['PORT'] || 4000;
+  const server = app();
+  server.listen(port, () => {
+    console.log(`Node Express server listening on http://localhost:${port}`);
+  });
+}
+
+if (isMainModule(import.meta.url)) {
+  run();
+}
