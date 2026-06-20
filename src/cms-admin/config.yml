@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: manfre3d/naw
+  name: git-gateway
   branch: tahiana
-  auth_type: pkce
-  client_id: Ov23liFWIfLqvxM2MAih
 
 media_folder: src/assets
 public_folder: /assets
