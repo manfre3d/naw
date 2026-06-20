@@ -1,6 +1,9 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: manfre3d/naw
   branch: tahiana
+  auth_type: pkce
+  client_id: INSERISCI_CLIENT_ID_QUI
 
 media_folder: src/assets
 public_folder: /assets
