@@ -6,6 +6,9 @@
     @case ('HERO') {
       <app-hero id="{{ section().id }}" class="col-12 hero" [class.SECTION]="section().style" [subDescriptor]="asHero(section())" />
     }
+    @case ('ABOUT') {
+      <app-about id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asAbout(section())" />
+    }
     @case ('SKILLS') {
       <app-skills id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asSkills(section())" />
     }

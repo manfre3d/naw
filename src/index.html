@@ -2,40 +2,40 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Manfredi Piraino — Software Engineer</title>
+    <title>Tahiana Olivia — Digital Communication & International Cooperation</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="index, follow" />
-    <meta name="author" content="Manfredi Piraino" />
-    <meta name="theme-color" content="#FAFAF8" />
+    <meta name="author" content="Tahiana Olivia Rakotonjanahary" />
+    <meta name="theme-color" content="#F8F4EE" />
 
     <!-- Primary description (updated dynamically per language) -->
-    <meta name="description" content="Portfolio of Manfredi Piraino, Consultant Software Engineer at Blue Reply. Specialised in Angular, Spring Boot, cloud microservices, and enterprise-grade applications." />
+    <meta name="description" content="Portfolio of Tahiana Olivia Rakotonjanahary, Digital Communication & Social Media professional specialised in International Cooperation for Development." />
 
     <!-- Canonical -->
     <link rel="canonical" href="https://manfre3d.github.io/naw/" />
 
-    <!-- Hreflang (single-page, same URL for both languages) -->
+    <!-- Hreflang -->
     <link rel="alternate" hreflang="en" href="https://manfre3d.github.io/naw/" />
     <link rel="alternate" hreflang="it" href="https://manfre3d.github.io/naw/" />
     <link rel="alternate" hreflang="x-default" href="https://manfre3d.github.io/naw/" />
 
     <!-- Open Graph -->
     <meta property="og:type"        content="website" />
-    <meta property="og:site_name"   content="Manfredi Piraino" />
+    <meta property="og:site_name"   content="Tahiana Olivia" />
     <meta property="og:locale"      content="en_GB" />
     <meta property="og:url"         content="https://manfre3d.github.io/naw/" />
-    <meta property="og:title"       content="Manfredi Piraino — Software Engineer" />
-    <meta property="og:description" content="Consultant Software Engineer at Blue Reply. Angular, Spring Boot, cloud microservices, enterprise applications." />
+    <meta property="og:title"       content="Tahiana Olivia — Digital Communication & International Cooperation" />
+    <meta property="og:description" content="Digital Communication & Social Media | International Cooperation for Development. Based in Turin, Italy." />
     <meta property="og:image"       content="https://manfre3d.github.io/naw/assets/metadata_img.png" />
     <meta property="og:image:width"  content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt"    content="Manfredi Piraino — Software Engineer portfolio" />
+    <meta property="og:image:alt"    content="Tahiana Olivia — Digital Communication portfolio" />
 
     <!-- Twitter / X Card -->
     <meta name="twitter:card"        content="summary_large_image" />
-    <meta name="twitter:title"       content="Manfredi Piraino — Software Engineer" />
-    <meta name="twitter:description" content="Consultant Software Engineer at Blue Reply. Angular, Spring Boot, cloud microservices, enterprise applications." />
+    <meta name="twitter:title"       content="Tahiana Olivia — Digital Communication & International Cooperation" />
+    <meta name="twitter:description" content="Digital Communication & Social Media | International Cooperation for Development." />
     <meta name="twitter:image"       content="https://manfre3d.github.io/naw/assets/metadata_img.png" />
 
     <!-- JSON-LD Structured Data -->
@@ -43,24 +43,22 @@
     {
       "@context": "https://schema.org",
       "@type": "Person",
-      "name": "Manfredi Piraino",
-      "jobTitle": "Consultant Software Engineer",
+      "name": "Tahiana Olivia Rakotonjanahary",
+      "jobTitle": "Digital Communication & Social Media Specialist",
       "worksFor": {
         "@type": "Organization",
-        "name": "Blue Reply"
+        "name": "Good Shepherd International Foundation ETS"
       },
       "url": "https://manfre3d.github.io/naw/",
-      "email": "manfredipiraino@gmail.com",
       "sameAs": [
-        "https://github.com/manfre3d",
-        "https://www.linkedin.com/in/manfredi-piraino"
+        "https://www.linkedin.com/in/tahianaolivia/"
       ],
       "knowsAbout": [
-        "Angular", "TypeScript", "Spring Boot", "Java",
-        "Microservices", "Apache Kafka", "Apache Camel",
-        "Docker", "Kubernetes", "AWS", "Azure", "OpenShift",
-        "Cloud Computing", "Enterprise Software"
-      ]
+        "Digital Communication", "Social Media Management", "Content Creation",
+        "International Cooperation", "Development Projects", "Advocacy",
+        "Copywriting", "Storytelling", "Community Management"
+      ],
+      "knowsLanguage": ["fr", "it", "en", "mg"]
     }
     </script>
 
@@ -74,5 +72,18 @@
   </head>
   <body>
     <app-root></app-root>
+    <!-- Netlify Identity: gestisce il redirect dopo conferma email per l'admin CMS -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function(user) {
+          if (!user) {
+            window.netlifyIdentity.on('login', function() {
+              document.location.href = '/admin/';
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>

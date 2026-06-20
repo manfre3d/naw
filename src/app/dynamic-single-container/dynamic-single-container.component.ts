@@ -7,8 +7,9 @@ import { ProjectsComponent } from '../projects/projects.component';
 import { SkillsComponent } from '../skills/skills.component';
 import { ExperienceComponent } from '../experience/experience.component';
 import { EducationComponent } from '../education/education.component';
+import { AboutComponent } from '../about/about.component';
 import {
-  DescriptorSection, HeaderSection, HeroSection, SkillsSection,
+  DescriptorSection, HeaderSection, HeroSection, AboutSection, SkillsSection,
   ExperienceSection, EducationSection, ProjectsSection, ContactsSection, FooterSection
 } from '../models/descriptor.model';
 import { ScrollAnimationService } from '../services/scroll-animation.service';
@@ -25,6 +26,7 @@ import { ScrollAnimationService } from '../services/scroll-animation.service';
     SkillsComponent,
     ExperienceComponent,
     EducationComponent,
+    AboutComponent,
   ],
   templateUrl: './dynamic-single-container.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -41,6 +43,7 @@ export class DynamicSingleContainerComponent implements AfterViewInit {
 
   asHeader(s: DescriptorSection) { return s as HeaderSection; }
   asHero(s: DescriptorSection) { return s as HeroSection; }
+  asAbout(s: DescriptorSection) { return s as AboutSection; }
   asSkills(s: DescriptorSection) { return s as SkillsSection; }
   asExperience(s: DescriptorSection) { return s as ExperienceSection; }
   asEducation(s: DescriptorSection) { return s as EducationSection; }

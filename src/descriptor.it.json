@@ -1,263 +1,243 @@
 {
-  "sections": [
-    {
-      "id": "header",
-      "type": "HEADER",
-      "animation": false,
-      "nav": {
-        "navigationList": [
-          { "description": "Home",        "link": "#home" },
-          { "description": "Competenze",  "link": "#skills" },
-          { "description": "Esperienza",  "link": "#experience" },
-          { "description": "Formazione",  "link": "#education" },
-          { "description": "Progetti",    "link": "#projects" },
-          { "description": "Contatti",    "link": "#contacts" }
-        ]
-      }
-    },
-    {
-      "id": "home",
-      "type": "HERO",
-      "style": "SECTION",
-      "imgPath": "assets/profesional_profile_picture_mp.png",
-      "primaryHeaderText": "Manfredi Piraino",
-      "bio": "Consultant Software Engineer in Blue Reply. Realizzo applicazioni enterprise con Angular, Spring Boot e microservizi cloud.",
-      "availableForWork": true,
-      "availableBadge": "Disponibile per nuove opportunità",
-      "cvPath": "assets/cv_manfredi_piraino_ita_2026.pdf",
-      "ctaDownload": "Scarica il CV",
-      "ctaContact": "Contattami",
-      "typingPhrases": [
-        "Enterprise Full Stack Engineer",
-        "AI & Cloud Native Developer",
-        "Scalable Systems Architect"
-      ],
-      "linkElements": [
-        { "link": "https://github.com/manfre3d",                    "icon": "fa-brands fa-github",   "color": "white" },
-        { "link": "https://www.linkedin.com/in/manfredi-piraino",   "icon": "fa-brands fa-linkedin", "color": "white" },
-        { "link": "mailto:manfredipiraino@gmail.com",               "icon": "fa-solid fa-envelope",  "color": "white" }
-      ]
-    },
-    {
-      "id": "skills",
-      "type": "SKILLS",
-      "style": "SECTION",
-      "label": "Tecnologie",
-      "title": "Tech Stack",
-      "categories": [
-        {
-          "name": "Frontend",
-          "skills": [
-            { "name": "Angular",    "icon": "fa-brands fa-angular" },
-            { "name": "TypeScript" },
-            { "name": "Vue.js",     "icon": "fa-brands fa-vuejs" },
-            { "name": "HTML / CSS" },
-            { "name": "Bootstrap" }
-          ]
-        },
-        {
-          "name": "Backend",
-          "skills": [
-            { "name": "Spring Boot" },
-            { "name": "Java" },
-            { "name": "Apache Camel" },
-            { "name": "Express.js", "icon": "fa-brands fa-node-js" },
-            { "name": "Flask" },
-            { "name": ".NET / WPF" }
-          ]
-        },
-        {
-          "name": "Database",
-          "skills": [
-            { "name": "Oracle" },
-            { "name": "SQL Server" },
-            { "name": "PostgreSQL" },
-            { "name": "Cassandra" }
-          ]
-        },
-        {
-          "name": "Messaggistica & Integrazione",
-          "skills": [
-            { "name": "Apache Kafka" },
-            { "name": "ESB / Apache Camel" },
-            { "name": "REST APIs" }
-          ]
-        },
-        {
-          "name": "Cloud & DevOps",
-          "skills": [
-            { "name": "Docker",       "icon": "fa-brands fa-docker" },
-            { "name": "Kubernetes" },
-            { "name": "AWS",          "icon": "fa-brands fa-aws" },
-            { "name": "Azure" },
-            { "name": "OpenShift" },
-            { "name": "Jenkins" },
-            { "name": "CI/CD Pipeline" },
-            { "name": "Git",          "icon": "fa-brands fa-git-alt" }
-          ]
-        },
-        {
-          "name": "Monitoraggio",
-          "skills": [
-            { "name": "Kibana" },
-            { "name": "Dynatrace" },
-            { "name": "Splunk" }
-          ]
-        },
-        {
-          "name": "AI & Dati",
-          "skills": [
-            { "name": "OpenAI API" },
-            { "name": "Vector Databases" },
-            { "name": "Embeddings" },
-            { "name": "Python", "icon": "fa-brands fa-python" }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "experience",
-      "type": "EXPERIENCE",
-      "style": "SECTION",
-      "label": "Carriera",
-      "title": "Esperienza Lavorativa",
-      "elements": [
-        {
-          "company": "Blue Reply",
-          "role": "Consultant Software Engineer",
-          "period": "2026 – Presente",
-          "img": "assets/blue_reply_it_logo.jpg",
-          "projects": [
-            {
-              "client": "Avio Aero",
-              "name": "Sviluppo Applicativo Aeronautico",
-              "img": "assets/geavioaero_logo.jpg",
-              "description": "Sviluppo e manutenzione di un applicativo critico per il motore EJ200 dell'Eurofighter. Migrazione da architettura monolitica a microservizi e implementazione di nuove funzionalità in collaborazione con team cross-funzionali."
-            }
-          ]
-        },
-        {
-          "company": "Bit S.p.A.",
-          "role": "Full Stack Software Engineer · consulente per Blue Reply",
-          "period": "2022 – 2025",
-          "img": "assets/bit-logo.png",
-          "projects": [
-            {
-              "client": "Reale Mutua Assicurazioni",
-              "name": "Progetto Vites",
-              "img": "assets/reale-mutua-logo.png",
-              "description": "Sviluppatore chiave per la trasformazione digitale dei sistemi assicurativi enterprise. Progettazione di un generatore di interfacce JSON-configurable integrato con microservizi Spring Boot, con riduzione >50% dei tempi di implementazione frontend. Frontend Angular moderno e scalabile."
-            },
-            {
-              "client": "BPER Banca",
-              "name": "Progetto Middleware ESB",
-              "img": "assets/bper_logo.png",
-              "description": "Sviluppo e manutenzione microservizi layer ESB con Apache Camel e Spring Boot. Gestione code Kafka per message brokering tra sistemi core bancari. Monitoring con Kibana e Dynatrace. Pipeline CI/CD tramite Jenkins su OpenShift."
-            },
-            {
-              "client": "Faber",
-              "name": "Progetto IoT Asset Monitoring",
-              "img": "assets/Faber_logo_darkforest_P3435C.png",
-              "description": "Monitoraggio real-time sensori industriali IoT. Frontend Angular, backend Express.js, dati sensori gestiti con Cassandra (DB distribuito NoSQL)."
-            },
-            {
-              "client": "Leonardo Velivoli",
-              "name": "Progetto INESS",
-              "img": "assets/leonardo-logo.png",
-              "description": "Sviluppo e manutenzione dell'applicazione INESS (WPF/.NET, MVVM) per logistica aeronautica. Creazione test automatici con Telerik Test Studio e Eggplant, riducendo l'effort QA."
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "education",
-      "type": "EDUCATION",
-      "style": "SECTION",
-      "label": "Formazione",
-      "title": "Percorso Accademico",
-      "elements": [
-        {
-          "img": "assets/unipegaso.jpeg",
-          "institution": "Università Pegaso",
-          "degree": "Laurea Triennale in Informatica",
-          "period": "2024 – 2025",
-          "location": "109/110 · Torino",
-          "description": "Incentrato sullo sviluppo software, algoritmi e implementazioni pratiche di progetto."
-        },
-        {
-          "img": "assets/boolean.png",
-          "institution": "Boolean Careers",
-          "degree": "Master in Sviluppo Web",
-          "period": "2021 – 2022",
-          "location": "Milano",
-          "description": "Programma intensivo di 700 ore nello sviluppo web frontend e backend. Progetto finale: applicazione di food delivery sviluppata in team."
-        },
-        {
-          "img": "assets/unipegaso.jpeg",
-          "institution": "Università Pegaso",
-          "degree": "Laurea Magistrale in Ingegneria della Sicurezza",
-          "period": "2019 – 2021",
-          "location": "110/110 con lode · Palermo",
-          "description": "Percorso multidisciplinare in ingegneria della sicurezza: gestione del rischio, resilienza dei sistemi e processi safety-critical, con moduli di sicurezza informatica."
-        },
-        {
-          "img": "assets/unipegaso.jpeg",
-          "institution": "Università Pegaso",
-          "degree": "Laurea Triennale in Ingegneria Civile",
-          "period": "2017 – 2019",
-          "location": "100/110 · Palermo",
-          "description": "Specializzazione in ingegneria strutturale e geotecnica con esperienza pratica nella gestione dei cantieri."
-        }
-      ]
-    },
-    {
-      "id": "projects",
-      "type": "PROJECTS",
-      "style": "SECTION",
-      "label": "Lavori",
-      "title": "Progetti",
-      "linkLabel": "Vedi su GitHub",
-      "elements": [
-        {
-          "img": "assets/project_work.png",
-          "name": "University Project Work",
-          "description": "Applicazione web per prenotazione hotel realizzata con Python, HTML e CSS. Framework di routing personalizzato da zero, senza librerie esterne. Funzionalità: autenticazione utente, verifica disponibilità camere, gestione prenotazioni.",
-          "link": "https://github.com/manfre3d/project_work"
-        },
-        {
-          "img": "assets/aipocondriaco.png",
-          "name": "AiPocondriaco",
-          "description": "Web app di analisi sintomi basata su machine learning. L'utente inserisce i sintomi e riceve una lista ordinata di possibili condizioni con informazioni sanitarie dettagliate.",
-          "link": "https://github.com/manfre3d/AiPocondriaco"
-        },
-        {
-          "img": "assets/deliveboo.jpg",
-          "name": "Deliveboo",
-          "description": "Progetto di team — app di food delivery ispirata a Deliveroo. Navigazione ristoranti, menu, tracking ordini, autenticazione utenti e pagamenti sicuri.",
-          "link": "https://github.com/manfre3d/team-7-deliveboo"
-        }
-      ]
-    },
-    {
-      "id": "contacts",
-      "type": "CONTACTS",
-      "style": "SECTION",
-      "label": "Contatti",
-      "mail": "manfredipiraino@gmail.com",
-      "primaryTitleText": "Parliamo",
-      "secondaryTitleText": "Aperto a nuove opportunità e collaborazioni. Scrivimi, rispondo sempre!"
-    },
-    {
-      "id": "footer",
-      "type": "FOOTER",
-      "style": "SECTION",
-      "footerText": "Realizzato con ❤ da Manfredi Piraino",
-      "linkElements": [
-        { "link": "https://github.com/manfre3d",                  "icon": "fa-brands fa-github",   "color": "white" },
-        { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "white" },
-        { "link": "mailto:manfredipiraino@gmail.com",             "icon": "fa-solid fa-envelope",  "color": "white" }
+  "header": {
+    "id": "header",
+    "type": "HEADER",
+    "animation": false,
+    "nav": {
+      "navigationList": [
+        { "description": "Home",        "link": "#home" },
+        { "description": "Chi sono",    "link": "#about" },
+        { "description": "Competenze",  "link": "#skills" },
+        { "description": "Esperienza",  "link": "#experience" },
+        { "description": "Formazione",  "link": "#education" },
+        { "description": "Contatti",    "link": "#contacts" }
       ]
     }
-  ]
+  },
+  "hero": {
+    "id": "home",
+    "type": "HERO",
+    "style": "SECTION",
+    "imgPath": "assets/profile_tahiana.png",
+    "primaryHeaderText": "Tahiana Olivia",
+    "bio": "UX Designer e Comunicatrice Strategica. Quattro lingue, cinque organizzazioni, una missione: rendere la complessità umana.",
+    "availableForWork": true,
+    "availableBadge": "Aperta a nuove opportunità",
+    "cvPath": "assets/cv_tahiana_ita.pdf",
+    "ctaDownload": "Scarica il CV",
+    "ctaContact": "Contattami",
+    "typingPhrases": [
+      "Digital Communications Specialist",
+      "International Development Advocate",
+      "Social Media Strategist"
+    ],
+    "linkElements": [
+      { "link": "https://www.linkedin.com/in/tahianaolivia/", "icon": "fa-brands fa-linkedin", "color": "white" },
+      { "link": "mailto:", "icon": "fa-solid fa-envelope", "color": "white" }
+    ]
+  },
+  "about": {
+    "id": "about",
+    "type": "ABOUT",
+    "style": "SECTION",
+    "label": "La mia storia",
+    "title": "Dalle Lingue al Design",
+    "paragraphs": [
+      "Il mio percorso inizia con le lingue. La laurea in Scienze della Mediazione Linguistica all'Università di Torino mi ha dato gli strumenti per costruire ponti tra culture e comunicare oltre i confini. Più che tradurre parole, ho imparato a capire cosa le persone intendono davvero e di cosa hanno bisogno.",
+      "Il Master in Relazioni Internazionali e l'Erasmus a Lione mi hanno portata dentro la complessità della cooperazione globale. Lavorare in organizzazioni come Compassion Italia, Interreg ALCOTRA, CO.P.E. e Good Shepherd International Foundation mi ha confermato qualcosa di essenziale: la comunicazione significativa non riguarda solo il messaggio. Riguarda le persone, il loro contesto e gli ostacoli che le separano da ciò di cui hanno bisogno.",
+      "È questa consapevolezza che mi spinge verso lo UX Design. Ascoltare in profondità, semplificare la complessità e creare storie che connettono culture diverse: sono esattamente le competenze che il grande design richiede."
+    ],
+    "highlights": [
+      { "value": "4",  "label": "Lingue parlate" },
+      { "value": "5+", "label": "Anni di esperienza" },
+      { "value": "4",  "label": "Organizzazioni internazionali" },
+      { "value": "2",  "label": "Master completati" }
+    ]
+  },
+  "skills": {
+    "id": "skills",
+    "type": "SKILLS",
+    "style": "SECTION",
+    "label": "Cosa faccio",
+    "title": "Competenze & Strumenti",
+    "categories": [
+      {
+        "name": "UX & Design",
+        "skills": [
+          { "name": "Figma" },
+          { "name": "Canva (Avanzato)" },
+          { "name": "Ricerca Utenti" },
+          { "name": "Wireframing" },
+          { "name": "Prototipazione" },
+          { "name": "Architettura dell'Informazione" }
+        ]
+      },
+      {
+        "name": "Comunicazione",
+        "skills": [
+          { "name": "Strategia dei Contenuti" },
+          { "name": "Copywriting & Revisione" },
+          { "name": "Community Management" },
+          { "name": "Gestione Social Media" },
+          { "name": "Storytelling" }
+        ]
+      },
+      {
+        "name": "Strumenti & Piattaforme",
+        "skills": [
+          { "name": "Meta Business Suite" },
+          { "name": "Microsoft Excel" },
+          { "name": "WordPress" }
+        ]
+      },
+      {
+        "name": "Lingue",
+        "skills": [
+          { "name": "Francese (Madrelingua)" },
+          { "name": "Malgascio (Madrelingua)" },
+          { "name": "Italiano (Fluente)" },
+          { "name": "Inglese (Fluente)" }
+        ]
+      }
+    ]
+  },
+  "experience": {
+    "id": "experience",
+    "type": "EXPERIENCE",
+    "style": "SECTION",
+    "label": "Carriera",
+    "title": "Esperienza Lavorativa",
+    "elements": [
+      {
+        "img": "assets/good_shepherd_international_foundation_logo.jpg",
+        "company": "Good Shepherd International Foundation ETS",
+        "role": "Digital Communication & Social Media",
+        "period": "Apr 2026 – Presente",
+        "projects": [
+          {
+            "client": "Good Shepherd International Foundation",
+            "name": "Comunicazione Digitale",
+            "description": "Amplifica la presenza digitale della Fondazione gestendo i social media e i contenuti per sostenere le iniziative di advocacy e sviluppo sostenibile a livello internazionale."
+          }
+        ]
+      },
+      {
+        "img": "assets/COPE_LOGO.jpg",
+        "company": "NGO CO.P.E. Cooperazione Paesi Emergenti",
+        "role": "Responsabile Amministrativa di Progetto",
+        "period": "Mar 2025 – Nov 2025",
+        "projects": [
+          {
+            "client": "CO.P.E.",
+            "name": "Progetti di Cooperazione allo Sviluppo",
+            "description": "Ha coordinato programmi di cooperazione allo sviluppo in paesi emergenti, gestendo le relazioni con gli stakeholder, la documentazione di progetto e la rendicontazione, garantendo il rispetto delle procedure e delle scadenze in contesti internazionali complessi."
+          }
+        ]
+      },
+      {
+        "img": "assets/INTERREG_LOGO.jpg",
+        "company": "Interreg France-Italia ALCOTRA",
+        "role": "Interreg Reporter",
+        "period": "Lug 2024 – Dic 2024",
+        "projects": [
+          {
+            "client": "Interreg ALCOTRA",
+            "name": "Comunicazione Transfrontaliera",
+            "description": "Ha contribuito al programma di cooperazione transfrontaliera France-Italia ALCOTRA producendo contenuti per siti web istituzionali e curando la revisione editoriale di pubblicazioni multilingue, assicurando comunicazioni chiare e coerenti tra i partner."
+          }
+        ]
+      },
+      {
+        "img": "assets/compassionitalia_logo.jpg",
+        "company": "Compassion Italia Onlus",
+        "role": "Assistente Marketing e Comunicazione",
+        "period": "Set 2023 – Dic 2023",
+        "projects": [
+          {
+            "client": "Compassion Italia",
+            "name": "Marketing & Comunicazione",
+            "description": "Ha supportato le attività di marketing e comunicazione di una ONG dedicata allo sviluppo infantile, contribuendo alla creazione di contenuti, alla gestione dei social media e alla comunicazione eventi, mantenendo una presenza digitale coerente e coinvolgente."
+          }
+        ]
+      },
+      {
+        "img": "assets/salesiani_icc-logo-seo.png",
+        "company": "Oratorio Salesiano Don Bosco",
+        "role": "Assistente di Progetto & Volontaria",
+        "period": "Nov 2020 – Feb 2022",
+        "projects": [
+          {
+            "client": "Oratorio Don Bosco",
+            "name": "Servizio Civile: Assistente di Progetto",
+            "description": "Ha fornito supporto al coordinamento di progetti, tutoraggio giovanile e animazione nell'ambito di un tirocinio di servizio civile, contribuendo attivamente ai programmi educativi e comunitari dell'oratorio."
+          },
+          {
+            "client": "Oratorio Don Bosco",
+            "name": "Volontariato",
+            "description": "Ha prestato volontariato come tutor e operatrice di supporto, offrendo accompagnamento individuale e aiuto allo studio ai giovani partecipanti ai programmi comunitari dell'oratorio."
+          }
+        ]
+      }
+    ]
+  },
+  "education": {
+    "id": "education",
+    "type": "EDUCATION",
+    "style": "SECTION",
+    "label": "Formazione",
+    "title": "Percorso Accademico",
+    "elements": [
+      {
+        "img": "assets/unipegaso.jpeg",
+        "institution": "Università Telematica Pegaso",
+        "degree": "Master in Virtual Community Manager",
+        "period": "2025 – Presente",
+        "location": "Italia",
+        "description": "Programma specializzato in community management, strategia dei contenuti e gestione delle piattaforme digitali."
+      },
+      {
+        "img": "assets/universita_degli_studi_di_torino_logo.jpg",
+        "institution": "Università degli Studi di Torino",
+        "degree": "Master in Relazioni Internazionali",
+        "period": "Set 2021 – Mar 2024",
+        "location": "Torino, Italia",
+        "description": "Programma avanzato in relazioni internazionali, diplomazia e cooperazione allo sviluppo con focus sulle scienze umane e sociali."
+      },
+      {
+        "img": "assets/logo_lyon.jpg",
+        "institution": "Université Lumière Lyon 2",
+        "degree": "Master 2 (M2), Scienze Politiche",
+        "period": "Set 2022 – Mag 2023",
+        "location": "Lione, Francia (Erasmus)",
+        "description": "Periodo Erasmus focalizzato su organizzazioni internazionali, analisi delle politiche pubbliche e scienze politiche in un contesto accademico europeo."
+      },
+      {
+        "img": "assets/universita_degli_studi_di_torino_logo.jpg",
+        "institution": "Università degli Studi di Torino",
+        "degree": "Scienze della Mediazione Linguistica",
+        "period": "2017 – 2020",
+        "location": "Torino, Italia",
+        "description": "Percorso triennale in mediazione linguistica con specializzazione in francese e comunicazione interculturale."
+      }
+    ]
+  },
+  "contacts": {
+    "id": "contacts",
+    "type": "CONTACTS",
+    "style": "SECTION",
+    "label": "Contatti",
+    "mail": "TODO@email.com",
+    "primaryTitleText": "Parliamo",
+    "secondaryTitleText": "Aperta a nuove opportunità e collaborazioni. Scrivimi, rispondo sempre."
+  },
+  "footer": {
+    "id": "footer",
+    "type": "FOOTER",
+    "style": "SECTION",
+    "footerText": "Realizzato con ❤ da Tahiana Olivia",
+    "linkElements": [
+      { "link": "https://www.linkedin.com/in/tahianaolivia/", "icon": "fa-brands fa-linkedin", "color": "white" },
+      { "link": "mailto:", "icon": "fa-solid fa-envelope", "color": "white" }
+    ]
+  }
 }

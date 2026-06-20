@@ -1,0 +1,337 @@
+backend:
+  name: git-gateway
+  branch: tahiana
+
+media_folder: src/assets
+public_folder: /assets
+
+locale: it
+
+collections:
+  - name: portfolio
+    label: Portfolio
+    files:
+
+      # ── VERSIONE INGLESE ────────────────────────────────────────────────────
+      - name: en
+        label: "Versione Inglese"
+        file: src/descriptor.en.json
+        fields:
+
+          - name: header
+            label: Navigazione
+            widget: object
+            fields:
+              - { name: id,        widget: hidden, default: "header" }
+              - { name: type,      widget: hidden, default: "HEADER" }
+              - { name: animation, widget: hidden, default: false }
+              - name: nav
+                label: Menu
+                widget: object
+                fields:
+                  - name: navigationList
+                    label: Voci di menu
+                    widget: list
+                    fields:
+                      - { name: description, label: Etichetta, widget: string }
+                      - { name: link,        label: Ancora,    widget: string }
+
+          - name: hero
+            label: Hero (prima sezione)
+            widget: object
+            fields:
+              - { name: id,                widget: hidden, default: "home" }
+              - { name: type,              widget: hidden, default: "HERO" }
+              - { name: style,             widget: hidden, default: "SECTION" }
+              - { name: imgPath,           label: Foto profilo,      widget: image }
+              - { name: primaryHeaderText, label: Nome visualizzato, widget: string }
+              - { name: bio,               label: Bio (una riga),    widget: string }
+              - { name: availableForWork,  label: Disponibile,       widget: boolean }
+              - { name: availableBadge,    label: Testo badge,       widget: string }
+              - { name: cvPath,            label: CV (PDF),          widget: file }
+              - { name: ctaDownload,       label: Bottone CV,        widget: string }
+              - { name: ctaContact,        label: Bottone contatti,  widget: string }
+              - name: typingPhrases
+                label: Frasi animate
+                widget: list
+              - name: linkElements
+                label: Link social
+                widget: list
+                fields:
+                  - { name: link,  label: URL,        widget: string }
+                  - { name: icon,  label: Icona (FA), widget: string }
+                  - { name: color, widget: hidden, default: "white" }
+
+          - name: about
+            label: Chi sono
+            widget: object
+            fields:
+              - { name: id,    widget: hidden, default: "about" }
+              - { name: type,  widget: hidden, default: "ABOUT" }
+              - { name: style, widget: hidden, default: "SECTION" }
+              - { name: label, label: Etichetta sezione, widget: string }
+              - { name: title, label: Titolo,            widget: string }
+              - name: paragraphs
+                label: Paragrafi
+                widget: list
+              - name: highlights
+                label: Statistiche
+                widget: list
+                fields:
+                  - { name: value, label: Numero, widget: string }
+                  - { name: label, label: Testo,  widget: string }
+
+          - name: skills
+            label: Competenze
+            widget: object
+            fields:
+              - { name: id,    widget: hidden, default: "skills" }
+              - { name: type,  widget: hidden, default: "SKILLS" }
+              - { name: style, widget: hidden, default: "SECTION" }
+              - { name: label, label: Etichetta, widget: string }
+              - { name: title, label: Titolo,    widget: string }
+              - name: categories
+                label: Categorie
+                widget: list
+                fields:
+                  - { name: name, label: Nome categoria, widget: string }
+                  - name: skills
+                    label: Competenze
+                    widget: list
+                    fields:
+                      - { name: name, label: Competenza, widget: string }
+
+          - name: experience
+            label: Esperienza
+            widget: object
+            fields:
+              - { name: id,    widget: hidden, default: "experience" }
+              - { name: type,  widget: hidden, default: "EXPERIENCE" }
+              - { name: style, widget: hidden, default: "SECTION" }
+              - { name: label, label: Etichetta, widget: string }
+              - { name: title, label: Titolo,    widget: string }
+              - name: elements
+                label: Esperienze
+                widget: list
+                fields:
+                  - { name: img,     label: Logo azienda, widget: image, required: false }
+                  - { name: company, label: Azienda,      widget: string }
+                  - { name: role,    label: Ruolo,        widget: string }
+                  - { name: period,  label: Periodo,      widget: string }
+                  - name: projects
+                    label: Descrizioni
+                    widget: list
+                    fields:
+                      - { name: client,      label: Cliente,     widget: string }
+                      - { name: name,        label: Titolo,      widget: string }
+                      - { name: description, label: Descrizione, widget: text }
+
+          - name: education
+            label: Formazione
+            widget: object
+            fields:
+              - { name: id,    widget: hidden, default: "education" }
+              - { name: type,  widget: hidden, default: "EDUCATION" }
+              - { name: style, widget: hidden, default: "SECTION" }
+              - { name: label, label: Etichetta, widget: string }
+              - { name: title, label: Titolo,    widget: string }
+              - name: elements
+                label: Titoli di studio
+                widget: list
+                fields:
+                  - { name: img,         label: Logo,        widget: image, required: false }
+                  - { name: institution, label: Istituzione, widget: string }
+                  - { name: degree,      label: Titolo,      widget: string }
+                  - { name: period,      label: Periodo,     widget: string }
+                  - { name: location,    label: Luogo,       widget: string }
+                  - { name: description, label: Descrizione, widget: text }
+
+          - name: contacts
+            label: Contatti
+            widget: object
+            fields:
+              - { name: id,                 widget: hidden, default: "contacts" }
+              - { name: type,               widget: hidden, default: "CONTACTS" }
+              - { name: style,              widget: hidden, default: "SECTION" }
+              - { name: label,              label: Etichetta,   widget: string }
+              - { name: mail,               label: Email,       widget: string }
+              - { name: primaryTitleText,   label: Titolo,      widget: string }
+              - { name: secondaryTitleText, label: Sottotitolo, widget: text }
+
+          - name: footer
+            label: Footer
+            widget: object
+            fields:
+              - { name: id,        widget: hidden, default: "footer" }
+              - { name: type,      widget: hidden, default: "FOOTER" }
+              - { name: style,     widget: hidden, default: "SECTION" }
+              - { name: footerText, label: Testo footer, widget: string }
+              - name: linkElements
+                label: Link social
+                widget: list
+                fields:
+                  - { name: link,  label: URL,        widget: string }
+                  - { name: icon,  label: Icona (FA), widget: string }
+                  - { name: color, widget: hidden, default: "white" }
+
+      # ── VERSIONE ITALIANA ───────────────────────────────────────────────────
+      - name: it
+        label: "Versione Italiana"
+        file: src/descriptor.it.json
+        fields:
+
+          - name: header
+            label: Navigazione
+            widget: object
+            fields:
+              - { name: id,        widget: hidden, default: "header" }
+              - { name: type,      widget: hidden, default: "HEADER" }
+              - { name: animation, widget: hidden, default: false }
+              - name: nav
+                label: Menu
+                widget: object
+                fields:
+                  - name: navigationList
+                    label: Voci di menu
+                    widget: list
+                    fields:
+                      - { name: description, label: Etichetta, widget: string }
+                      - { name: link,        label: Ancora,    widget: string }
+
+          - name: hero
+            label: Hero (prima sezione)
+            widget: object
+            fields:
+              - { name: id,                widget: hidden, default: "home" }
+              - { name: type,              widget: hidden, default: "HERO" }
+              - { name: style,             widget: hidden, default: "SECTION" }
+              - { name: imgPath,           label: Foto profilo,      widget: image }
+              - { name: primaryHeaderText, label: Nome visualizzato, widget: string }
+              - { name: bio,               label: Bio (una riga),    widget: string }
+              - { name: availableForWork,  label: Disponibile,       widget: boolean }
+              - { name: availableBadge,    label: Testo badge,       widget: string }
+              - { name: cvPath,            label: CV (PDF),          widget: file }
+              - { name: ctaDownload,       label: Bottone CV,        widget: string }
+              - { name: ctaContact,        label: Bottone contatti,  widget: string }
+              - name: typingPhrases
+                label: Frasi animate
+                widget: list
+              - name: linkElements
+                label: Link social
+                widget: list
+                fields:
+                  - { name: link,  label: URL,        widget: string }
+                  - { name: icon,  label: Icona (FA), widget: string }
+                  - { name: color, widget: hidden, default: "white" }
+
+          - name: about
+            label: Chi sono
+            widget: object
+            fields:
+              - { name: id,    widget: hidden, default: "about" }
+              - { name: type,  widget: hidden, default: "ABOUT" }
+              - { name: style, widget: hidden, default: "SECTION" }
+              - { name: label, label: Etichetta sezione, widget: string }
+              - { name: title, label: Titolo,            widget: string }
+              - name: paragraphs
+                label: Paragrafi
+                widget: list
+              - name: highlights
+                label: Statistiche
+                widget: list
+                fields:
+                  - { name: value, label: Numero, widget: string }
+                  - { name: label, label: Testo,  widget: string }
+
+          - name: skills
+            label: Competenze
+            widget: object
+            fields:
+              - { name: id,    widget: hidden, default: "skills" }
+              - { name: type,  widget: hidden, default: "SKILLS" }
+              - { name: style, widget: hidden, default: "SECTION" }
+              - { name: label, label: Etichetta, widget: string }
+              - { name: title, label: Titolo,    widget: string }
+              - name: categories
+                label: Categorie
+                widget: list
+                fields:
+                  - { name: name, label: Nome categoria, widget: string }
+                  - name: skills
+                    label: Competenze
+                    widget: list
+                    fields:
+                      - { name: name, label: Competenza, widget: string }
+
+          - name: experience
+            label: Esperienza
+            widget: object
+            fields:
+              - { name: id,    widget: hidden, default: "experience" }
+              - { name: type,  widget: hidden, default: "EXPERIENCE" }
+              - { name: style, widget: hidden, default: "SECTION" }
+              - { name: label, label: Etichetta, widget: string }
+              - { name: title, label: Titolo,    widget: string }
+              - name: elements
+                label: Esperienze
+                widget: list
+                fields:
+                  - { name: img,     label: Logo azienda, widget: image, required: false }
+                  - { name: company, label: Azienda,      widget: string }
+                  - { name: role,    label: Ruolo,        widget: string }
+                  - { name: period,  label: Periodo,      widget: string }
+                  - name: projects
+                    label: Descrizioni
+                    widget: list
+                    fields:
+                      - { name: client,      label: Cliente,     widget: string }
+                      - { name: name,        label: Titolo,      widget: string }
+                      - { name: description, label: Descrizione, widget: text }
+
+          - name: education
+            label: Formazione
+            widget: object
+            fields:
+              - { name: id,    widget: hidden, default: "education" }
+              - { name: type,  widget: hidden, default: "EDUCATION" }
+              - { name: style, widget: hidden, default: "SECTION" }
+              - { name: label, label: Etichetta, widget: string }
+              - { name: title, label: Titolo,    widget: string }
+              - name: elements
+                label: Titoli di studio
+                widget: list
+                fields:
+                  - { name: img,         label: Logo,        widget: image, required: false }
+                  - { name: institution, label: Istituzione, widget: string }
+                  - { name: degree,      label: Titolo,      widget: string }
+                  - { name: period,      label: Periodo,     widget: string }
+                  - { name: location,    label: Luogo,       widget: string }
+                  - { name: description, label: Descrizione, widget: text }
+
+          - name: contacts
+            label: Contatti
+            widget: object
+            fields:
+              - { name: id,                 widget: hidden, default: "contacts" }
+              - { name: type,               widget: hidden, default: "CONTACTS" }
+              - { name: style,              widget: hidden, default: "SECTION" }
+              - { name: label,              label: Etichetta,   widget: string }
+              - { name: mail,               label: Email,       widget: string }
+              - { name: primaryTitleText,   label: Titolo,      widget: string }
+              - { name: secondaryTitleText, label: Sottotitolo, widget: text }
+
+          - name: footer
+            label: Footer
+            widget: object
+            fields:
+              - { name: id,        widget: hidden, default: "footer" }
+              - { name: type,      widget: hidden, default: "FOOTER" }
+              - { name: style,     widget: hidden, default: "SECTION" }
+              - { name: footerText, label: Testo footer, widget: string }
+              - name: linkElements
+                label: Link social
+                widget: list
+                fields:
+                  - { name: link,  label: URL,        widget: string }
+                  - { name: icon,  label: Icona (FA), widget: string }
+                  - { name: color, widget: hidden, default: "white" }

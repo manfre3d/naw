@@ -1,17 +1,19 @@
 // ── Bootstrap ────────────────────────────────────────────────────────────────
 @use 'bootstrap/scss/bootstrap';
 
-// ── Design tokens — Warm Light ────────────────────────────────────────────────
+// ── Design tokens — Warm Editorial (Tahiana) ─────────────────────────────────
 :root {
-  --color-bg:           #FAFAF8;
+  --color-bg:           #F8F4EE;
   --color-surface:      #FFFFFF;
-  --color-surface-2:    #F4F4F1;
-  --color-border:       #E8E8E4;
-  --color-text:         #1C1C2E;
-  --color-muted:        #6B7280;
-  --color-accent:       #D4668A;
-  --color-accent-hover: #B84E72;
-  --color-accent-light: rgba(212, 102, 138, 0.09);
+  --color-surface-2:    #EFE9E0;
+  --color-border:       #E3DAD0;
+  --color-text:         #171410;
+  --color-muted:        #6B6259;
+  --color-accent:       #E8633A;
+  --color-accent-hover: #D0522A;
+  --color-accent-light: rgba(232, 99, 58, 0.09);
+  --color-accent-border: rgba(232, 99, 58, 0.3);
+  --color-accent-glow:   rgba(232, 99, 58, 0.12);
 
   --radius-sm: 6px;
   --radius-md: 12px;

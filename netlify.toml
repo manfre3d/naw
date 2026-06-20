@@ -1,0 +1,12 @@
+[build]
+  command   = "npm run build -- --base-href=/"
+  publish   = "dist/naw/browser"
+
+[build.environment]
+  NODE_VERSION = "24"
+
+# SPA fallback: tutte le rotte a index.html
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200

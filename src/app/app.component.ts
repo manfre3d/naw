@@ -9,15 +9,15 @@ import descriptorIt from '../descriptor.it.json';
 
 const META = {
   en: {
-    title:         'Manfredi Piraino — Software Engineer',
-    description:   'Portfolio of Manfredi Piraino, Consultant Software Engineer at Blue Reply. Specialised in Angular, Spring Boot, cloud microservices, and enterprise-grade applications.',
-    ogDescription: 'Consultant Software Engineer at Blue Reply. Angular, Spring Boot, cloud microservices, enterprise applications.',
+    title:         'Tahiana Olivia — Digital Communication & International Cooperation',
+    description:   'Portfolio of Tahiana Olivia Rakotonjanahary, Digital Communication & Social Media professional specialised in International Cooperation for Development.',
+    ogDescription: 'Digital Communication & Social Media | International Cooperation for Development. Based in Turin, Italy.',
     locale:        'en_GB',
   },
   it: {
-    title:         'Manfredi Piraino — Software Engineer',
-    description:   'Portfolio di Manfredi Piraino, Consultant Software Engineer in Blue Reply. Specializzato in Angular, Spring Boot, microservizi cloud e applicazioni enterprise.',
-    ogDescription: 'Consultant Software Engineer in Blue Reply. Angular, Spring Boot, microservizi cloud, applicazioni enterprise.',
+    title:         'Tahiana Olivia — Comunicazione Digitale & Cooperazione Internazionale',
+    description:   'Portfolio di Tahiana Olivia Rakotonjanahary, professionista in Comunicazione Digitale e Social Media specializzata in Cooperazione Internazionale per lo Sviluppo.',
+    ogDescription: 'Comunicazione Digitale & Social Media | Cooperazione Internazionale per lo Sviluppo. Torino, Italia.',
     locale:        'it_IT',
   },
 };
@@ -36,11 +36,10 @@ export class AppComponent {
   private metaService  = inject(Meta);
   private doc          = inject(DOCUMENT);
 
-  siteStructure = computed<DescriptorSection[]>(() =>
-    this.langService.currentLang() === 'en'
-      ? descriptorEn.sections as unknown as DescriptorSection[]
-      : descriptorIt.sections as unknown as DescriptorSection[]
-  );
+  siteStructure = computed<DescriptorSection[]>(() => {
+    const d: any = this.langService.currentLang() === 'en' ? descriptorEn : descriptorIt;
+    return [d.header, d.hero, d.about, d.skills, d.experience, d.education, d.contacts, d.footer];
+  });
 
   constructor() {
     effect(() => {

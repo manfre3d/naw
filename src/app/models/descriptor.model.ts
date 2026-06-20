@@ -108,6 +108,22 @@ export interface ProjectsSection {
   elements: ProjectElement[];
 }
 
+// --- About ---
+export interface AboutHighlight {
+  value: string;
+  label: string;
+}
+
+export interface AboutSection {
+  id: string;
+  type: 'ABOUT';
+  style: string;
+  label: string;
+  title: string;
+  paragraphs: string[];
+  highlights: AboutHighlight[];
+}
+
 // --- Contacts ---
 export interface ContactsSection {
   id: string;
@@ -140,6 +156,7 @@ export interface FooterSection {
 export type DescriptorSection =
   | HeaderSection
   | HeroSection
+  | AboutSection
   | SkillsSection
   | ExperienceSection
   | EducationSection

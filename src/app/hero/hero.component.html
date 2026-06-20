@@ -21,7 +21,7 @@
       <div class="hero-actions">
         <a
           [href]="subDescriptor().cvPath"
-          download="Manfredi_Piraino_CV.pdf"
+          download
           class="btn-primary"
         >
           <i class="fa-solid fa-download"></i> {{ subDescriptor().ctaDownload }}
@@ -41,7 +41,7 @@
     <!-- Right: photo — clean, no decoration -->
     <div class="hero-visual">
       <div class="hero-photo-frame">
-        <img [src]="subDescriptor().imgPath" alt="Manfredi Piraino" class="hero-photo" />
+        <img [src]="subDescriptor().imgPath" [alt]="subDescriptor().primaryHeaderText" class="hero-photo" />
       </div>
     </div>
 

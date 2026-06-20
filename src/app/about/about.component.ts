@@ -1,12 +1,13 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input } from '@angular/core';
+import { AboutSection } from '../models/descriptor.model';
 
-// AboutComponent is no longer used — content split into ExperienceComponent and EducationComponent.
-// Kept as an empty shell to avoid breaking any potential external references during migration.
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [],
-  template: '',
+  templateUrl: './about.component.html',
+  styleUrl: './about.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AboutComponent {}
+export class AboutComponent {
+  subDescriptor = input.required<AboutSection>();
+}

@@ -42,7 +42,7 @@
   align-items: center;
   gap: 0.45rem;
   padding: 0.28rem 0.8rem;
-  border: 1px solid rgba(212, 102, 138, 0.3);
+  border: 1px solid var(--color-accent-border);
   border-radius: 999px;
   font-size: 0.73rem;
   color: var(--color-accent);
@@ -190,7 +190,7 @@
   border: 1px solid var(--color-border);
   box-shadow:
     0 8px 40px rgba(0, 0, 0, 0.08),
-    0 0 40px rgba(212, 102, 138, 0.13);
+    0 0 40px var(--color-accent-glow);
 
   @media (max-width: 860px) {
     width: 200px;

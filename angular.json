@@ -29,7 +29,12 @@
               "src/favicon.ico",
               "src/assets",
               "src/robots.txt",
-              "src/sitemap.xml"
+              "src/sitemap.xml",
+              {
+                "glob": "**/*",
+                "input": "src/cms-admin",
+                "output": "admin"
+              }
             ],
             "styles": [
               "src/styles.scss"
