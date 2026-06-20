@@ -2,8 +2,11 @@ backend:
   name: git-gateway
   branch: tahiana
 
+site_url: https://tahiana-olivia.netlify.app
+display_url: https://tahiana-olivia.netlify.app
+
 media_folder: src/assets
-public_folder: /assets
+public_folder: assets
 
 locale: it
 
