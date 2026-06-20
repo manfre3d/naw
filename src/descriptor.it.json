@@ -5,36 +5,62 @@
     "animation": false,
     "nav": {
       "navigationList": [
-        { "description": "Home",        "link": "#home" },
-        { "description": "Chi sono",    "link": "#about" },
-        { "description": "Competenze",  "link": "#skills" },
-        { "description": "Esperienza",  "link": "#experience" },
-        { "description": "Formazione",  "link": "#education" },
-        { "description": "Contatti",    "link": "#contacts" }
+        {
+          "description": "Home",
+          "link": "#home"
+        },
+        {
+          "description": "Chi sono",
+          "link": "#about"
+        },
+        {
+          "description": "Competenze",
+          "link": "#skills"
+        },
+        {
+          "description": "Esperienza",
+          "link": "#experience"
+        },
+        {
+          "description": "Formazione",
+          "link": "#education"
+        },
+        {
+          "description": "Contatti",
+          "link": "#contacts"
+        }
       ]
     }
   },
   "hero": {
-    "id": "home",
-    "type": "HERO",
-    "style": "SECTION",
-    "imgPath": "assets/profile_tahiana.png",
-    "primaryHeaderText": "Tahiana Olivia",
-    "bio": "UX Designer e Comunicatrice Strategica. Quattro lingue, cinque organizzazioni, una missione: rendere la complessità umana.",
-    "availableForWork": true,
-    "availableBadge": "Aperta a nuove opportunità",
-    "cvPath": "assets/cv_tahiana_ita.pdf",
-    "ctaDownload": "Scarica il CV",
-    "ctaContact": "Contattami",
     "typingPhrases": [
       "Digital Communications Specialist",
       "International Development Advocate",
       "Social Media Strategist"
     ],
+    "bio": "UX Designer e Comunicatrice Strategica. Quattro lingue, cinque organizzazioni, una missione: rendere la complessità umana.",
+    "imgPath": "assets/profile_tahiana.png",
+    "ctaContact": "Contattami",
+    "availableForWork": true,
+    "style": "SECTION",
     "linkElements": [
-      { "link": "https://www.linkedin.com/in/tahianaolivia/", "icon": "fa-brands fa-linkedin", "color": "white" },
-      { "link": "mailto:", "icon": "fa-solid fa-envelope", "color": "white" }
-    ]
+      {
+        "link": "https://www.linkedin.com/in/tahianaolivia/",
+        "icon": "fa-brands fa-linkedin",
+        "color": "white"
+      },
+      {
+        "link": "mailto:",
+        "icon": "fa-solid fa-envelope",
+        "color": "white"
+      }
+    ],
+    "ctaDownload": "Scarica il CV",
+    "cvPath": "assets/cv_tahiana_ita.pdf",
+    "availableBadge": "Aperta a nuove opportunità",
+    "type": "HERO",
+    "id": "home",
+    "primaryHeaderText": "Olivia Tahiana "
   },
   "about": {
     "id": "about",
@@ -48,10 +74,22 @@
       "È questa consapevolezza che mi spinge verso lo UX Design. Ascoltare in profondità, semplificare la complessità e creare storie che connettono culture diverse: sono esattamente le competenze che il grande design richiede."
     ],
     "highlights": [
-      { "value": "4",  "label": "Lingue parlate" },
-      { "value": "5+", "label": "Anni di esperienza" },
-      { "value": "4",  "label": "Organizzazioni internazionali" },
-      { "value": "2",  "label": "Master completati" }
+      {
+        "value": "4",
+        "label": "Lingue parlate"
+      },
+      {
+        "value": "5+",
+        "label": "Anni di esperienza"
+      },
+      {
+        "value": "4",
+        "label": "Organizzazioni internazionali"
+      },
+      {
+        "value": "2",
+        "label": "Master completati"
+      }
     ]
   },
   "skills": {
@@ -64,39 +102,75 @@
       {
         "name": "UX & Design",
         "skills": [
-          { "name": "Figma" },
-          { "name": "Canva (Avanzato)" },
-          { "name": "Ricerca Utenti" },
-          { "name": "Wireframing" },
-          { "name": "Prototipazione" },
-          { "name": "Architettura dell'Informazione" }
+          {
+            "name": "Figma"
+          },
+          {
+            "name": "Canva (Avanzato)"
+          },
+          {
+            "name": "Ricerca Utenti"
+          },
+          {
+            "name": "Wireframing"
+          },
+          {
+            "name": "Prototipazione"
+          },
+          {
+            "name": "Architettura dell'Informazione"
+          }
         ]
       },
       {
         "name": "Comunicazione",
         "skills": [
-          { "name": "Strategia dei Contenuti" },
-          { "name": "Copywriting & Revisione" },
-          { "name": "Community Management" },
-          { "name": "Gestione Social Media" },
-          { "name": "Storytelling" }
+          {
+            "name": "Strategia dei Contenuti"
+          },
+          {
+            "name": "Copywriting & Revisione"
+          },
+          {
+            "name": "Community Management"
+          },
+          {
+            "name": "Gestione Social Media"
+          },
+          {
+            "name": "Storytelling"
+          }
         ]
       },
       {
         "name": "Strumenti & Piattaforme",
         "skills": [
-          { "name": "Meta Business Suite" },
-          { "name": "Microsoft Excel" },
-          { "name": "WordPress" }
+          {
+            "name": "Meta Business Suite"
+          },
+          {
+            "name": "Microsoft Excel"
+          },
+          {
+            "name": "WordPress"
+          }
         ]
       },
       {
         "name": "Lingue",
         "skills": [
-          { "name": "Francese (Madrelingua)" },
-          { "name": "Malgascio (Madrelingua)" },
-          { "name": "Italiano (Fluente)" },
-          { "name": "Inglese (Fluente)" }
+          {
+            "name": "Francese (Madrelingua)"
+          },
+          {
+            "name": "Malgascio (Madrelingua)"
+          },
+          {
+            "name": "Italiano (Fluente)"
+          },
+          {
+            "name": "Inglese (Fluente)"
+          }
         ]
       }
     ]
@@ -236,8 +310,16 @@
     "style": "SECTION",
     "footerText": "Realizzato con ❤ da Tahiana Olivia",
     "linkElements": [
-      { "link": "https://www.linkedin.com/in/tahianaolivia/", "icon": "fa-brands fa-linkedin", "color": "white" },
-      { "link": "mailto:", "icon": "fa-solid fa-envelope", "color": "white" }
+      {
+        "link": "https://www.linkedin.com/in/tahianaolivia/",
+        "icon": "fa-brands fa-linkedin",
+        "color": "white"
+      },
+      {
+        "link": "mailto:",
+        "icon": "fa-solid fa-envelope",
+        "color": "white"
+      }
     ]
   }
 }
