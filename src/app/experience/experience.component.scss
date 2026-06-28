@@ -9,10 +9,12 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: 1.75rem;
-  transition: border-color var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
 
   &:hover {
-    border-color: rgba(212, 102, 138, 0.35);
+    border-color: var(--color-accent-border-strong);
+    box-shadow: var(--shadow-md);
   }
 }
 
@@ -68,22 +70,11 @@
   font-weight: 500;
 }
 
-.badge-period {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.68rem;
-  padding: 0.25rem 0.65rem;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-accent-light);
-  border: 1px solid rgba(212, 102, 138, 0.25);
-  color: var(--color-accent);
-  white-space: nowrap;
-}
-
 .projects-track {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  border-left: 2px solid rgba(212, 102, 138, 0.25);
+  border-left: 2px solid var(--color-accent-border);
   padding-left: 1.5rem;
   margin-left: 0.5rem;
 }

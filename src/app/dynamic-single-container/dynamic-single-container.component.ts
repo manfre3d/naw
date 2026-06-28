@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ChangeDetectionStrategy, inject, input } from '@angular/core';
+import { AfterViewInit, Component, ChangeDetectionStrategy, ElementRef, inject, input } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
@@ -34,9 +34,12 @@ export class DynamicSingleContainerComponent implements AfterViewInit {
   section = input.required<DescriptorSection>();
 
   private scrollAnimation = inject(ScrollAnimationService);
+  private host = inject(ElementRef<HTMLElement>);
 
   ngAfterViewInit(): void {
-    this.scrollAnimation.init();
+    // Each container reveals its own section once it's rendered — robust to
+    // SSR-hydration timing differences between sections.
+    this.scrollAnimation.observe(this.host.nativeElement.querySelector('section'));
   }
 
   asHeader(s: DescriptorSection) { return s as HeaderSection; }

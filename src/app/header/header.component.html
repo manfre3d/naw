@@ -3,7 +3,7 @@
 
   <div class="nav-links">
     @for (item of subDescriptor().nav.navigationList; track item.link) {
-      <a class="nav-link" [href]="item.link">{{ item.description }}</a>
+      <a class="nav-link" [class.active]="isActive(item.link)" [href]="item.link">{{ item.description }}</a>
     }
   </div>
 
@@ -37,7 +37,7 @@
 
 <div class="mobile-menu" [class.open]="menuOpen()">
   @for (item of subDescriptor().nav.navigationList; track item.link) {
-    <a class="mobile-link" [href]="item.link" (click)="menuOpen.set(false)">
+    <a class="mobile-link" [class.active]="isActive(item.link)" [href]="item.link" (click)="menuOpen.set(false)">
       {{ item.description }}
     </a>
   }

@@ -24,7 +24,7 @@
     &:hover {
       border-color: var(--color-accent);
       color: var(--color-accent);
-      background-color: rgba(212, 102, 138, 0.12);
+      background-color: var(--color-accent-glow);
     }
   }
 }

@@ -17,10 +17,13 @@
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  transition: border-color var(--transition-base), transform var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base),
+              transform var(--transition-base);
 
   &:hover {
-    border-color: rgba(212, 102, 138, 0.4);
+    border-color: var(--color-accent-border-strong);
+    box-shadow: var(--shadow-md);
     transform: translateY(-3px);
   }
 }
@@ -63,17 +66,6 @@
   flex-wrap: wrap;
   gap: 0.4rem;
   margin-top: 0.25rem;
-}
-
-.badge-period,
-.badge-location {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.68rem;
-  padding: 0.15rem 0.5rem;
-  border-radius: var(--radius-sm);
-  background-color: var(--color-surface-2);
-  border: 1px solid var(--color-border);
-  color: var(--color-muted);
 }
 
 .edu-desc {

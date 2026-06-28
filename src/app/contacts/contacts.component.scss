@@ -1,6 +1,6 @@
 .contacts-wrapper {
   text-align: center;
-  background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(212, 102, 138, 0.07) 0%, transparent 70%);
+  background: radial-gradient(ellipse 70% 50% at 50% 100%, var(--color-accent-light) 0%, transparent 70%);
 }
 
 .contacts-sub {
@@ -29,6 +29,7 @@
     border-color: var(--color-accent);
     color: var(--color-accent);
     transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 
     i { transform: translateX(4px); }
   }

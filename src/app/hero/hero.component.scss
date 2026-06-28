@@ -1,5 +1,6 @@
 // ── Wrapper ───────────────────────────────────────────────────────────────────
 .hero-wrapper {
+  position: relative;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -36,13 +37,34 @@
   }
 }
 
+// Staggered entrance — first impression on load (above the fold, so not tied
+// to the scroll-reveal observer)
+.hero-text > * {
+  animation: hero-rise 0.7s var(--ease-out) both;
+}
+@for $i from 1 through 6 {
+  .hero-text > *:nth-child(#{$i}) {
+    animation-delay: #{0.05 + ($i - 1) * 0.07}s;
+  }
+}
+
+@keyframes hero-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes hero-fade {
+  from { opacity: 0; transform: scale(0.97); }
+  to   { opacity: 1; transform: none; }
+}
+
 // "Available" pill
 .hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   padding: 0.28rem 0.8rem;
-  border: 1px solid rgba(212, 102, 138, 0.3);
+  border: 1px solid var(--color-accent-border);
   border-radius: 999px;
   font-size: 0.73rem;
   color: var(--color-accent);
@@ -176,6 +198,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: hero-fade 0.9s var(--ease-out) 0.15s both;
 
   @media (max-width: 860px) {
     order: 1;
@@ -190,7 +213,7 @@
   border: 1px solid var(--color-border);
   box-shadow:
     0 8px 40px rgba(0, 0, 0, 0.08),
-    0 0 40px rgba(212, 102, 138, 0.13);
+    0 0 40px var(--color-accent-glow);
 
   @media (max-width: 860px) {
     width: 200px;
@@ -204,4 +227,35 @@
   object-fit: cover;
   object-position: top center;
   display: block;
+  transition: transform var(--transition-base);
+
+  .hero-photo-frame:hover & {
+    transform: scale(1.03);
+  }
+}
+
+// ── Scroll cue ────────────────────────────────────────────────────────────────
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 1.75rem;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  animation: cue-bob 2s ease-in-out infinite;
+  transition: color var(--transition-fast);
+
+  &:hover { color: var(--color-accent); }
+
+  @media (max-width: 860px) { display: none; }
+}
+
+@keyframes cue-bob {
+  0%, 100% { transform: translate(-50%, 0); }
+  50%      { transform: translate(-50%, 6px); }
 }

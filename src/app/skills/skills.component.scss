@@ -14,10 +14,14 @@
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   padding: 1.5rem;
-  transition: border-color var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base),
+              transform var(--transition-base);
 
   &:hover {
-    border-color: rgba(212, 102, 138, 0.45);
+    border-color: var(--color-accent-border-strong);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
   }
 }
 
@@ -46,12 +50,17 @@
   border-radius: var(--radius-sm);
   font-size: 0.8rem;
   color: var(--color-text);
-  transition: border-color var(--transition-fast), color var(--transition-fast);
+  transition: border-color var(--transition-fast), color var(--transition-fast),
+              background-color var(--transition-fast), transform var(--transition-fast);
 
-  i { color: var(--color-muted); font-size: 0.85rem; }
+  i { color: var(--color-muted); font-size: 0.85rem; transition: color var(--transition-fast); }
 
   &:hover {
     border-color: var(--color-accent);
     color: var(--color-accent);
+    background-color: var(--color-accent-light);
+    transform: translateY(-1px);
+
+    i { color: var(--color-accent); }
   }
 }

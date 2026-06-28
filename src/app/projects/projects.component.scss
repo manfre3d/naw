@@ -30,9 +30,13 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--color-border);
-  transition: border-color var(--transition-base);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
 
-  &:hover { border-color: rgba(212, 102, 138, 0.4); }
+  &:hover {
+    border-color: var(--color-accent-border-strong);
+    box-shadow: var(--shadow-md);
+  }
 }
 
 .project-image {

@@ -1,4 +1,8 @@
-<section [class.sticky]="section().type === 'HEADER'" class="row gx-0 hidden">
+<section
+  [class.sticky]="section().type === 'HEADER'"
+  [class.hidden]="section().type !== 'HERO' && section().type !== 'HEADER'"
+  class="row gx-0"
+>
   @switch (section().type) {
     @case ('HEADER') {
       <app-header id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asHeader(section())" />
