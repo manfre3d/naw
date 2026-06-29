@@ -1,6 +1,7 @@
 :host {
   display: block;
-  background-color: var(--color-text);
+  background-color: var(--color-footer-bg);
+  transition: background-color var(--transition-base);
 }
 
 .footer-inner {

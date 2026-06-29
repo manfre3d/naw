@@ -4,6 +4,11 @@ export interface LinkElement {
   color: string;
 }
 
+export interface HeroStat {
+  value: string;
+  label: string;
+}
+
 export interface NavItem {
   description: string;
   link: string;
@@ -24,6 +29,7 @@ export interface HeroSection {
   ctaContact: string;
   typingPhrases: string[];
   linkElements: LinkElement[];
+  stats?: HeroStat[];
 }
 
 // --- Skills ---
@@ -95,7 +101,11 @@ export interface ProjectElement {
   img: string;
   name: string;
   description: string;
-  link: string;
+  link?: string;
+  liveUrl?: string;
+  tags?: string[];
+  status?: string;
+  logoCard?: boolean;
 }
 
 export interface ProjectsSection {
@@ -117,6 +127,8 @@ export interface ContactsSection {
   mail: string;
   primaryTitleText: string;
   secondaryTitleText: string;
+  replyPromise?: string;
+  linkElements?: LinkElement[];
 }
 
 // --- Header ---

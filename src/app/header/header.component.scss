@@ -95,6 +95,24 @@
   &.active { color: var(--color-accent); }
 }
 
+// --- Theme toggle ---
+.theme-toggle {
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-fast), transform var(--transition-fast);
+
+  &:hover {
+    color: var(--color-accent);
+    transform: rotate(20deg) scale(1.1);
+  }
+}
+
 // --- Hamburger button ---
 .hamburger {
   display: none;

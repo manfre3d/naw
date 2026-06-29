@@ -23,6 +23,14 @@
     </div>
 
     <button
+      class="theme-toggle"
+      (click)="themeService.toggle()"
+      [attr.aria-label]="themeService.currentTheme() === 'light' ? 'Switch to dark mode' : 'Switch to light mode'"
+    >
+      <i [class]="themeService.currentTheme() === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
+    </button>
+
+    <button
       class="hamburger"
       [class.open]="menuOpen()"
       (click)="menuOpen.set(!menuOpen())"

@@ -32,6 +32,12 @@
         "AI & Cloud Native Developer",
         "Scalable Systems Architect"
       ],
+      "stats": [
+        { "value": "4+",  "label": "Anni di esperienza" },
+        { "value": "5",   "label": "Clienti enterprise" },
+        { "value": ">50%","label": "Tempi di sviluppo" },
+        { "value": "4",   "label": "Settori industriali" }
+      ],
       "linkElements": [
         { "link": "https://github.com/manfre3d",                    "icon": "fa-brands fa-github",   "color": "white" },
         { "link": "https://www.linkedin.com/in/manfredi-piraino",   "icon": "fa-brands fa-linkedin", "color": "white" },
@@ -216,26 +222,50 @@
       "type": "PROJECTS",
       "style": "SECTION",
       "label": "Lavori",
-      "title": "Progetti",
+      "title": "Lavori in Evidenza",
       "linkLabel": "Vedi su GitHub",
       "elements": [
         {
-          "img": "assets/project_work.png",
-          "name": "University Project Work",
-          "description": "Applicazione web per prenotazione hotel realizzata con Python, HTML e CSS. Framework di routing personalizzato da zero, senza librerie esterne. Funzionalità: autenticazione utente, verifica disponibilità camere, gestione prenotazioni.",
-          "link": "https://github.com/manfre3d/project_work"
+          "img": "assets/geavioaero_logo.jpg",
+          "logoCard": true,
+          "name": "EJ200 Eurofighter Engine App",
+          "status": "Enterprise · Avio Aero / GE Aerospace",
+          "description": "Applicativo critico per il motore EJ200 dell'Eurofighter. Migrazione da architettura monolitica a microservizi e sviluppo di nuove funzionalità in collaborazione con team cross-funzionali di uno dei principali gruppi aerospaziali europei.",
+          "tags": ["Angular", "Spring Boot", "Java", "Microservizi", "Docker"]
         },
         {
-          "img": "assets/aipocondriaco.png",
+          "img": "assets/reale-mutua-logo.png",
+          "logoCard": true,
+          "name": "Progetto Vites — Piattaforma Assicurativa",
+          "status": "Enterprise · Reale Mutua Assicurazioni",
+          "description": "Generatore di interfacce JSON-configurable integrato con microservizi Spring Boot, con riduzione >50% dei tempi di implementazione frontend. Fulcro del programma di trasformazione digitale della più antica compagnia assicurativa italiana.",
+          "tags": ["Angular", "TypeScript", "Spring Boot", "Java", "REST APIs"]
+        },
+        {
+          "img": "assets/bper_logo.png",
+          "logoCard": true,
+          "name": "Middleware ESB — Core Banking",
+          "status": "Enterprise · BPER Banca",
+          "description": "Layer ESB per il routing di messaggi tra sistemi core bancari via Apache Camel e Spring Boot. Gestione code Kafka, CI/CD su OpenShift via Jenkins, monitoraggio in produzione con Kibana e Dynatrace.",
+          "tags": ["Apache Camel", "Kafka", "Spring Boot", "OpenShift", "Jenkins", "Kibana"]
+        },
+        {
+          "img": "assets/screenshot_aipocondriaco.png",
           "name": "AiPocondriaco",
-          "description": "Web app di analisi sintomi basata su machine learning. L'utente inserisce i sintomi e riceve una lista ordinata di possibili condizioni con informazioni sanitarie dettagliate.",
-          "link": "https://github.com/manfre3d/AiPocondriaco"
+          "status": "Open Source · Live",
+          "description": "AI companion ipocondriaco satirico. L'utente descrive i sintomi via chat in streaming con Google Gemini, riceve una valutazione teatrale del proprio stato di salute e un ritratto AI della condizione immaginaria. Demo disponibile senza API key.",
+          "tags": ["Angular", "Node.js", "Express", "Google Gemini", "PostgreSQL", "TypeScript"],
+          "link": "https://github.com/manfre3d/AiPocondriaco",
+          "liveUrl": "https://aipocondriaco.onrender.com"
         },
         {
-          "img": "assets/deliveboo.jpg",
-          "name": "Deliveboo",
-          "description": "Progetto di team — app di food delivery ispirata a Deliveroo. Navigazione ristoranti, menu, tracking ordini, autenticazione utenti e pagamenti sicuri.",
-          "link": "https://github.com/manfre3d/team-7-deliveboo"
+          "img": "assets/py_tts_home.png",
+          "name": "py-tts",
+          "status": "Open Source · Live",
+          "description": "Convertitore documento-audio con supporto per PDF, DOCX e TXT. Upload drag-and-drop, progresso in tempo reale via SSE, otto voci AWS Polly, pulizia testo opzionale con GPT-4o-mini e player WaveSurfer.js con seek e controllo velocità.",
+          "tags": ["Python", "Flask", "AWS Polly", "OpenAI", "Bootstrap", "WaveSurfer.js"],
+          "link": "https://github.com/manfre3d/py-tts",
+          "liveUrl": "https://py-tts.onrender.com"
         }
       ]
     },
@@ -246,7 +276,12 @@
       "label": "Contatti",
       "mail": "manfredipiraino@gmail.com",
       "primaryTitleText": "Parliamo",
-      "secondaryTitleText": "Aperto a nuove opportunità e collaborazioni. Scrivimi, rispondo sempre!"
+      "secondaryTitleText": "Aperto a nuove opportunità e collaborazioni. Scrivimi, rispondo sempre.",
+      "replyPromise": "Rispondo entro 24h",
+      "linkElements": [
+        { "link": "https://github.com/manfre3d",                  "icon": "fa-brands fa-github",   "color": "" },
+        { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "" }
+      ]
     },
     {
       "id": "footer",

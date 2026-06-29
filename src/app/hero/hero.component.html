@@ -18,6 +18,17 @@
 
       <p class="hero-bio">{{ subDescriptor().bio }}</p>
 
+      @if (subDescriptor().stats?.length) {
+        <div class="hero-stats">
+          @for (stat of subDescriptor().stats; track stat.label) {
+            <div class="hero-stat">
+              <span class="stat-value">{{ stat.value }}</span>
+              <span class="stat-label">{{ stat.label }}</span>
+            </div>
+          }
+        </div>
+      }
+
       <div class="hero-actions">
         <a
           [href]="subDescriptor().cvPath"
@@ -31,7 +42,7 @@
 
       <div class="hero-socials">
         @for (link of subDescriptor().linkElements; track link.link) {
-          <a [href]="link.link" target="_blank" class="social-icon" [attr.aria-label]="link.icon">
+          <a [href]="link.link" target="_blank" rel="noopener noreferrer" class="social-icon" [attr.aria-label]="link.icon">
             <i [class]="link.icon"></i>
           </a>
         }

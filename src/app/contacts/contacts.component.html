@@ -6,4 +6,19 @@
     {{ subDescriptor().mail }}
     <i class="fa-solid fa-arrow-right"></i>
   </a>
+  @if (subDescriptor().linkElements?.length) {
+    <p class="contacts-or">or find me on</p>
+    <div class="contacts-socials">
+      @for (link of subDescriptor().linkElements; track link.link) {
+        <a [href]="link.link" target="_blank" rel="noopener noreferrer" class="social-icon" [attr.aria-label]="link.icon">
+          <i [class]="link.icon"></i>
+        </a>
+      }
+    </div>
+  }
+  @if (subDescriptor().replyPromise) {
+    <p class="contacts-reply">
+      <i class="fa-solid fa-clock"></i> {{ subDescriptor().replyPromise }}
+    </p>
+  }
 </div>

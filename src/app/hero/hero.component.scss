@@ -42,7 +42,7 @@
 .hero-text > * {
   animation: hero-rise 0.7s var(--ease-out) both;
 }
-@for $i from 1 through 6 {
+@for $i from 1 through 7 {
   .hero-text > *:nth-child(#{$i}) {
     animation-delay: #{0.05 + ($i - 1) * 0.07}s;
   }
@@ -135,6 +135,40 @@
   @media (max-width: 860px) {
     max-width: 100%;
   }
+}
+
+// Impact stats row
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  @media (max-width: 860px) {
+    justify-content: center;
+    gap: 1.5rem;
+  }
+}
+
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.stat-value {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.stat-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  color: var(--color-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 // CTAs

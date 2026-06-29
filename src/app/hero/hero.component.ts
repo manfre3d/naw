@@ -13,7 +13,6 @@ export class HeroComponent {
   subDescriptor = input.required<HeroSection>();
 
   displayedText = signal('');
-  showCursor = signal(true);
 
   constructor() {
     afterNextRender(() => this.startTyping());
