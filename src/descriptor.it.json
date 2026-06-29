@@ -35,7 +35,7 @@
       "stats": [
         { "value": "4+",  "label": "Anni di esperienza" },
         { "value": "5",   "label": "Clienti enterprise" },
-        { "value": ">50%","label": "Tempi di sviluppo" },
+        { "value": ">50%","label": "Riduzione dei tempi di sviluppo"},
         { "value": "4",   "label": "Settori industriali" }
       ],
       "linkElements": [

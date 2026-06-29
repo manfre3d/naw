@@ -97,19 +97,28 @@
 
 // --- Theme toggle ---
 .theme-toggle {
-  background: none;
-  border: none;
-  padding: 0.25rem;
-  color: var(--color-muted);
-  font-size: 0.9rem;
-  cursor: pointer;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  transition: color var(--transition-fast), transform var(--transition-fast);
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-2);
+  color: var(--color-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition:
+    border-color var(--transition-fast),
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
 
   &:hover {
+    border-color: var(--color-accent-border);
     color: var(--color-accent);
-    transform: rotate(20deg) scale(1.1);
+    background-color: var(--color-accent-light);
+    transform: translateY(-1px);
   }
 }
 
