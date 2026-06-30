@@ -1,7 +1,24 @@
 :host {
   display: block;
   background-color: var(--color-surface-2);
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle 2px   at  7% 22%, var(--color-accent-border) 100%, transparent 0),
+      radial-gradient(circle 1.5px at 93% 18%, var(--color-accent-border) 100%, transparent 0),
+      radial-gradient(circle 2px   at 88% 80%, var(--color-accent-border) 100%, transparent 0),
+      radial-gradient(circle 1px   at 45% 96%, var(--color-accent-border) 100%, transparent 0);
+    pointer-events: none;
+    opacity: 0.55;
+    z-index: 0;
+  }
 }
+
+.section-wrapper { position: relative; z-index: 1; }
 
 .edu-grid {
   display: grid;
@@ -18,14 +35,35 @@
   flex-direction: column;
   gap: 1rem;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
   transition: border-color var(--transition-base), box-shadow var(--transition-base),
               transform var(--transition-base);
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 102, 138, 0.07), transparent);
+    transform: translateX(-100%) skewX(-15deg);
+    pointer-events: none;
+  }
 
   &:hover {
     border-color: var(--color-accent-border-strong);
     box-shadow: var(--shadow-md);
     transform: translateY(-3px);
+
+    &::after { animation: shine-pass 0.55s ease forwards; }
   }
+}
+
+@keyframes shine-pass {
+  from { transform: translateX(-100%) skewX(-15deg); }
+  to   { transform: translateX(300%)  skewX(-15deg); }
 }
 
 .edu-logo-wrapper {

@@ -2,7 +2,6 @@ import { Component, ChangeDetectionStrategy, input, signal, computed, afterNextR
 import { HeroSection } from '../models/descriptor.model';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import * as THREE from 'three';
 
 @Component({
   selector: 'app-hero',
@@ -17,8 +16,11 @@ export class HeroComponent {
   displayedText = signal('');
   heroCanvas = viewChild<ElementRef<HTMLCanvasElement>>('heroCanvas');
 
-  nameChars = computed(() =>
-    this.subDescriptor().primaryHeaderText.split('').map(c => c === ' ' ? ' ' : c)
+  // Each inner array is one word; the template renders words in inline-block
+  // wrappers with white-space:nowrap so line-breaks only happen between words,
+  // never mid-word across individual character spans.
+  nameWords = computed(() =>
+    this.subDescriptor().primaryHeaderText.split(' ').map(word => word.split(''))
   );
 
   constructor() {
@@ -43,13 +45,17 @@ export class HeroComponent {
     );
   }
 
-  private initThreeScene(): void {
+  private async initThreeScene(): Promise<void> {
     const canvasRef = this.heroCanvas();
     if (!canvasRef) return;
     const canvas = canvasRef.nativeElement;
     const parent = canvas.parentElement!;
     const W = parent.offsetWidth;
     const H = parent.offsetHeight;
+
+    // Lazy-load Three.js so it lands in a separate chunk and stays out of the
+    // initial bundle, keeping it under the 1 MB budget.
+    const THREE = await import('three');
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -59,7 +65,6 @@ export class HeroComponent {
     const camera = new THREE.PerspectiveCamera(55, W / H, 0.1, 200);
     camera.position.z = 22;
 
-    // --- Particle field spread across a 3D ellipsoid volume ---
     const N = 300;
     const pos = new Float32Array(N * 3);
 
@@ -82,7 +87,6 @@ export class HeroComponent {
 
     const points = new THREE.Points(pGeo, pMat);
 
-    // --- Static connection lines between nearby particles ---
     const lineVerts: number[] = [];
     const thresh = 5.5;
     const maxSeg = 520;
@@ -105,12 +109,7 @@ export class HeroComponent {
     const lGeo = new THREE.BufferGeometry();
     lGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(lineVerts), 3));
 
-    const lMat = new THREE.LineBasicMaterial({
-      color: 0xD4668A,
-      transparent: true,
-      opacity: 0.18,
-    });
-
+    const lMat = new THREE.LineBasicMaterial({ color: 0xD4668A, transparent: true, opacity: 0.18 });
     const lines = new THREE.LineSegments(lGeo, lMat);
 
     const group = new THREE.Group();
@@ -118,7 +117,6 @@ export class HeroComponent {
     group.add(lines);
     scene.add(group);
 
-    // --- Mouse parallax ---
     let mxT = 0, myT = 0, mxC = 0, myC = 0;
     const onMouse = (e: MouseEvent) => {
       mxT = e.clientX / window.innerWidth  - 0.5;
@@ -126,7 +124,6 @@ export class HeroComponent {
     };
     window.addEventListener('mousemove', onMouse);
 
-    // --- Resize ---
     const onResize = () => {
       const w = parent.offsetWidth;
       const h = parent.offsetHeight;
@@ -136,9 +133,7 @@ export class HeroComponent {
     };
     window.addEventListener('resize', onResize);
 
-    // --- Render loop ---
     let lastTheme = '';
-
     const tick = () => {
       requestAnimationFrame(tick);
       const t = performance.now() * 0.001;

@@ -1,12 +1,36 @@
 :host {
   display: block;
   background-color: var(--color-surface-2);
+  position: relative;
+
+  // Decorative node-dots echoing the hero particle network
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle 2px   at  8% 18%, var(--color-accent-border) 100%, transparent 0),
+      radial-gradient(circle 1.5px at 92% 12%, var(--color-accent-border) 100%, transparent 0),
+      radial-gradient(circle 2px   at 85% 78%, var(--color-accent-border) 100%, transparent 0),
+      radial-gradient(circle 1.5px at 12% 82%, var(--color-accent-border) 100%, transparent 0),
+      radial-gradient(circle 1px   at 50%  4%, var(--color-accent-border) 100%, transparent 0);
+    pointer-events: none;
+    opacity: 0.6;
+    z-index: 0;
+  }
 }
+
+.section-wrapper { position: relative; z-index: 1; }
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 2rem;
+}
+
+@keyframes shine-pass {
+  from { transform: translateX(-100%) skewX(-15deg); }
+  to   { transform: translateX(300%)  skewX(-15deg); }
 }
 
 .skill-category {
@@ -15,13 +39,30 @@
   border-radius: var(--radius-md);
   padding: 1.5rem;
   box-shadow: var(--shadow-sm);
+  position: relative;
+  overflow: hidden;
   transition: border-color var(--transition-base), box-shadow var(--transition-base),
               transform var(--transition-base);
+
+  // Shimmer sweep — light passes across the card on hover, like a particle connection
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(212, 102, 138, 0.07), transparent);
+    transform: translateX(-100%) skewX(-15deg);
+    pointer-events: none;
+  }
 
   &:hover {
     border-color: var(--color-accent-border-strong);
     box-shadow: var(--shadow-md);
     transform: translateY(-3px);
+
+    &::after { animation: shine-pass 0.55s ease forwards; }
   }
 }
 

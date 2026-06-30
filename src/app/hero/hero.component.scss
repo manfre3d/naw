@@ -106,22 +106,31 @@
 
 // Name — the typographic anchor
 .hero-name {
-  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   color: var(--color-text);
-  line-height: 1.0;
+  line-height: 1.08;
   margin: 0;
+}
+
+// Wraps one full word — inline-block with nowrap so the browser can only
+// break between words, never between individual character spans.
+.hero-name-word {
+  display: inline-block;
+  white-space: nowrap;
+
+  &:not(:last-child)::after {
+    content: '\00A0';
+    display: inline-block;
+    min-width: 0.28em;
+  }
 }
 
 // Individual character spans — GSAP animates rotateX flip-in
 .hero-name-char {
   display: inline-block;
   opacity: 0; // set to 1 by GSAP; immediately visible when reduced-motion
-
-  &.hero-name-space {
-    min-width: 0.3em;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {

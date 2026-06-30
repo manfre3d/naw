@@ -13,8 +13,12 @@
 
       <h1 class="hero-name" [attr.aria-label]="subDescriptor().primaryHeaderText">
         <span aria-hidden="true">
-          @for (char of nameChars(); track $index) {
-            <span class="hero-name-char" [class.hero-name-space]="char === ' '">{{ char }}</span>
+          @for (word of nameWords(); track $index) {
+            <span class="hero-name-word">
+              @for (char of word; track $index) {
+                <span class="hero-name-char">{{ char }}</span>
+              }
+            </span>
           }
         </span>
       </h1>

@@ -1,3 +1,24 @@
+:host {
+  display: block;
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle 2px   at 94% 20%, var(--color-accent-border) 100%, transparent 0),
+      radial-gradient(circle 1.5px at  6% 35%, var(--color-accent-border) 100%, transparent 0),
+      radial-gradient(circle 1.5px at 90% 75%, var(--color-accent-border) 100%, transparent 0),
+      radial-gradient(circle 1px   at 50%  8%, var(--color-accent-border) 100%, transparent 0);
+    pointer-events: none;
+    opacity: 0.5;
+    z-index: 0;
+  }
+}
+
+.section-wrapper { position: relative; z-index: 1; }
+
 .timeline {
   display: flex;
   flex-direction: column;
@@ -74,7 +95,8 @@
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  border-left: 2px solid var(--color-accent-border);
+  border-left: 2px solid transparent;
+  border-image: linear-gradient(to bottom, var(--color-accent-border-strong), var(--color-accent-border) 60%, transparent) 1;
   padding-left: 1.5rem;
   margin-left: 0.5rem;
 }

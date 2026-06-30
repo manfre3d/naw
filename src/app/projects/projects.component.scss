@@ -26,16 +26,38 @@
   }
 }
 
+@keyframes img-shine {
+  from { transform: translateX(-100%) skewX(-12deg); }
+  to   { transform: translateX(250%)  skewX(-12deg); }
+}
+
 .project-image-wrapper {
   border-radius: var(--radius-md);
   overflow: hidden;
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
+  position: relative;
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
+
+  // Shine sweep on hover
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.09), transparent);
+    transform: translateX(-100%) skewX(-12deg);
+    pointer-events: none;
+    z-index: 1;
+  }
 
   &:hover {
     border-color: var(--color-accent-border-strong);
     box-shadow: var(--shadow-md);
+
+    &::before { animation: img-shine 0.65s ease forwards; }
   }
 
   &.logo-card {
