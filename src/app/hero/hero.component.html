@@ -1,4 +1,5 @@
 <div class="hero-wrapper">
+  <canvas class="hero-canvas" #heroCanvas aria-hidden="true"></canvas>
   <div class="hero-layout">
 
     <!-- Left: text hierarchy -->
@@ -10,7 +11,13 @@
         </span>
       }
 
-      <h1 class="hero-name">{{ subDescriptor().primaryHeaderText }}</h1>
+      <h1 class="hero-name" [attr.aria-label]="subDescriptor().primaryHeaderText">
+        <span aria-hidden="true">
+          @for (char of nameChars(); track $index) {
+            <span class="hero-name-char" [class.hero-name-space]="char === ' '">{{ char }}</span>
+          }
+        </span>
+      </h1>
 
       <div class="hero-role-row">
         <span class="hero-role">{{ displayedText() }}</span><span class="hero-cursor">|</span>
@@ -49,8 +56,12 @@
       </div>
     </div>
 
-    <!-- Right: photo — clean, no decoration -->
+    <!-- Right: photo with floating accent shapes -->
     <div class="hero-visual">
+      <span class="hero-float-shape hero-float-shape--1"></span>
+      <span class="hero-float-shape hero-float-shape--2"></span>
+      <span class="hero-float-shape hero-float-shape--3"></span>
+      <span class="hero-float-shape hero-float-shape--4"></span>
       <div class="hero-photo-frame">
         <img [src]="subDescriptor().imgPath" alt="Manfredi Piraino" class="hero-photo" />
       </div>

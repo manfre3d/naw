@@ -1,6 +1,7 @@
-import { Component, ChangeDetectionStrategy, computed, effect, inject } from '@angular/core';
+import { Component, ChangeDetectionStrategy, computed, effect, inject, afterNextRender } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
+import { gsap } from 'gsap';
 import { DynamicContainerComponent } from './dynamic-container/dynamic-container.component';
 import { DescriptorSection } from './models/descriptor.model';
 import { LanguageService } from './services/language.service';
@@ -43,6 +44,18 @@ export class AppComponent {
   );
 
   constructor() {
+    afterNextRender(() => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const glow = this.doc.querySelector<HTMLElement>('.cursor-glow');
+      if (!glow) return;
+      const moveX = gsap.quickTo(glow, 'x', { duration: 0.65, ease: 'power2.out' });
+      const moveY = gsap.quickTo(glow, 'y', { duration: 0.65, ease: 'power2.out' });
+      this.doc.addEventListener('mousemove', (e: MouseEvent) => {
+        moveX(e.clientX - 350);
+        moveY(e.clientY - 350);
+      });
+    });
+
     effect(() => {
       const lang = this.langService.currentLang();
       const m = META[lang];

@@ -5,6 +5,17 @@
   display: flex;
   align-items: center;
   padding: 7rem 1.5rem 5rem;
+  overflow: hidden;
+}
+
+// Particle canvas — covers full hero behind all content
+.hero-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }
 
 // ── Two-column grid ───────────────────────────────────────────────────────────
@@ -12,6 +23,8 @@
   max-width: 960px;
   margin: 0 auto;
   width: 100%;
+  position: relative;
+  z-index: 1;
   display: grid;
   grid-template-columns: 1fr 300px;
   gap: 5rem;
@@ -38,14 +51,19 @@
 }
 
 // Staggered entrance — first impression on load (above the fold, so not tied
-// to the scroll-reveal observer)
-.hero-text > * {
+// to the scroll-reveal observer). Excludes .hero-name, which GSAP animates
+// character-by-character instead.
+.hero-text > *:not(.hero-name) {
   animation: hero-rise 0.7s var(--ease-out) both;
 }
 @for $i from 1 through 7 {
-  .hero-text > *:nth-child(#{$i}) {
+  .hero-text > *:not(.hero-name):nth-child(#{$i}) {
     animation-delay: #{0.05 + ($i - 1) * 0.07}s;
   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-text > *:not(.hero-name) { animation: none; }
 }
 
 @keyframes hero-rise {
@@ -94,7 +112,20 @@
   color: var(--color-text);
   line-height: 1.0;
   margin: 0;
-  // Natural word-wrap gives two-line impact: "Manfredi / Piraino"
+}
+
+// Individual character spans — GSAP animates rotateX flip-in
+.hero-name-char {
+  display: inline-block;
+  opacity: 0; // set to 1 by GSAP; immediately visible when reduced-motion
+
+  &.hero-name-space {
+    min-width: 0.3em;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-name-char { opacity: 1; }
 }
 
 // Typing role — sakura accent #1
@@ -227,16 +258,92 @@
   gap: 0.75rem;
 }
 
-// ── Right: photo ──────────────────────────────────────────────────────────────
+// ── Right: photo + floating accent shapes ────────────────────────────────────
 .hero-visual {
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
   animation: hero-fade 0.9s var(--ease-out) 0.15s both;
 
   @media (max-width: 860px) {
     order: 1;
   }
+}
+
+// Floating geometric accents — pure CSS, no JS
+.hero-float-shape {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  opacity: 0;
+  animation: hero-fade 0.9s var(--ease-out) 0.6s both,
+             float-1 3.2s ease-in-out 0.6s infinite alternate;
+}
+
+.hero-float-shape--1 {
+  width: 12px; height: 12px;
+  background-color: var(--color-accent);
+  opacity: 0.7;
+  top: 8%;
+  right: 2%;
+  animation: hero-fade 0.9s var(--ease-out) 0.7s both, float-1 3.4s ease-in-out 0.7s infinite alternate;
+}
+
+.hero-float-shape--2 {
+  width: 8px; height: 8px;
+  background-color: var(--color-accent);
+  opacity: 0.45;
+  bottom: 20%;
+  left: 0%;
+  animation: hero-fade 0.9s var(--ease-out) 1s both, float-2 2.8s ease-in-out 1s infinite alternate;
+}
+
+.hero-float-shape--3 {
+  width: 14px; height: 14px;
+  background-color: transparent;
+  border: 2px solid var(--color-accent-border-strong);
+  border-radius: 3px;
+  top: 78%;
+  right: 4%;
+  animation: hero-fade 0.9s var(--ease-out) 0.9s both, float-3 3.8s ease-in-out 0.9s infinite alternate;
+}
+
+.hero-float-shape--4 {
+  width: 6px; height: 6px;
+  background-color: var(--color-accent);
+  opacity: 0.5;
+  top: 45%;
+  left: 2%;
+  animation: hero-fade 0.9s var(--ease-out) 1.2s both, float-4 4.2s ease-in-out 1.2s infinite alternate;
+}
+
+@keyframes float-1 {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(6px, -14px); }
+}
+@keyframes float-2 {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(-10px, 8px); }
+}
+@keyframes float-3 {
+  from { transform: translate(0, 0) rotate(0deg); }
+  to   { transform: translate(8px, 12px) rotate(60deg); }
+}
+@keyframes float-4 {
+  from { transform: translate(0, 0); }
+  to   { transform: translate(-8px, -10px); }
+}
+
+@media (max-width: 860px) {
+  .hero-float-shape { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-float-shape { animation: none; opacity: 0; display: none; }
 }
 
 .hero-photo-frame {

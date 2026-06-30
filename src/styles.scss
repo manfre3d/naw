@@ -164,13 +164,24 @@ a {
   color: var(--color-accent);
   margin-bottom: 0.6rem;
 
-  // Editorial leading rule
+  // Node-chain leading rule — gradient fades like a particle connection
   &::before {
     content: '';
     width: 1.75rem;
     height: 1px;
-    background-color: currentColor;
-    opacity: 0.55;
+    background: linear-gradient(90deg, transparent, var(--color-accent));
+    opacity: 0.7;
+  }
+
+  // Trailing node dot
+  &::after {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--color-accent);
+    opacity: 0.5;
+    flex-shrink: 0;
   }
 }
 

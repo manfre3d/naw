@@ -1,4 +1,7 @@
 <div class="section-wrapper contacts-wrapper">
+  @for (i of particleCount; track i) {
+    <span class="float-particle" [attr.data-idx]="i"></span>
+  }
   <p class="section-label">{{ subDescriptor().label }}</p>
   <h2 class="section-title">{{ subDescriptor().primaryTitleText }}</h2>
   <p class="contacts-sub">{{ subDescriptor().secondaryTitleText }}</p>

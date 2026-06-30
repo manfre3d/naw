@@ -1,3 +1,19 @@
+// Cursor spotlight — follows mouse with smooth lag via GSAP quickTo
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(212, 102, 138, 0.07) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+
+  @media (hover: none) { display: none; } // hide on touch devices
+}
+
 // reset
 
 *{
