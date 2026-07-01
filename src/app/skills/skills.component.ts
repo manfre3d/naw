@@ -33,7 +33,7 @@ export class SkillsComponent {
       gsap.fromTo(
         this.el.nativeElement.querySelectorAll('.skill-tag'),
         { scale: 0.6, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.35, stagger: 0.025, ease: 'back.out(1.8)', scrollTrigger: trigger, delay: 0.3 }
+        { scale: 1, opacity: 1, duration: 0.35, stagger: 0.012, ease: 'back.out(1.8)', scrollTrigger: trigger, delay: 0.12 }
       );
     });
   }

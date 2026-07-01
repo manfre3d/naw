@@ -22,7 +22,7 @@ const SECTION_PARAMS: Record<SectionType, SectionParams> = {
   SKILLS:     { hueShift: -8, opacityMul: 0.85, camZ: 26, connDistMul: 1.15 },
   EXPERIENCE: { hueShift: 6,  opacityMul: 0.75, camZ: 30, connDistMul: 0.9 },
   EDUCATION:  { hueShift: -4, opacityMul: 0.8,  camZ: 28, connDistMul: 1.05 },
-  PROJECTS:   { hueShift: 10, opacityMul: 0.9,  camZ: 24, connDistMul: 1.2 },
+  PROJECTS:   { hueShift: 10, opacityMul: 0.9,  camZ: 24, connDistMul: 0.85 },
   CONTACTS:   { hueShift: 0,  opacityMul: 0.6,  camZ: 32, connDistMul: 0.8 },
   FOOTER:     { hueShift: 0,  opacityMul: 0.5,  camZ: 34, connDistMul: 0.7 },
 };

@@ -22,8 +22,8 @@
         </span>
       </h1>
 
-      <div class="hero-role-row">
-        <span class="hero-role">{{ displayedText() }}</span><span class="hero-cursor">|</span>
+      <div class="hero-role-row" [attr.aria-label]="subDescriptor().typingPhrases.join(' / ')">
+        <span class="hero-role" aria-hidden="true">{{ displayedText() }}</span><span class="hero-cursor" aria-hidden="true">|</span>
       </div>
 
       <p class="hero-bio">{{ subDescriptor().bio }}</p>
