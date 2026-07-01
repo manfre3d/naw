@@ -1,7 +1,9 @@
-import { Component, ChangeDetectionStrategy, input, signal, computed, afterNextRender, viewChild, ElementRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, signal, computed, afterNextRender, viewChild, ElementRef, OnDestroy, PLATFORM_ID, inject } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HeroSection } from '../models/descriptor.model';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import type * as THREE from 'three';
 
 @Component({
   selector: 'app-hero',
@@ -11,17 +13,22 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './hero.component.scss'
 })
-export class HeroComponent {
+export class HeroComponent implements OnDestroy {
   subDescriptor = input.required<HeroSection>();
   displayedText = signal('');
   heroCanvas = viewChild<ElementRef<HTMLCanvasElement>>('heroCanvas');
 
-  // Each inner array is one word; the template renders words in inline-block
-  // wrappers with white-space:nowrap so line-breaks only happen between words,
-  // never mid-word across individual character spans.
   nameWords = computed(() =>
     this.subDescriptor().primaryHeaderText.split(' ').map(word => word.split(''))
   );
+
+  private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  private rafId = 0;
+  private threeRenderer: { dispose(): void } | null = null;
+  private onMouseMove!: (e: MouseEvent) => void;
+  private onResize!: () => void;
+  private onVisibility!: () => void;
+  private nodeTex: { dispose(): void } | null = null;
 
   constructor() {
     afterNextRender(() => {
@@ -33,6 +40,16 @@ export class HeroComponent {
         this.initParallax();
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    if (!this.isBrowser) return;
+    cancelAnimationFrame(this.rafId);
+    window.removeEventListener('mousemove', this.onMouseMove);
+    window.removeEventListener('resize', this.onResize);
+    document.removeEventListener('visibilitychange', this.onVisibility);
+    this.threeRenderer?.dispose();
+    this.nodeTex?.dispose();
   }
 
   private animateName(): void {
@@ -53,111 +70,151 @@ export class HeroComponent {
     const W = parent.offsetWidth;
     const H = parent.offsetHeight;
 
-    // Lazy-load Three.js so it lands in a separate chunk and stays out of the
-    // initial bundle, keeping it under the 1 MB budget.
     const THREE = await import('three');
+
+    const makeSpriteTexture = (size: number, r: number, g: number, b: number) => {
+      const offscreen = document.createElement('canvas');
+      offscreen.width = offscreen.height = size;
+      const ctx = offscreen.getContext('2d')!;
+      const grad = ctx.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+      grad.addColorStop(0,   `rgba(${r},${g},${b},1)`);
+      grad.addColorStop(0.4, `rgba(${r},${g},${b},0.6)`);
+      grad.addColorStop(1,   `rgba(${r},${g},${b},0)`);
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, size, size);
+      return new THREE.CanvasTexture(offscreen);
+    };
 
     const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(W, H, false);
+    this.threeRenderer = renderer;
 
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(55, W / H, 0.1, 200);
     camera.position.z = 22;
 
-    const N = 300;
-    const pos = new Float32Array(N * 3);
+    // Constellation scene — nodes + dynamic connections
+    const NODE_COUNT = 350;
+    const MAX_LINES  = 1500;
+    const CONN_DIST  = 5.5;
+    const CONN_DIST_SQ = CONN_DIST * CONN_DIST;
 
-    for (let i = 0; i < N; i++) {
-      pos[i * 3]     = (Math.random() - 0.5) * 22;
-      pos[i * 3 + 1] = (Math.random() - 0.5) * 14;
-      pos[i * 3 + 2] = (Math.random() - 0.5) * 16;
+    const nodePos = new Float32Array(NODE_COUNT * 3);
+    const nodeVel = new Float32Array(NODE_COUNT * 3);
+    for (let i = 0; i < NODE_COUNT; i++) {
+      nodePos[i * 3]     = (Math.random() - 0.5) * 36;
+      nodePos[i * 3 + 1] = (Math.random() - 0.5) * 22;
+      nodePos[i * 3 + 2] = (Math.random() - 0.5) * 12;
+      nodeVel[i * 3]     = (Math.random() - 0.5) * 0.008;
+      nodeVel[i * 3 + 1] = (Math.random() - 0.5) * 0.008;
+      nodeVel[i * 3 + 2] = (Math.random() - 0.5) * 0.008;
     }
+    const nodeGeo = new THREE.BufferGeometry();
+    nodeGeo.setAttribute('position', new THREE.BufferAttribute(nodePos, 3));
 
-    const pGeo = new THREE.BufferGeometry();
-    pGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
-
-    const pMat = new THREE.PointsMaterial({
-      color: 0xD4668A,
-      size: 0.13,
-      sizeAttenuation: true,
-      transparent: true,
-      opacity: 0.85,
+    this.nodeTex = makeSpriteTexture(32, 212, 102, 138);
+    const nodeMat = new THREE.PointsMaterial({
+      color: 0xD4668A, size: 0.18, sizeAttenuation: true,
+      transparent: true, opacity: 0.85, depthWrite: false,
+      blending: THREE.AdditiveBlending,
+      map: this.nodeTex as unknown as THREE.Texture,
+      alphaTest: 0.05,
     });
+    scene.add(new THREE.Points(nodeGeo, nodeMat));
 
-    const points = new THREE.Points(pGeo, pMat);
+    const linePos = new Float32Array(MAX_LINES * 2 * 3);
+    const lineGeo = new THREE.BufferGeometry();
+    lineGeo.setAttribute('position', new THREE.BufferAttribute(linePos, 3));
+    lineGeo.setDrawRange(0, 0);
+    const lineMat = new THREE.LineBasicMaterial({ color: 0x9CA3AF, transparent: true, opacity: 0.2 });
+    scene.add(new THREE.LineSegments(lineGeo, lineMat));
 
-    const lineVerts: number[] = [];
-    const thresh = 5.5;
-    const maxSeg = 520;
+    let mxT = 0, myT = 0, mxC = 0, myC = 0, prev = performance.now(), lastTheme = '';
 
-    outer: for (let i = 0; i < N; i++) {
-      for (let j = i + 1; j < N; j++) {
-        const dx = pos[i*3]   - pos[j*3];
-        const dy = pos[i*3+1] - pos[j*3+1];
-        const dz = pos[i*3+2] - pos[j*3+2];
-        if (dx*dx + dy*dy + dz*dz < thresh * thresh) {
-          lineVerts.push(
-            pos[i*3], pos[i*3+1], pos[i*3+2],
-            pos[j*3], pos[j*3+1], pos[j*3+2],
-          );
-          if (lineVerts.length / 6 >= maxSeg) break outer;
-        }
-      }
-    }
-
-    const lGeo = new THREE.BufferGeometry();
-    lGeo.setAttribute('position', new THREE.BufferAttribute(new Float32Array(lineVerts), 3));
-
-    const lMat = new THREE.LineBasicMaterial({ color: 0xD4668A, transparent: true, opacity: 0.18 });
-    const lines = new THREE.LineSegments(lGeo, lMat);
-
-    const group = new THREE.Group();
-    group.add(points);
-    group.add(lines);
-    scene.add(group);
-
-    let mxT = 0, myT = 0, mxC = 0, myC = 0;
-    const onMouse = (e: MouseEvent) => {
+    this.onMouseMove = (e: MouseEvent) => {
       mxT = e.clientX / window.innerWidth  - 0.5;
       myT = e.clientY / window.innerHeight - 0.5;
     };
-    window.addEventListener('mousemove', onMouse);
-
-    const onResize = () => {
+    this.onResize = () => {
       const w = parent.offsetWidth;
       const h = parent.offsetHeight;
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
     };
-    window.addEventListener('resize', onResize);
+    window.addEventListener('mousemove', this.onMouseMove);
+    window.addEventListener('resize', this.onResize);
 
-    let lastTheme = '';
     const tick = () => {
-      requestAnimationFrame(tick);
-      const t = performance.now() * 0.001;
+      this.rafId = requestAnimationFrame(tick);
+      const now = performance.now();
+      prev = now;
 
-      group.rotation.y = t * 0.07;
-      group.rotation.x = Math.sin(t * 0.035) * 0.1;
+      // 1. Drift nodes + toroidal wrap
+      for (let i = 0; i < NODE_COUNT; i++) {
+        nodePos[i * 3]     += nodeVel[i * 3];
+        nodePos[i * 3 + 1] += nodeVel[i * 3 + 1];
+        nodePos[i * 3 + 2] += nodeVel[i * 3 + 2];
+        if (nodePos[i * 3]     >  18) nodePos[i * 3]     = -18;
+        if (nodePos[i * 3]     < -18) nodePos[i * 3]     =  18;
+        if (nodePos[i * 3 + 1] >  11) nodePos[i * 3 + 1] = -11;
+        if (nodePos[i * 3 + 1] < -11) nodePos[i * 3 + 1] =  11;
+        if (nodePos[i * 3 + 2] >   6) nodePos[i * 3 + 2] =  -6;
+        if (nodePos[i * 3 + 2] <  -6) nodePos[i * 3 + 2] =   6;
+      }
+      (nodeGeo.attributes['position'] as THREE.BufferAttribute).needsUpdate = true;
 
+      // 2. Build connections — O(n²/2) distance checks, capped at MAX_LINES
+      let lineCount = 0;
+      outer: for (let a = 0; a < NODE_COUNT - 1; a++) {
+        for (let b = a + 1; b < NODE_COUNT; b++) {
+          if (lineCount >= MAX_LINES) break outer;
+          const dx = nodePos[a * 3]     - nodePos[b * 3];
+          const dy = nodePos[a * 3 + 1] - nodePos[b * 3 + 1];
+          const dz = nodePos[a * 3 + 2] - nodePos[b * 3 + 2];
+          if (dx * dx + dy * dy + dz * dz < CONN_DIST_SQ) {
+            const li = lineCount * 6;
+            linePos[li]     = nodePos[a * 3];     linePos[li + 1] = nodePos[a * 3 + 1]; linePos[li + 2] = nodePos[a * 3 + 2];
+            linePos[li + 3] = nodePos[b * 3];     linePos[li + 4] = nodePos[b * 3 + 1]; linePos[li + 5] = nodePos[b * 3 + 2];
+            lineCount++;
+          }
+        }
+      }
+      (lineGeo.attributes['position'] as THREE.BufferAttribute).needsUpdate = true;
+      lineGeo.setDrawRange(0, lineCount * 2);
+
+      // 3. Mouse parallax
       mxC += (mxT - mxC) * 0.04;
       myC += (myT - myC) * 0.04;
-      camera.position.x = mxC * 4;
-      camera.position.y = -myC * 3;
+      camera.position.x = mxC * 2.5;
+      camera.position.y = -myC * 1.5;
       camera.lookAt(scene.position);
 
+      // 4. Theme-aware material colors
       const theme = (document.documentElement.dataset['theme'] as string) ?? '';
       if (theme !== lastTheme) {
         lastTheme = theme;
-        pMat.opacity = theme === 'dark' ? 0.9  : 0.65;
-        lMat.opacity = theme === 'dark' ? 0.22 : 0.13;
+        const dark = theme === 'dark';
+        nodeMat.color.set(dark ? 0xE07899 : 0xD4668A);
+        nodeMat.opacity = dark ? 1.0 : 0.85;
+        lineMat.opacity = dark ? 0.30 : 0.18;
       }
 
       renderer.render(scene, camera);
     };
 
     tick();
+
+    this.onVisibility = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(this.rafId);
+      } else {
+        prev = performance.now();
+        tick();
+      }
+    };
+    document.addEventListener('visibilitychange', this.onVisibility);
   }
 
   private initMagneticButtons(): void {
