@@ -1,11 +1,19 @@
-.contacts-wrapper {
-  text-align: center;
+// Glow lives on :host (full viewport width) rather than the max-width
+// .section-wrapper, so it spans the whole page instead of being clipped to
+// the centered content column.
+:host {
+  display: block;
   position: relative;
   overflow: hidden;
   background:
-    radial-gradient(ellipse 80% 60% at 50% 110%, var(--color-accent-light) 0%, transparent 68%),
-    radial-gradient(ellipse 40% 30% at 20%  90%, var(--color-accent-light) 0%, transparent 70%),
-    radial-gradient(ellipse 40% 30% at 80%  90%, var(--color-accent-light) 0%, transparent 70%);
+    radial-gradient(ellipse 60% 60% at 50% 110%, var(--color-accent-light) 0%, transparent 68%),
+    radial-gradient(ellipse 30% 30% at 20%  90%, var(--color-accent-light) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 30% at 80%  90%, var(--color-accent-light) 0%, transparent 70%);
+}
+
+.contacts-wrapper {
+  text-align: center;
+  position: relative;
 }
 
 .float-particle {

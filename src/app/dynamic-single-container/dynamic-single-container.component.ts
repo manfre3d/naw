@@ -12,6 +12,7 @@ import {
   ExperienceSection, EducationSection, ProjectsSection, ContactsSection, FooterSection
 } from '../models/descriptor.model';
 import { ScrollAnimationService } from '../services/scroll-animation.service';
+import { ActiveSectionService } from '../services/active-section.service';
 
 @Component({
   selector: 'app-dynamic-single-container',
@@ -39,12 +40,15 @@ export class DynamicSingleContainerComponent implements AfterViewInit {
   });
 
   private scrollAnimation = inject(ScrollAnimationService);
+  private activeSection = inject(ActiveSectionService);
   private host = inject(ElementRef<HTMLElement>);
 
   ngAfterViewInit(): void {
     // Each container reveals its own section once it's rendered — robust to
     // SSR-hydration timing differences between sections.
-    this.scrollAnimation.observe(this.host.nativeElement.querySelector('section'));
+    const sectionEl = this.host.nativeElement.querySelector('section');
+    this.scrollAnimation.observe(sectionEl);
+    this.activeSection.observe(sectionEl, this.section().type);
   }
 
   asHeader(s: DescriptorSection) { return s as HeaderSection; }

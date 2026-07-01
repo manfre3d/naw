@@ -4,11 +4,11 @@
 
   <div class="skills-grid">
     @for (category of subDescriptor().categories; track category.name) {
-      <div class="skill-category" appTilt3d [maxTiltX]="3" [maxTiltY]="5">
+      <div class="skill-category" appTilt3d [maxTiltX]="3" [maxTiltY]="5" (pointermove)="onCardPointerMove($event)">
         <h3 class="category-name">{{ category.name }}</h3>
         <ul class="skill-tags" role="list">
           @for (skill of category.skills; track skill.name) {
-            <li class="skill-tag">
+            <li class="skill-tag" appMagneticHover [strength]="0.4" [returnDuration]="0.6">
               @if (skill.icon) {
                 <i [class]="skill.icon" aria-hidden="true"></i>
               }

@@ -1,13 +1,14 @@
 import { Component, ChangeDetectionStrategy, input, ElementRef, inject, afterNextRender } from '@angular/core';
 import { SkillsSection } from '../models/descriptor.model';
 import { Tilt3dDirective } from '../directives/tilt-3d.directive';
+import { MagneticHoverDirective } from '../directives/magnetic-hover.directive';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [Tilt3dDirective],
+  imports: [Tilt3dDirective, MagneticHoverDirective],
   templateUrl: './skills.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './skills.component.scss'
@@ -35,5 +36,12 @@ export class SkillsComponent {
         { scale: 1, opacity: 1, duration: 0.35, stagger: 0.025, ease: 'back.out(1.8)', scrollTrigger: trigger, delay: 0.3 }
       );
     });
+  }
+
+  onCardPointerMove(event: PointerEvent): void {
+    const card = event.currentTarget as HTMLElement;
+    const rect = card.getBoundingClientRect();
+    card.style.setProperty('--x', `${event.clientX - rect.left}px`);
+    card.style.setProperty('--y', `${event.clientY - rect.top}px`);
   }
 }

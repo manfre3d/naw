@@ -3,6 +3,7 @@ import { DOCUMENT } from '@angular/common';
 import { Meta, Title } from '@angular/platform-browser';
 import { gsap } from 'gsap';
 import { DynamicContainerComponent } from './dynamic-container/dynamic-container.component';
+import { SceneBackgroundComponent } from './scene-background/scene-background.component';
 import { DescriptorSection } from './models/descriptor.model';
 import { LanguageService } from './services/language.service';
 import descriptorEn from '../descriptor.en.json';
@@ -26,7 +27,7 @@ const META = {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DynamicContainerComponent],
+  imports: [DynamicContainerComponent, SceneBackgroundComponent],
   templateUrl: './app.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './app.component.scss'

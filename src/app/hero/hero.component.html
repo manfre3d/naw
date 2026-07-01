@@ -1,5 +1,4 @@
 <div class="hero-wrapper">
-  <canvas class="hero-canvas" #heroCanvas aria-hidden="true"></canvas>
   <div class="hero-layout">
 
     <!-- Left: text hierarchy -->
@@ -45,10 +44,11 @@
           [href]="subDescriptor().cvPath"
           download="Manfredi_Piraino_CV.pdf"
           class="btn-primary"
+          appMagneticHover
         >
           <i class="fa-solid fa-download" aria-hidden="true"></i> {{ subDescriptor().ctaDownload }}
         </a>
-        <a href="#contacts" class="btn-outline">{{ subDescriptor().ctaContact }}</a>
+        <a href="#contacts" class="btn-outline" appMagneticHover>{{ subDescriptor().ctaContact }}</a>
       </div>
 
       <div class="hero-socials">

@@ -1,20 +1,6 @@
 :host {
   display: block;
   position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image:
-      radial-gradient(circle 2px   at 94% 20%, var(--color-accent-border) 100%, transparent 0),
-      radial-gradient(circle 1.5px at  6% 35%, var(--color-accent-border) 100%, transparent 0),
-      radial-gradient(circle 1.5px at 90% 75%, var(--color-accent-border) 100%, transparent 0),
-      radial-gradient(circle 1px   at 50%  8%, var(--color-accent-border) 100%, transparent 0);
-    pointer-events: none;
-    opacity: 0.5;
-    z-index: 0;
-  }
 }
 
 .section-wrapper { position: relative; z-index: 1; }
