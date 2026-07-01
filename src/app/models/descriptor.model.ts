@@ -2,6 +2,7 @@ export interface LinkElement {
   link: string;
   icon: string;
   color: string;
+  label: string;
 }
 
 export interface HeroStat {
@@ -27,6 +28,7 @@ export interface HeroSection {
   cvPath: string;
   ctaDownload: string;
   ctaContact: string;
+  scrollCueLabel: string;
   typingPhrases: string[];
   linkElements: LinkElement[];
   stats?: HeroStat[];
@@ -65,6 +67,7 @@ export interface ExperienceElement {
   company: string;
   role: string;
   period: string;
+  current?: boolean;
   projects: ExperienceProject[];
 }
 

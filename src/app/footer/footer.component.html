@@ -1,8 +1,8 @@
 <footer class="footer-inner">
   <div class="footer-socials">
     @for (link of subDescriptor().linkElements; track link.link) {
-      <a [href]="link.link" target="_blank" rel="noopener" class="social-icon" [attr.aria-label]="link.icon">
-        <i [class]="link.icon"></i>
+      <a [href]="link.link" target="_blank" rel="noopener noreferrer" class="social-icon" [attr.aria-label]="link.label">
+        <i [class]="link.icon" aria-hidden="true"></i>
       </a>
     }
   </div>

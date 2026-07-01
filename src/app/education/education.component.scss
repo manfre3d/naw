@@ -61,10 +61,6 @@
   }
 }
 
-@keyframes shine-pass {
-  from { transform: translateX(-100%) skewX(-15deg); }
-  to   { transform: translateX(300%)  skewX(-15deg); }
-}
 
 .edu-logo-wrapper {
   width: 40px;
@@ -94,7 +90,7 @@
 }
 
 .edu-institution {
-  font-size: 0.8rem;
+  font-size: 0.825rem;
   color: var(--color-accent);
   font-weight: 500;
 }
@@ -107,7 +103,7 @@
 }
 
 .edu-desc {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--color-muted);
   line-height: 1.65;
   text-align: left;

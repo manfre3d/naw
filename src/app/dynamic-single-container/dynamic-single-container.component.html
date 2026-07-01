@@ -1,6 +1,7 @@
 <section
   [class.sticky]="section().type === 'HEADER'"
   [class.hidden]="section().type !== 'HERO' && section().type !== 'HEADER'"
+  [attr.aria-label]="sectionLabel()"
   class="row gx-0"
 >
   @switch (section().type) {

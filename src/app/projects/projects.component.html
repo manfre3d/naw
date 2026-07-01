@@ -32,13 +32,13 @@
           }
           <div class="project-links">
             @if (project.liveUrl) {
-              <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="project-link project-link--demo">
-                Live Demo <i class="fa-solid fa-arrow-up-right-from-square"></i>
+              <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="project-link project-link--demo" [attr.aria-label]="'Live demo of ' + project.name">
+                Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
               </a>
             }
             @if (project.link) {
-              <a [href]="project.link" target="_blank" rel="noopener noreferrer" class="project-link">
-                {{ subDescriptor().linkLabel }} <i class="fa-brands fa-github"></i>
+              <a [href]="project.link" target="_blank" rel="noopener noreferrer" class="project-link" [attr.aria-label]="'View ' + project.name + ' on GitHub'">
+                {{ subDescriptor().linkLabel }} <i class="fa-brands fa-github" aria-hidden="true"></i>
               </a>
             }
           </div>

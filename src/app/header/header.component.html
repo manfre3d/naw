@@ -1,52 +1,57 @@
-<nav class="nav-inner">
-  <span class="nav-brand">mp<span class="accent">.</span></span>
+<header role="banner">
+  <nav class="nav-inner">
+    <a href="#home" class="nav-brand" aria-label="Manfredi Piraino — Home">mp<span class="accent">.</span></a>
 
-  <div class="nav-links">
-    @for (item of subDescriptor().nav.navigationList; track item.link) {
-      <a class="nav-link" [class.active]="isActive(item.link)" [href]="item.link">{{ item.description }}</a>
-    }
-  </div>
-
-  <div class="nav-right">
-    <div class="lang-toggle">
-      <button
-        class="lang-btn"
-        [class.active]="langService.currentLang() === 'en'"
-        (click)="langService.setLang('en')"
-      >EN</button>
-      <span class="lang-sep">/</span>
-      <button
-        class="lang-btn"
-        [class.active]="langService.currentLang() === 'it'"
-        (click)="langService.setLang('it')"
-      >IT</button>
+    <div class="nav-links">
+      @for (item of subDescriptor().nav.navigationList; track item.link) {
+        <a class="nav-link" [class.active]="isActive(item.link)" [href]="item.link">{{ item.description }}</a>
+      }
     </div>
 
-    <button
-      class="theme-toggle"
-      (click)="themeService.toggle()"
-      [attr.aria-label]="themeService.currentTheme() === 'light' ? 'Switch to dark mode' : 'Switch to light mode'"
-    >
-      <i [class]="themeService.currentTheme() === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun'"></i>
-    </button>
+    <div class="nav-right">
+      <div class="lang-toggle">
+        <button
+          class="lang-btn"
+          [class.active]="langService.currentLang() === 'en'"
+          [attr.aria-pressed]="langService.currentLang() === 'en'"
+          (click)="langService.setLang('en')"
+        >EN</button>
+        <span class="lang-sep">/</span>
+        <button
+          class="lang-btn"
+          [class.active]="langService.currentLang() === 'it'"
+          [attr.aria-pressed]="langService.currentLang() === 'it'"
+          (click)="langService.setLang('it')"
+        >IT</button>
+      </div>
 
-    <button
-      class="hamburger"
-      [class.open]="menuOpen()"
-      (click)="menuOpen.set(!menuOpen())"
-      aria-label="Toggle menu"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
-  </div>
-</nav>
+      <button
+        class="theme-toggle"
+        (click)="themeService.toggle()"
+        [attr.aria-label]="themeService.currentTheme() === 'light' ? 'Switch to dark mode' : 'Switch to light mode'"
+      >
+        <i [class]="themeService.currentTheme() === 'light' ? 'fa-solid fa-moon' : 'fa-solid fa-sun'" aria-hidden="true"></i>
+      </button>
 
-<div class="mobile-menu" [class.open]="menuOpen()">
+      <button
+        class="hamburger"
+        [class.open]="menuOpen()"
+        [attr.aria-expanded]="menuOpen()"
+        (click)="menuOpen.set(!menuOpen())"
+        aria-label="Toggle menu"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+
+<nav class="mobile-menu" aria-label="Mobile navigation" [attr.aria-hidden]="!menuOpen()" [class.open]="menuOpen()">
   @for (item of subDescriptor().nav.navigationList; track item.link) {
     <a class="mobile-link" [class.active]="isActive(item.link)" [href]="item.link" (click)="menuOpen.set(false)">
       {{ item.description }}
     </a>
   }
-</div>
+</nav>

@@ -27,6 +27,7 @@
       "cvPath": "assets/cv_manfredi_piraino_ita_2026.pdf",
       "ctaDownload": "Scarica il CV",
       "ctaContact": "Contattami",
+      "scrollCueLabel": "Scorri ai contenuti",
       "typingPhrases": [
         "Enterprise Full Stack Engineer",
         "AI & Cloud Native Developer",
@@ -39,9 +40,9 @@
         { "value": "4",   "label": "Settori industriali" }
       ],
       "linkElements": [
-        { "link": "https://github.com/manfre3d",                    "icon": "fa-brands fa-github",   "color": "white" },
-        { "link": "https://www.linkedin.com/in/manfredi-piraino",   "icon": "fa-brands fa-linkedin", "color": "white" },
-        { "link": "mailto:manfredipiraino@gmail.com",               "icon": "fa-solid fa-envelope",  "color": "white" }
+        { "link": "https://github.com/manfre3d",                    "icon": "fa-brands fa-github",   "color": "white", "label": "GitHub" },
+        { "link": "https://www.linkedin.com/in/manfredi-piraino",   "icon": "fa-brands fa-linkedin", "color": "white", "label": "LinkedIn" },
+        { "link": "mailto:manfredipiraino@gmail.com",               "icon": "fa-solid fa-envelope",  "color": "white", "label": "Email" }
       ]
     },
     {
@@ -132,6 +133,7 @@
           "company": "Blue Reply",
           "role": "Consultant Software Engineer",
           "period": "2026 – Presente",
+          "current": true,
           "img": "assets/blue_reply_it_logo.jpg",
           "projects": [
             {
@@ -279,8 +281,8 @@
       "secondaryTitleText": "Aperto a nuove opportunità e collaborazioni. Scrivimi, rispondo sempre.",
       "replyPromise": "Rispondo entro 24h",
       "linkElements": [
-        { "link": "https://github.com/manfre3d",                  "icon": "fa-brands fa-github",   "color": "" },
-        { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "" }
+        { "link": "https://github.com/manfre3d",                  "icon": "fa-brands fa-github",   "color": "", "label": "GitHub" },
+        { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "", "label": "LinkedIn" }
       ]
     },
     {
@@ -289,9 +291,9 @@
       "style": "SECTION",
       "footerText": "Realizzato con ❤ da Manfredi Piraino",
       "linkElements": [
-        { "link": "https://github.com/manfre3d",                  "icon": "fa-brands fa-github",   "color": "white" },
-        { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "white" },
-        { "link": "mailto:manfredipiraino@gmail.com",             "icon": "fa-solid fa-envelope",  "color": "white" }
+        { "link": "https://github.com/manfre3d",                  "icon": "fa-brands fa-github",   "color": "white", "label": "GitHub" },
+        { "link": "https://www.linkedin.com/in/manfredi-piraino", "icon": "fa-brands fa-linkedin", "color": "white", "label": "LinkedIn" },
+        { "link": "mailto:manfredipiraino@gmail.com",             "icon": "fa-solid fa-envelope",  "color": "white", "label": "Email" }
       ]
     }
   ]

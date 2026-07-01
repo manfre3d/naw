@@ -5,17 +5,17 @@
   <div class="skills-grid">
     @for (category of subDescriptor().categories; track category.name) {
       <div class="skill-category" appTilt3d [maxTiltX]="3" [maxTiltY]="5">
-        <p class="category-name">{{ category.name }}</p>
-        <div class="skill-tags">
+        <h3 class="category-name">{{ category.name }}</h3>
+        <ul class="skill-tags" role="list">
           @for (skill of category.skills; track skill.name) {
-            <span class="skill-tag">
+            <li class="skill-tag">
               @if (skill.icon) {
-                <i [class]="skill.icon"></i>
+                <i [class]="skill.icon" aria-hidden="true"></i>
               }
               {{ skill.name }}
-            </span>
+            </li>
           }
-        </div>
+        </ul>
       </div>
     }
   </div>

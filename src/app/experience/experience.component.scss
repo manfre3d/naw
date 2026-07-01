@@ -85,8 +85,30 @@
   margin-bottom: 0.15rem;
 }
 
+.employer-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.35rem;
+}
+
+.employer-current-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.15rem 0.5rem;
+  background-color: var(--color-accent-light);
+  border: 1px solid var(--color-accent-border);
+  border-radius: var(--radius-sm);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+}
+
 .employer-role {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--color-accent);
   font-weight: 500;
 }
@@ -152,7 +174,7 @@
 }
 
 .project-desc {
-  font-size: 0.83rem;
+  font-size: 0.85rem;
   color: var(--color-muted);
   line-height: 1.65;
   text-align: left;

@@ -1,27 +1,29 @@
 <div class="section-wrapper contacts-wrapper">
-  @for (i of particleCount; track i) {
-    <span class="float-particle" [attr.data-idx]="i"></span>
-  }
+  <div aria-hidden="true">
+    @for (i of particleCount; track i) {
+      <span class="float-particle" [attr.data-idx]="i"></span>
+    }
+  </div>
   <p class="section-label">{{ subDescriptor().label }}</p>
   <h2 class="section-title">{{ subDescriptor().primaryTitleText }}</h2>
   <p class="contacts-sub">{{ subDescriptor().secondaryTitleText }}</p>
   <a href="mailto:{{ subDescriptor().mail }}" class="contacts-email">
     {{ subDescriptor().mail }}
-    <i class="fa-solid fa-arrow-right"></i>
+    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
   </a>
   @if (subDescriptor().linkElements?.length) {
     <p class="contacts-or">or find me on</p>
     <div class="contacts-socials">
       @for (link of subDescriptor().linkElements; track link.link) {
-        <a [href]="link.link" target="_blank" rel="noopener noreferrer" class="social-icon" [attr.aria-label]="link.icon">
-          <i [class]="link.icon"></i>
+        <a [href]="link.link" target="_blank" rel="noopener noreferrer" class="social-icon" [attr.aria-label]="link.label">
+          <i [class]="link.icon" aria-hidden="true"></i>
         </a>
       }
     </div>
   }
   @if (subDescriptor().replyPromise) {
     <p class="contacts-reply">
-      <i class="fa-solid fa-clock"></i> {{ subDescriptor().replyPromise }}
+      <i class="fa-solid fa-clock" aria-hidden="true"></i> {{ subDescriptor().replyPromise }}
     </p>
   }
 </div>

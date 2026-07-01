@@ -17,7 +17,12 @@
             <h3 class="employer-name">{{ item.company }}</h3>
             <p class="employer-role">{{ item.role }}</p>
           </div>
-          <span class="badge-chip badge-chip--accent">{{ item.period }}</span>
+          <div class="employer-badges">
+            <span class="badge-chip badge-chip--accent">{{ item.period }}</span>
+            @if (item.current) {
+              <span class="employer-current-badge">Current</span>
+            }
+          </div>
         </div>
 
         <div class="projects-track">
@@ -31,10 +36,10 @@
                 }
               </div>
               <div class="project-body">
-                <p class="project-header">
+                <h4 class="project-header">
                   <strong>{{ project.client }}</strong>
                   <span class="project-name-label"> — {{ project.name }}</span>
-                </p>
+                </h4>
                 <p class="project-desc">{{ project.description }}</p>
               </div>
             </div>

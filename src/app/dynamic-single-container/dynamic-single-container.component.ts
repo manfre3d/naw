@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ChangeDetectionStrategy, ElementRef, inject, input } from '@angular/core';
+import { AfterViewInit, Component, ChangeDetectionStrategy, ElementRef, inject, input, computed } from '@angular/core';
 import { HeroComponent } from '../hero/hero.component';
 import { FooterComponent } from '../footer/footer.component';
 import { HeaderComponent } from '../header/header.component';
@@ -32,6 +32,11 @@ import { ScrollAnimationService } from '../services/scroll-animation.service';
 })
 export class DynamicSingleContainerComponent implements AfterViewInit {
   section = input.required<DescriptorSection>();
+
+  sectionLabel = computed(() => {
+    const t = this.section().type;
+    return t.charAt(0) + t.slice(1).toLowerCase();
+  });
 
   private scrollAnimation = inject(ScrollAnimationService);
   private host = inject(ElementRef<HTMLElement>);

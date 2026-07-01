@@ -30,14 +30,14 @@
       <p class="hero-bio">{{ subDescriptor().bio }}</p>
 
       @if (subDescriptor().stats?.length) {
-        <div class="hero-stats">
+        <dl class="hero-stats">
           @for (stat of subDescriptor().stats; track stat.label) {
             <div class="hero-stat">
-              <span class="stat-value">{{ stat.value }}</span>
-              <span class="stat-label">{{ stat.label }}</span>
+              <dd class="stat-value">{{ stat.value }}</dd>
+              <dt class="stat-label">{{ stat.label }}</dt>
             </div>
           }
-        </div>
+        </dl>
       }
 
       <div class="hero-actions">
@@ -46,15 +46,15 @@
           download="Manfredi_Piraino_CV.pdf"
           class="btn-primary"
         >
-          <i class="fa-solid fa-download"></i> {{ subDescriptor().ctaDownload }}
+          <i class="fa-solid fa-download" aria-hidden="true"></i> {{ subDescriptor().ctaDownload }}
         </a>
         <a href="#contacts" class="btn-outline">{{ subDescriptor().ctaContact }}</a>
       </div>
 
       <div class="hero-socials">
         @for (link of subDescriptor().linkElements; track link.link) {
-          <a [href]="link.link" target="_blank" rel="noopener noreferrer" class="social-icon" [attr.aria-label]="link.icon">
-            <i [class]="link.icon"></i>
+          <a [href]="link.link" target="_blank" rel="noopener noreferrer" class="social-icon" [attr.aria-label]="link.label">
+            <i [class]="link.icon" aria-hidden="true"></i>
           </a>
         }
       </div>
@@ -73,7 +73,7 @@
 
   </div>
 
-  <a href="#skills" class="scroll-cue" aria-label="Scorri ai contenuti">
-    <i class="fa-solid fa-chevron-down"></i>
+  <a href="#skills" class="scroll-cue" [attr.aria-label]="subDescriptor().scrollCueLabel">
+    <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
   </a>
 </div>

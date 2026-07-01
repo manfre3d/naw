@@ -24,16 +24,6 @@
   transition: background-color var(--transition-base), border-color var(--transition-base);
 }
 
-.hidden {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
-}
-
-.show {
-  opacity: 1;
-  transform: none;
-}
 
 .footer {
   border-top: 1px solid var(--color-border);
