@@ -22,11 +22,14 @@ export class HeroComponent {
 
   constructor() {
     afterNextRender(() => {
-      this.startTyping();
-      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        this.animateName();
-        this.initParallax();
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        // Reduced motion: show the first role statically — no looping type/delete (WCAG 2.2.2)
+        this.displayedText.set(this.subDescriptor().typingPhrases?.[0] ?? '');
+        return;
       }
+      this.startTyping();
+      this.animateName();
+      this.initParallax();
     });
   }
 

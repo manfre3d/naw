@@ -26,11 +26,6 @@
   }
 }
 
-@keyframes img-shine {
-  from { transform: translateX(-100%) skewX(-12deg); }
-  to   { transform: translateX(250%)  skewX(-12deg); }
-}
-
 .project-image-wrapper {
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -48,7 +43,7 @@
     width: 35%;
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.09), transparent);
-    transform: translateX(-100%) skewX(-12deg);
+    transform: translateX(-100%) skewX(-15deg);
     pointer-events: none;
     z-index: 1;
   }
@@ -57,7 +52,7 @@
     border-color: var(--color-accent-border-strong);
     box-shadow: var(--shadow-md);
 
-    &::before { animation: img-shine 0.65s ease forwards; }
+    &::before { animation: shine-pass 0.65s ease forwards; }
   }
 
   &.logo-card {
@@ -113,7 +108,7 @@
 .project-index {
   font-family: 'Space Mono', monospace;
   font-size: 0.72rem;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   letter-spacing: 0.1em;
 }
 
@@ -167,9 +162,9 @@
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  font-size: 0.85rem;
+  font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   transition: color var(--transition-fast);
 
   i { font-size: 0.78rem; }
@@ -178,14 +173,14 @@
 
   &--demo {
     padding: 0.45rem 1rem;
-    background-color: var(--color-accent);
-    color: #fff;
+    background-color: var(--color-accent-solid);
+    color: var(--color-on-accent);
     border-radius: var(--radius-sm);
     transition: background-color var(--transition-fast), transform var(--transition-fast);
 
     &:hover {
-      background-color: var(--color-accent-hover);
-      color: #fff;
+      background-color: color-mix(in srgb, var(--color-accent-solid), #000 12%);
+      color: var(--color-on-accent);
       transform: translateY(-1px);
     }
   }

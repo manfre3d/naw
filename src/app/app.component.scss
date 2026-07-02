@@ -8,7 +8,7 @@
   background: radial-gradient(circle, rgba(212, 102, 138, 0.07) 0%, transparent 70%);
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
+  z-index: var(--z-top);
   will-change: transform;
 
   @media (hover: none) { display: none; } // hide on touch devices
@@ -19,10 +19,10 @@
   position: absolute;
   top: -100%;
   left: 1rem;
-  z-index: 9999;
+  z-index: var(--z-top);
   padding: 0.5rem 1rem;
-  background: var(--color-accent);
-  color: #fff;
+  background: var(--color-accent-solid);
+  color: var(--color-on-accent);
   border-radius: var(--radius-md);
   font-size: 0.875rem;
   font-weight: 600;

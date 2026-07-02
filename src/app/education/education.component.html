@@ -4,9 +4,9 @@
 
   <div class="edu-grid">
     @for (item of subDescriptor().elements; track item.degree) {
-      <div class="edu-card">
+      <div class="edu-card shine-sweep">
         <div class="edu-logo-wrapper">
-          <img [src]="item.img" [alt]="item.institution" class="edu-logo" />
+          <img [src]="item.img" [alt]="item.institution" class="edu-logo" width="32" height="32" loading="lazy" />
         </div>
         <div class="edu-body">
           <h3 class="edu-degree">{{ item.degree }}</h3>

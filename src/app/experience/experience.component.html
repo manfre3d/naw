@@ -8,7 +8,7 @@
         <div class="employer-header">
           <div class="employer-marker">
             @if (item.img) {
-              <img [src]="item.img" [alt]="item.company" class="employer-logo" />
+              <img [src]="item.img" [alt]="item.company" class="employer-logo" width="30" height="30" loading="lazy" />
             } @else {
               <span class="employer-initial">{{ item.company.charAt(0) }}</span>
             }
@@ -20,7 +20,7 @@
           <div class="employer-badges">
             <span class="badge-chip badge-chip--accent">{{ item.period }}</span>
             @if (item.current) {
-              <span class="employer-current-badge">Current</span>
+              <span class="employer-current-badge">{{ subDescriptor().currentLabel }}</span>
             }
           </div>
         </div>
@@ -30,7 +30,7 @@
             <div class="project-entry">
               <div class="project-bullet">
                 @if (project.img) {
-                  <img [src]="project.img" [alt]="project.client" class="project-logo" />
+                  <img [src]="project.img" [alt]="project.client" class="project-logo" width="20" height="20" loading="lazy" />
                 } @else {
                   <span class="project-dot"></span>
                 }

@@ -77,6 +77,7 @@ export interface ExperienceSection {
   style: string;
   label: string;
   title: string;
+  currentLabel: string;
   elements: ExperienceElement[];
 }
 

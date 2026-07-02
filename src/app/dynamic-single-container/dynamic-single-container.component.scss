@@ -15,7 +15,7 @@
   position: sticky;
   width: 100%;
   min-height: var(--header-h);
-  z-index: 100;
+  z-index: var(--z-header);
   top: 0;
   background-color: var(--color-header-bg);
   backdrop-filter: blur(14px) saturate(160%);

@@ -12,10 +12,11 @@ export class Tilt3dDirective {
 
   private readonly el = inject(ElementRef<HTMLElement>);
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
+  private readonly reduceMotion = this.isBrowser && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   @HostListener('mousemove', ['$event'])
   onMouseMove(event: MouseEvent): void {
-    if (!this.isBrowser) return;
+    if (!this.isBrowser || this.reduceMotion) return;
     const el = this.el.nativeElement;
     const rect = el.getBoundingClientRect();
     const dx = (event.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
@@ -26,7 +27,7 @@ export class Tilt3dDirective {
 
   @HostListener('mouseleave')
   onMouseLeave(): void {
-    if (!this.isBrowser) return;
+    if (!this.isBrowser || this.reduceMotion) return;
     const el = this.el.nativeElement;
     el.style.transform = `perspective(${this.perspectivePx()}px) rotateX(0deg) rotateY(0deg)`;
     el.style.transition = 'transform 0.5s ease-out';

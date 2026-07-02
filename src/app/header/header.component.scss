@@ -21,7 +21,7 @@
   font-weight: 700;
   color: var(--color-text);
 
-  .accent { color: var(--color-accent); }
+  .accent { color: var(--color-accent-text); }
 }
 
 .nav-links {
@@ -57,7 +57,7 @@
   &:hover { color: var(--color-text); }
   &:hover::after,
   &.active::after { transform: scaleX(1); }
-  &.active { color: var(--color-accent); }
+  &.active { color: var(--color-accent-text); }
 }
 
 // --- Right slot: lang toggle + hamburger ---
@@ -92,7 +92,7 @@
   transition: color var(--transition-fast);
 
   &:hover  { color: var(--color-text); }
-  &.active { color: var(--color-accent); }
+  &.active { color: var(--color-accent-text); }
 }
 
 // --- Theme toggle ---
@@ -187,7 +187,7 @@
   }
 
   &.active {
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     box-shadow: inset 2px 0 0 var(--color-accent);
   }
 }

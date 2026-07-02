@@ -56,7 +56,7 @@
   font-family: 'Space Mono', monospace;
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .employer-meta {
@@ -90,12 +90,12 @@
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
 }
 
 .employer-role {
-  font-size: 0.85rem;
-  color: var(--color-accent);
+  font-size: var(--text-sm);
+  color: var(--color-accent-text);
   font-weight: 500;
 }
 

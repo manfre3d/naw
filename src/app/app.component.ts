@@ -46,6 +46,8 @@ export class AppComponent {
 
   constructor() {
     afterNextRender(() => {
+      // Skip on touch/no-hover devices (glow is CSS-hidden there) and for reduced motion
+      if (!window.matchMedia('(hover: hover)').matches) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
       const glow = this.doc.querySelector<HTMLElement>('.cursor-glow');
       if (!glow) return;

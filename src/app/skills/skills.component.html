@@ -4,7 +4,7 @@
 
   <div class="skills-grid">
     @for (category of subDescriptor().categories; track category.name) {
-      <div class="skill-category" appTilt3d [maxTiltX]="3" [maxTiltY]="5" (pointermove)="onCardPointerMove($event)">
+      <div class="skill-category shine-sweep" appTilt3d [maxTiltX]="3" [maxTiltY]="5" (pointermove)="onCardPointerMove($event)">
         <h3 class="category-name">{{ category.name }}</h3>
         <ul class="skill-tags" role="list">
           @for (skill of category.skills; track skill.name) {

@@ -36,18 +36,7 @@
     pointer-events: none;
   }
 
-  // Shimmer sweep — light passes across the card on hover, like a particle connection
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(212, 102, 138, 0.07), transparent);
-    transform: translateX(-100%) skewX(-15deg);
-    pointer-events: none;
-  }
+  // Shimmer sweep on hover comes from the shared global `.shine-sweep` utility.
 
   &:hover {
     border-color: var(--color-accent-border-strong);
@@ -55,7 +44,6 @@
     transform: translateY(-3px);
 
     &::before { opacity: 1; }
-    &::after { animation: shine-pass 0.55s ease forwards; }
   }
 
   @media (hover: none) {
@@ -65,10 +53,10 @@
 
 .category-name {
   font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
+  font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   margin-bottom: 1rem;
 }
 

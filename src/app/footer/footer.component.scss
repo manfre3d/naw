@@ -16,11 +16,11 @@
 
 .footer-socials {
   display: flex;
-  gap: 0.75rem;
+  gap: var(--space-3);
 
   .social-icon {
     border-color: rgba(255, 255, 255, 0.15);
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--color-footer-text);
 
     &:hover {
       border-color: var(--color-accent);
@@ -32,5 +32,5 @@
 
 .footer-copy {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--color-footer-text-muted);
 }

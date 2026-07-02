@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, inject, input, signal, afterNextRender } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, input, signal, afterNextRender, viewChild, ElementRef, HostListener } from '@angular/core';
 import { HeaderSection } from '../models/descriptor.model';
 import { LanguageService } from '../services/language.service';
 import { ThemeService } from '../services/theme.service';
@@ -18,8 +18,18 @@ export class HeaderComponent {
   menuOpen        = signal(false);
   activeId = signal<string>('');
 
+  private hamburgerBtn = viewChild<ElementRef<HTMLButtonElement>>('hamburgerBtn');
+
   constructor() {
     afterNextRender(() => this.trackActiveSection());
+  }
+
+  /** Close the mobile menu on Escape and return focus to the toggle button. */
+  @HostListener('keydown.escape')
+  closeMenuOnEscape(): void {
+    if (!this.menuOpen()) return;
+    this.menuOpen.set(false);
+    this.hamburgerBtn()?.nativeElement.focus();
   }
 
   isActive(link: string): boolean {

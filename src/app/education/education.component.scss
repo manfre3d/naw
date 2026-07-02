@@ -25,24 +25,12 @@
   transition: border-color var(--transition-base), box-shadow var(--transition-base),
               transform var(--transition-base);
 
-  &::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 40%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(212, 102, 138, 0.07), transparent);
-    transform: translateX(-100%) skewX(-15deg);
-    pointer-events: none;
-  }
+  // Shimmer sweep on hover comes from the shared global `.shine-sweep` utility.
 
   &:hover {
     border-color: var(--color-accent-border-strong);
     box-shadow: var(--shadow-md);
     transform: translateY(-3px);
-
-    &::after { animation: shine-pass 0.55s ease forwards; }
   }
 }
 
@@ -76,7 +64,7 @@
 
 .edu-institution {
   font-size: 0.825rem;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   font-weight: 500;
 }
 

@@ -19,7 +19,7 @@
       "id": "home",
       "type": "HERO",
       "style": "SECTION",
-      "imgPath": "assets/profesional_profile_picture_mp.png",
+      "imgPath": "assets/profesional_profile_picture_mp.jpg",
       "primaryHeaderText": "Manfredi Piraino",
       "bio": "Consultant Software Engineer in Blue Reply. Realizzo applicazioni enterprise con Angular, Spring Boot e microservizi cloud.",
       "availableForWork": true,
@@ -128,6 +128,7 @@
       "style": "SECTION",
       "label": "Carriera",
       "title": "Esperienza Lavorativa",
+      "currentLabel": "Attuale",
       "elements": [
         {
           "company": "Blue Reply",
@@ -252,7 +253,7 @@
           "tags": ["Apache Camel", "Kafka", "Spring Boot", "OpenShift", "Jenkins", "Kibana"]
         },
         {
-          "img": "assets/screenshot_aipocondriaco.png",
+          "img": "assets/screenshot_aipocondriaco.jpg",
           "name": "AiPocondriaco",
           "status": "Open Source · Live",
           "description": "AI companion ipocondriaco satirico. L'utente descrive i sintomi via chat in streaming con Google Gemini, riceve una valutazione teatrale del proprio stato di salute e un ritratto AI della condizione immaginaria. Demo disponibile senza API key.",
@@ -261,7 +262,7 @@
           "liveUrl": "https://aipocondriaco.onrender.com"
         },
         {
-          "img": "assets/py_tts_home.png",
+          "img": "assets/py_tts_home.jpg",
           "name": "py-tts",
           "status": "Open Source · Live",
           "description": "Convertitore documento-audio con supporto per PDF, DOCX e TXT. Upload drag-and-drop, progresso in tempo reale via SSE, otto voci AWS Polly, pulizia testo opzionale con GPT-4o-mini e player WaveSurfer.js con seek e controllo velocità.",

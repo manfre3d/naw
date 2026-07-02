@@ -36,9 +36,11 @@
       </button>
 
       <button
+        #hamburgerBtn
         class="hamburger"
         [class.open]="menuOpen()"
         [attr.aria-expanded]="menuOpen()"
+        aria-controls="mobile-nav"
         (click)="menuOpen.set(!menuOpen())"
         aria-label="Toggle menu"
       >
@@ -50,7 +52,7 @@
   </nav>
 </header>
 
-<nav class="mobile-menu" aria-label="Mobile navigation" [attr.aria-hidden]="!menuOpen()" [class.open]="menuOpen()">
+<nav id="mobile-nav" class="mobile-menu" aria-label="Mobile navigation" [attr.inert]="menuOpen() ? null : ''" [attr.aria-hidden]="!menuOpen()" [class.open]="menuOpen()">
   @for (item of subDescriptor().nav.navigationList; track item.link) {
     <a class="mobile-link" [class.active]="isActive(item.link)" [href]="item.link" (click)="menuOpen.set(false)">
       {{ item.description }}
