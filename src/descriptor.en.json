@@ -265,8 +265,8 @@
           "img": "assets/py_tts_home.jpg",
           "name": "py-tts",
           "status": "Open Source · Live",
-          "description": "Document-to-audio converter supporting PDF, DOCX, and TXT. Drag-and-drop upload, real-time progress via SSE, eight AWS Polly voices, optional GPT-4o-mini text cleanup, and a WaveSurfer.js player with seek and speed control.",
-          "tags": ["Python", "Flask", "AWS Polly", "OpenAI", "Bootstrap", "WaveSurfer.js"],
+          "description": "Document-to-audio converter supporting PDF, DOCX, and TXT. Drag-and-drop upload, real-time progress via SSE, eight voices, optional GPT-4o-mini text cleanup, a REST API, and a WaveSurfer.js player with seek and speed control.",
+          "tags": ["Python", "Flask", "gTTS", "OpenAI", "Bootstrap", "WaveSurfer.js"],
           "link": "https://github.com/manfre3d/py-tts",
           "liveUrl": "https://py-tts.onrender.com"
         }
