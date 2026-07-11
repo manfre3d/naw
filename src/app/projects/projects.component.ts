@@ -1,13 +1,14 @@
 import { Component, ChangeDetectionStrategy, input, ElementRef, inject, afterNextRender } from '@angular/core';
 import { ProjectsSection } from '../models/descriptor.model';
 import { Tilt3dDirective } from '../directives/tilt-3d.directive';
+import { SpotlightDirective } from '../directives/spotlight.directive';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [Tilt3dDirective],
+  imports: [Tilt3dDirective, SpotlightDirective],
   templateUrl: './projects.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './projects.component.scss'

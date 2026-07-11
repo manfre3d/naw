@@ -45,12 +45,23 @@ export interface SkillCategory {
   skills: Skill[];
 }
 
+export interface CoreSkill {
+  name: string;
+  icon?: string;
+  meta?: string;
+  note: string;
+  proof?: { label: string; href: string };
+}
+
 export interface SkillsSection {
   id: string;
   type: 'SKILLS';
   style: string;
   label: string;
   title: string;
+  coreLabel: string;
+  core: CoreSkill[];
+  secondaryLabel: string;
   categories: SkillCategory[];
 }
 

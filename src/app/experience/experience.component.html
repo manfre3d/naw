@@ -4,7 +4,7 @@
 
   <div class="timeline">
     @for (item of subDescriptor().elements; track item.company) {
-      <div class="employer-block">
+      <div class="employer-block spotlight-glow" appSpotlight>
         <div class="employer-header">
           <div class="employer-marker">
             @if (item.img) {

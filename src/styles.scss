@@ -70,9 +70,9 @@ hr {
   --color-bg:           #FAFAF8;
   --color-surface:      #FFFFFF;
   --color-surface-2:    #F4F4F1;
-  --color-border:       #E8E8E4;
+  --color-border:       #E1E1DB;
   --color-text:         #1C1C2E;
-  --color-muted:        #6B7280;
+  --color-muted:        #5D6470;  // AA+ (≥5.4:1) on every light surface, incl. surface-2
 
   // Accent — Sakura
   --color-accent:               #D4668A;
@@ -81,10 +81,10 @@ hr {
   --color-accent-border:        rgba(212, 102, 138, 0.30);
   --color-accent-border-strong: rgba(212, 102, 138, 0.55);
   --color-accent-glow:          rgba(212, 102, 138, 0.14);
-  --color-accent-text:          #B8436A;  // accent as *text* — AA (≥4.7:1) on light surfaces
+  --color-accent-text:          #AE3D62;  // accent as *text* — AA (≥4.7:1) on light surfaces incl. accent-light chips
   --color-accent-solid:         #B8436A;  // accent *fill* under white text — AA in both themes
   --color-on-accent:            #FFFFFF;
-  --color-status-available:     #4ADE80;  // "available for work" status dot
+  --color-status-available:     #16A34A;  // "available" dot — ≥3:1 on light bg (UI contrast)
 
   // Radii
   --radius-sm: 6px;
@@ -131,7 +131,7 @@ hr {
   // Footer (inverted surface — always dark, so text tokens are light in both themes)
   --color-footer-bg: #1C1C2E;
   --color-footer-text:       rgba(255, 255, 255, 0.60);
-  --color-footer-text-muted: rgba(255, 255, 255, 0.42);
+  --color-footer-text-muted: rgba(255, 255, 255, 0.52);  // 0.42 sat at 4.0:1 — below AA
 
   // Header backdrop (frosted glass — overridden in dark theme)
   --color-header-bg: rgba(250, 250, 248, 0.82);
@@ -147,9 +147,10 @@ hr {
   --color-bg:           #0D0D1A;
   --color-surface:      #151523;
   --color-surface-2:    #1C1C2E;
-  --color-border:       #2A2A42;
+  --color-border:       #31314E;
   --color-text:         #EEEEF5;
-  --color-muted:        #7A7A9A;
+  --color-muted:        #8E8EAE;  // AA+ (≥5.3:1) on every dark surface — #7A7A9A failed on cards
+  --color-status-available: #4ADE80;  // brighter green reads better on dark (11:1)
   --color-footer-bg:    #07070F;
   --color-header-bg:    rgba(13, 13, 26, 0.82);
   --color-scrim:        rgba(13, 13, 26, 0.72);
@@ -187,7 +188,7 @@ a {
 }
 
 ::selection {
-  background-color: var(--color-accent);
+  background-color: var(--color-accent-solid);  // raw accent left white text below AA (2.9:1 dark)
   color: #fff;
 }
 
@@ -320,7 +321,7 @@ a {
 
   &:hover {
     border-color: var(--color-accent);
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     background-color: var(--color-accent-light);
     transform: translateY(-2px);
   }
@@ -330,6 +331,30 @@ a {
 hr {
   border-color: var(--color-border);
   opacity: 1;
+}
+
+// ── Spotlight glow ───────────────────────────────────────────────────────────
+// Pointer-tracked accent glow on card hover — pair with the appSpotlight
+// directive, which feeds --x/--y. Owns ::after, so it cannot share an element
+// with .shine-sweep. Glow radius tunable per host via --spotlight-size.
+.spotlight-glow {
+  --x: 50%;
+  --y: 50%;
+  position: relative;
+  overflow: hidden;
+}
+.spotlight-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(var(--spotlight-size, 220px) circle at var(--x) var(--y), var(--color-accent-glow), transparent 70%);
+  opacity: 0;
+  transition: opacity var(--transition-fast);
+  pointer-events: none;
+}
+.spotlight-glow:hover::after { opacity: 1; }
+@media (hover: none) {
+  .spotlight-glow::after { display: none; }
 }
 
 // ── Shine sweep ──────────────────────────────────────────────────────────────

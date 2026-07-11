@@ -12,6 +12,7 @@
 }
 
 .employer-block {
+  --spotlight-size: 320px;  // wide card — default 220px glow reads too small
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);

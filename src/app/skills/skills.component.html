@@ -2,21 +2,42 @@
   <p class="section-label">{{ subDescriptor().label }}</p>
   <h2 class="section-title">{{ subDescriptor().title }}</h2>
 
-  <div class="skills-grid">
-    @for (category of subDescriptor().categories; track category.name) {
-      <div class="skill-category shine-sweep" appTilt3d [maxTiltX]="3" [maxTiltY]="5" (pointermove)="onCardPointerMove($event)">
-        <h3 class="category-name">{{ category.name }}</h3>
-        <ul class="skill-tags" role="list">
-          @for (skill of category.skills; track skill.name) {
-            <li class="skill-tag" appMagneticHover [strength]="0.4" [returnDuration]="0.6">
-              @if (skill.icon) {
-                <i [class]="skill.icon" aria-hidden="true"></i>
-              }
-              {{ skill.name }}
-            </li>
+  <h3 class="tier-label">{{ subDescriptor().coreLabel }}</h3>
+  <div class="core-grid">
+    @for (skill of subDescriptor().core; track skill.name) {
+      <div class="core-card spotlight-glow" appSpotlight>
+        <div class="core-head">
+          @if (skill.icon) {
+            <i [class]="skill.icon" aria-hidden="true"></i>
           }
-        </ul>
+          @if (skill.meta) {
+            <span class="core-meta">{{ skill.meta }}</span>
+          }
+        </div>
+        <h4 class="core-name">{{ skill.name }}</h4>
+        <p class="core-note">{{ skill.note }}</p>
+        @if (skill.proof; as proof) {
+          <a class="core-proof" [href]="proof.href">
+            <span class="proof-arrow" aria-hidden="true">→</span>{{ proof.label }}
+          </a>
+        }
       </div>
     }
   </div>
+
+  <h3 class="tier-label">{{ subDescriptor().secondaryLabel }}</h3>
+  <dl class="stack-rows">
+    @for (category of subDescriptor().categories; track category.name) {
+      <div class="stack-row">
+        <dt class="row-name">{{ category.name }}</dt>
+        <dd class="row-skills-wrap">
+          <ul class="row-skills" role="list">
+            @for (skill of category.skills; track skill.name) {
+              <li>{{ skill.name }}</li>
+            }
+          </ul>
+        </dd>
+      </div>
+    }
+  </dl>
 </div>

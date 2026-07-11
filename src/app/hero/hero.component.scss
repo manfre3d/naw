@@ -264,7 +264,7 @@
 
   &:hover {
     border-color: var(--color-accent);
-    color: var(--color-accent);
+    color: var(--color-accent-text);
     transform: translateY(-2px);
   }
 }
@@ -412,7 +412,7 @@
   animation: cue-bob 2s ease-in-out infinite;
   transition: color var(--transition-fast);
 
-  &:hover { color: var(--color-accent); }
+  &:hover { color: var(--color-accent-text); }
 
   @media (max-width: 860px) { display: none; }
 }

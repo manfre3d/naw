@@ -1,12 +1,13 @@
 import { Component, ChangeDetectionStrategy, input, ElementRef, inject, afterNextRender } from '@angular/core';
 import { ExperienceSection } from '../models/descriptor.model';
+import { SpotlightDirective } from '../directives/spotlight.directive';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [],
+  imports: [SpotlightDirective],
   templateUrl: './experience.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './experience.component.scss'

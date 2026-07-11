@@ -51,24 +51,54 @@
       "style": "SECTION",
       "label": "Tecnologie",
       "title": "Tech Stack",
+      "coreLabel": "Stack principale",
+      "core": [
+        {
+          "name": "Angular",
+          "icon": "fa-brands fa-angular",
+          "meta": "stack principale",
+          "note": "Lo stai guardando — SSR, signals, standalone",
+          "proof": { "label": "EJ200 · Vites", "href": "#projects" }
+        },
+        {
+          "name": "TypeScript",
+          "icon": "fa-solid fa-code",
+          "meta": "uso quotidiano",
+          "note": "Tipizzato end-to-end — da Angular a Node",
+          "proof": { "label": "AiPocondriaco", "href": "#projects" }
+        },
+        {
+          "name": "Java · Spring Boot",
+          "icon": "fa-brands fa-java",
+          "meta": "in produzione",
+          "note": "Backend enterprise e microservizi",
+          "proof": { "label": "ESB core banking", "href": "#projects" }
+        },
+        {
+          "name": "AI Engineering",
+          "icon": "fa-solid fa-wand-magic-sparkles",
+          "meta": "2 progetti live",
+          "note": "OpenAI API, embeddings e workflow AI-first",
+          "proof": { "label": "AiPocondriaco · py-tts", "href": "#projects" }
+        }
+      ],
+      "secondaryLabel": "Lavoro anche con",
       "categories": [
         {
           "name": "Frontend",
           "skills": [
-            { "name": "Angular",    "icon": "fa-brands fa-angular" },
-            { "name": "TypeScript" },
-            { "name": "Vue.js",     "icon": "fa-brands fa-vuejs" },
-            { "name": "HTML / CSS" },
-            { "name": "Bootstrap" }
+            { "name": "Vue.js" },
+            { "name": "HTML / CSS" }
           ]
         },
         {
           "name": "Backend",
           "skills": [
-            { "name": "Spring Boot" },
-            { "name": "Java" },
+            { "name": "Apache Kafka" },
             { "name": "Apache Camel" },
-            { "name": "Express.js", "icon": "fa-brands fa-node-js" },
+            { "name": "REST APIs" },
+            { "name": "Python" },
+            { "name": "Express.js" },
             { "name": "Flask" },
             { "name": ".NET / WPF" }
           ]
@@ -79,45 +109,23 @@
             { "name": "Oracle" },
             { "name": "SQL Server" },
             { "name": "PostgreSQL" },
-            { "name": "Cassandra" }
+            { "name": "Cassandra" },
+            { "name": "Vector Databases" }
           ]
         },
         {
-          "name": "Messaggistica & Integrazione",
+          "name": "Platform & Ops",
           "skills": [
-            { "name": "Apache Kafka" },
-            { "name": "ESB / Apache Camel" },
-            { "name": "REST APIs" }
-          ]
-        },
-        {
-          "name": "Cloud & DevOps",
-          "skills": [
-            { "name": "Docker",       "icon": "fa-brands fa-docker" },
-            { "name": "Kubernetes" },
-            { "name": "AWS",          "icon": "fa-brands fa-aws" },
-            { "name": "Azure" },
+            { "name": "Docker" },
             { "name": "OpenShift" },
+            { "name": "AWS" },
+            { "name": "Azure" },
             { "name": "Jenkins" },
-            { "name": "CI/CD Pipeline" },
-            { "name": "Git",          "icon": "fa-brands fa-git-alt" }
-          ]
-        },
-        {
-          "name": "Monitoraggio",
-          "skills": [
+            { "name": "CI/CD" },
+            { "name": "Git" },
             { "name": "Kibana" },
             { "name": "Dynatrace" },
             { "name": "Splunk" }
-          ]
-        },
-        {
-          "name": "AI & Dati",
-          "skills": [
-            { "name": "OpenAI API" },
-            { "name": "Vector Databases" },
-            { "name": "Embeddings" },
-            { "name": "Python", "icon": "fa-brands fa-python" }
           ]
         }
       ]

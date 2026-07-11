@@ -4,7 +4,7 @@
 
   <div class="projects-list">
     @for (project of subDescriptor().elements; track project.name; let i = $index) {
-      <div class="project-card" [class.reverse]="i % 2 !== 0" appTilt3d [maxTiltX]="3" [maxTiltY]="5" [perspectivePx]="1200">
+      <div class="project-card spotlight-glow" [class.reverse]="i % 2 !== 0" appTilt3d [maxTiltX]="3" [maxTiltY]="5" [perspectivePx]="1200" appSpotlight>
         <div class="project-image-wrapper" [class.logo-card]="project.logoCard">
           <img [src]="project.img" [alt]="project.name" class="project-image" loading="lazy" />
         </div>
