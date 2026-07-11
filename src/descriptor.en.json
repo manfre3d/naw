@@ -229,24 +229,21 @@
       "linkLabel": "View on GitHub",
       "elements": [
         {
-          "img": "assets/geavioaero_logo.jpg",
-          "logoCard": true,
+          "img": "assets/avio_ej200_engine.jpg",
           "name": "EJ200 Eurofighter Engine App",
           "status": "Enterprise · Avio Aero / GE Aerospace",
           "description": "Critical application supporting the EJ200 engine of the Eurofighter combat aircraft. Led migration from monolithic to microservices architecture and delivered new features in collaboration with cross-functional teams at one of Europe's leading aerospace groups.",
           "tags": ["Angular", "Spring Boot", "Java", "Microservices", "Docker"]
         },
         {
-          "img": "assets/reale-mutua-logo.png",
-          "logoCard": true,
+          "img": "assets/reale_mutua_office.jpg",
           "name": "Project Vites — Insurance Platform",
           "status": "Enterprise · Reale Mutua Assicurazioni",
           "description": "JSON-configurable interface generator integrated with Spring Boot microservices, cutting frontend implementation time by >50%. Core of the digital transformation programme for Italy's oldest insurance company.",
           "tags": ["Angular", "TypeScript", "Spring Boot", "Java", "REST APIs"]
         },
         {
-          "img": "assets/bper_logo.png",
-          "logoCard": true,
+          "img": "assets/bper_banca_hq.jpg",
           "name": "ESB Middleware — Core Banking",
           "status": "Enterprise · BPER Banca",
           "description": "ESB layer routing messages between core banking systems via Apache Camel and Spring Boot. Kafka queue management, CI/CD on OpenShift via Jenkins, and production monitoring with Kibana and Dynatrace.",
