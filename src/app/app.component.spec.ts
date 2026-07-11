@@ -14,16 +14,19 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'naw' title`, () => {
+  it('should expose the descriptor sections for the active language', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('naw');
+    const sections = app.siteStructure();
+    expect(sections.length).toBeGreaterThan(0);
+    expect(sections.map((s) => s.type)).toContain('HERO');
   });
 
-  it('should render title', () => {
+  it('should render the main landmark with the dynamic container', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, naw');
+    expect(compiled.querySelector('main#main-content')).toBeTruthy();
+    expect(compiled.querySelector('app-dynamic-container')).toBeTruthy();
   });
 });

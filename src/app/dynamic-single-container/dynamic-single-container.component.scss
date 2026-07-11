@@ -1,7 +1,8 @@
-.row {
-  margin: 0;
-  padding: 0;
-  justify-content: center;
+// Section children are Angular component hosts (inline by default) —
+// blockify them full-width, as the former Bootstrap row/col-12 pair did.
+section > * {
+  display: block;
+  width: 100%;
 }
 
 .SECTION {

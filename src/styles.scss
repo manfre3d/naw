@@ -1,5 +1,66 @@
-// ── Bootstrap ────────────────────────────────────────────────────────────────
-@use 'bootstrap/scss/bootstrap';
+// ── Base reset ───────────────────────────────────────────────────────────────
+// Replaces the Bootstrap reboot essentials the site's CSS relies on
+// (border-box sizing, zeroed body/heading/list/dd margins, button
+// normalization). Values mirror reboot so rendering stays identical.
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0 0 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+ul, ol {
+  margin: 0 0 1rem;
+  padding-left: 2rem;
+}
+
+dl {
+  margin: 0 0 1rem;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin: 0 0 0.5rem;
+}
+
+img, svg {
+  vertical-align: middle;
+}
+
+button {
+  margin: 0;
+  font: inherit;
+
+  &:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+hr {
+  margin: 1rem 0;
+  border: 0;
+  border-top: 1px solid;
+}
 
 // ── Design tokens — Warm Light / Sakura ──────────────────────────────────────
 // Single source of truth for theming. Re-skinning the whole site = editing the
@@ -107,16 +168,6 @@
   --shadow-lg: 0 20px 50px rgba(0, 0, 0, 0.50);
 
   color-scheme: dark;
-}
-
-// ── Bootstrap overrides (light) ───────────────────────────────────────────────
-body {
-  --bs-body-bg:          var(--color-bg);
-  --bs-body-color:       var(--color-text);
-  --bs-border-color:     var(--color-border);
-  --bs-card-bg:          var(--color-surface);
-  --bs-secondary-bg:     var(--color-surface-2);
-  --bs-body-font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 // ── Base ─────────────────────────────────────────────────────────────────────

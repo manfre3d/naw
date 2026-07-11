@@ -2,32 +2,31 @@
   [class.sticky]="section().type === 'HEADER'"
   [class.hidden]="section().type !== 'HERO' && section().type !== 'HEADER'"
   [attr.aria-label]="sectionLabel()"
-  class="row gx-0"
 >
   @switch (section().type) {
     @case ('HEADER') {
-      <app-header id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asHeader(section())" />
+      <app-header id="{{ section().id }}" [class.SECTION]="section().style" [subDescriptor]="asHeader(section())" />
     }
     @case ('HERO') {
-      <app-hero id="{{ section().id }}" class="col-12 hero" [class.SECTION]="section().style" [subDescriptor]="asHero(section())" />
+      <app-hero id="{{ section().id }}" class="hero" [class.SECTION]="section().style" [subDescriptor]="asHero(section())" />
     }
     @case ('SKILLS') {
-      <app-skills id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asSkills(section())" />
+      <app-skills id="{{ section().id }}" [class.SECTION]="section().style" [subDescriptor]="asSkills(section())" />
     }
     @case ('EXPERIENCE') {
-      <app-experience id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asExperience(section())" />
+      <app-experience id="{{ section().id }}" [class.SECTION]="section().style" [subDescriptor]="asExperience(section())" />
     }
     @case ('EDUCATION') {
-      <app-education id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asEducation(section())" />
+      <app-education id="{{ section().id }}" [class.SECTION]="section().style" [subDescriptor]="asEducation(section())" />
     }
     @case ('PROJECTS') {
-      <app-projects id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asProjects(section())" />
+      <app-projects id="{{ section().id }}" [class.SECTION]="section().style" [subDescriptor]="asProjects(section())" />
     }
     @case ('CONTACTS') {
-      <app-contacts id="{{ section().id }}" class="col-12" [class.SECTION]="section().style" [subDescriptor]="asContacts(section())" />
+      <app-contacts id="{{ section().id }}" [class.SECTION]="section().style" [subDescriptor]="asContacts(section())" />
     }
     @case ('FOOTER') {
-      <app-footer id="{{ section().id }}" class="col-12 footer" [class.SECTION]="section().style" [subDescriptor]="asFooter(section())" />
+      <app-footer id="{{ section().id }}" class="footer" [class.SECTION]="section().style" [subDescriptor]="asFooter(section())" />
     }
   }
 </section>

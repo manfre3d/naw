@@ -44,15 +44,23 @@ AppComponent
 - **`LanguageService`** (`src/app/services/language.service.ts`) — signal-based `en`/`it` language switch, persisted to `localStorage`. Initial lang auto-detected from `navigator.language`.
 - **`ThemeService`** (`src/app/services/theme.service.ts`) — signal-based `light`/`dark` theme toggle, persisted to `localStorage`. Initial theme resolved from `localStorage` → `prefers-color-scheme`. Applies theme via `data-theme` attribute on `<html>` and updates the `theme-color` meta tag.
 - **`ScrollAnimationService`** (`src/app/services/scroll-animation.service.ts`) — registers sections with `IntersectionObserver`; respects `prefers-reduced-motion`.
+- **`ActiveSectionService`** (`src/app/services/active-section.service.ts`) — tracks which section dominates the viewport (signal), drives the three.js background's per-section visual params.
 
 ### Styling
 
-- Bootstrap 5 + Font Awesome 4 from `node_modules` (no CDN)
-- SCSS throughout; global variables in `src/variables.scss`, global styles in `src/styles.scss`
+- SCSS throughout; design tokens (CSS custom properties, light + `[data-theme="dark"]` blocks) and global styles live in `src/styles.scss`
+- No CSS framework — `styles.scss` opens with a minimal reset (Bootstrap-reboot essentials); layout is plain flex/grid
+- Icons: Font Awesome 6 via CDN kit script in `src/index.html`; fonts: Google Fonts (Inter, Space Mono) via CDN
+- Accent used as text must be `--color-accent-text` (AA contrast), never raw `--color-accent`
 
 ### Subagents
 
 - **`DocsExplorer`** (`.claude/agents/DocsExplorer.md`) — documentation lookup specialist. Use proactively when needing up-to-date docs for any library or framework used in this project (Angular, Bootstrap, etc.). Fetches via Context7 MCP first, falls back to web search.
+- **`SiteAuditor`** (`.claude/agents/SiteAuditor.md`) — read-only quality audit (bundle budgets, dead assets, a11y/SEO invariants). Use before deploys or after UI/content/dependency changes; checklists live in the `site-quality-audit` skill.
+
+### Improvement roadmap
+
+Prioritized, measured improvement backlog: `.claude/plan.md` (baseline bundle numbers, P0–P2 items). Check it before starting optimization or modernization work.
 
 ### SSR / prerendering
 

@@ -65,8 +65,9 @@ border-radius: 12px;
 ## Sass Module System
 
 - **PREFER** `@use` over `@import` — `@import` is deprecated in Dart Sass
-- Use `@use 'bootstrap/scss/bootstrap'` (no namespace needed for side-effect-only imports)
-- **AVOID** `@import` for project partials; use `@use '../variables'` if you need shared mixins or functions
+- Side-effect-only imports need no namespace (`@use 'some/library'`); shared mixins/functions use `@use '../partial' as name`
+- **AVOID** `@import` for project partials
+- No CSS framework: the base element reset lives at the top of `src/styles.scss` — don't reintroduce framework-wide imports for single utilities
 
 ## Responsive Design  [[references/responsive-and-motion.md]]
 
