@@ -258,6 +258,15 @@
           "tags": ["Apache Camel", "Kafka", "Spring Boot", "OpenShift", "Jenkins", "Kibana"]
         },
         {
+          "img": "assets/double_o_agent_en.jpg",
+          "name": "Double-O Agent",
+          "status": "Open Source · Live",
+          "description": "Spy-noir demo built around an AI agent that runs the least glamorous missions in small-business finance, hunting duplicate invoices and reading the details off invoice PDFs, streaming every move to a live dashboard as it works. HQ (Angular) launches and watches missions. Control (NestJS) runs the tool-calling agent loop and streams the feed over SSE.",
+          "tags": ["Angular", "NestJS", "TypeScript", "AI Agents", "OpenAI", "PostgreSQL", "SSE"],
+          "link": "https://github.com/manfre3d/double-o-agent",
+          "liveUrl": "https://double-o-agent.onrender.com"
+        },
+        {
           "img": "assets/screenshot_aipocondriaco.jpg",
           "name": "AiPocondriaco",
           "status": "Open Source · Live",
