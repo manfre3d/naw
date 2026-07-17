@@ -2,47 +2,67 @@
   <p class="section-label">{{ subDescriptor().label }}</p>
   <h2 class="section-title">{{ subDescriptor().title }}</h2>
 
-  <div class="projects-list">
-    @for (project of subDescriptor().elements; track project.name; let i = $index) {
-      <div class="project-card spotlight-glow" [class.reverse]="i % 2 !== 0" appTilt3d [maxTiltX]="3" [maxTiltY]="5" [perspectivePx]="1200" appSpotlight>
-        <div class="project-image-wrapper" [class.logo-card]="project.logoCard">
-          <img [src]="project.img" [alt]="project.name" class="project-image" loading="lazy" />
-        </div>
-        <div class="project-info">
-          <div class="project-meta">
-            <p class="project-index">{{ (i + 1).toString().padStart(2, '0') }}</p>
-            @if (project.status) {
-              <span class="project-status">{{ project.status }}</span>
-            }
+  <div class="projects-carousel" role="region" aria-roledescription="carousel" [attr.aria-label]="subDescriptor().title">
+    <ul #track class="projects-track" tabindex="0">
+      @for (project of subDescriptor().elements; track project.name; let i = $index) {
+        <li class="project-slide spotlight-glow" appSpotlight>
+          <div class="project-image-wrapper" [class.logo-card]="project.logoCard">
+            <img [src]="project.img" [alt]="project.name" class="project-image" loading="lazy" />
           </div>
-          <h3 class="project-name">
-            @if (project.link) {
-              <a [href]="project.link" target="_blank" rel="noopener noreferrer">{{ project.name }}</a>
-            } @else {
-              {{ project.name }}
-            }
-          </h3>
-          <p class="project-desc">{{ project.description }}</p>
-          @if (project.tags?.length) {
-            <div class="project-tags">
-              @for (tag of project.tags; track tag) {
-                <span class="project-tag">{{ tag }}</span>
+          <div class="project-info">
+            <div class="project-meta">
+              <span class="project-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+              @if (project.status) {
+                <span class="project-status">{{ project.status }}</span>
               }
             </div>
-          }
-          <div class="project-links">
-            @if (project.liveUrl) {
-              <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="project-link project-link--demo" [attr.aria-label]="'Live demo of ' + project.name">
-                Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
-              </a>
+            <h3 class="project-name">
+              @if (project.link) {
+                <a [href]="project.link" target="_blank" rel="noopener noreferrer">{{ project.name }}</a>
+              } @else {
+                {{ project.name }}
+              }
+            </h3>
+            <p class="project-desc">{{ project.description }}</p>
+            @if (project.tags?.length) {
+              <div class="project-tags">
+                @for (tag of project.tags; track tag) {
+                  <span class="project-tag">{{ tag }}</span>
+                }
+              </div>
             }
-            @if (project.link) {
-              <a [href]="project.link" target="_blank" rel="noopener noreferrer" class="project-link" [attr.aria-label]="'View ' + project.name + ' on GitHub'">
-                {{ subDescriptor().linkLabel }} <i class="fa-brands fa-github" aria-hidden="true"></i>
-              </a>
-            }
+            <div class="project-links">
+              @if (project.liveUrl) {
+                <a [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" class="project-link project-link--demo" [attr.aria-label]="'Live demo of ' + project.name">
+                  Live Demo <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+                </a>
+              }
+              @if (project.link) {
+                <a [href]="project.link" target="_blank" rel="noopener noreferrer" class="project-link" [attr.aria-label]="'View ' + project.name + ' on GitHub'">
+                  {{ subDescriptor().linkLabel }} <i class="fa-brands fa-github" aria-hidden="true"></i>
+                </a>
+              }
+            </div>
           </div>
+        </li>
+      }
+    </ul>
+
+    @if (pages() > 1) {
+      <div class="carousel-controls">
+        <button type="button" class="carousel-btn" [disabled]="activePage() === 0" (click)="prev()" aria-label="Previous projects">
+          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+        </button>
+        <div class="carousel-dots" role="group" aria-label="Project pages">
+          @for (page of pageList(); track page) {
+            <button type="button" class="carousel-dot" [class.active]="activePage() === page"
+              [attr.aria-current]="activePage() === page ? 'true' : null"
+              [attr.aria-label]="'Go to page ' + (page + 1)" (click)="goTo(page)"></button>
+          }
         </div>
+        <button type="button" class="carousel-btn" [disabled]="activePage() >= pages() - 1" (click)="next()" aria-label="Next projects">
+          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+        </button>
       </div>
     }
   </div>

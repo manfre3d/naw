@@ -1,41 +1,60 @@
-.projects-list {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;  // card borders now separate rows — 4rem of pure whitespace read too loose
+.projects-carousel {
+  position: relative;
 }
 
-.project-card {
-  --spotlight-size: 320px;  // wide card — default 220px glow reads too small
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
-  align-items: center;
+.projects-track {
+  display: flex;
+  gap: var(--space-5);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 0.25rem;
+  // Vertical breathing room so the hover lift + shadow + focus ring are not
+  // clipped by the scroll container's implied overflow-y.
+  padding: 0.75rem 0.25rem 1.5rem;
+  margin: 0;
+  list-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar { display: none; }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: var(--radius-md);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .projects-track { scroll-behavior: smooth; }
+}
+
+.project-slide {
+  --spotlight-size: 240px;  // smaller tile — trim the default 220px glow to fit
+  flex: 0 0 calc((100% - 2 * var(--space-5)) / 3);
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  padding: 1.75rem;
+  padding: 1.25rem;
   box-shadow: var(--shadow-sm);
-  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
 
   &:hover {
     border-color: var(--color-accent-border-strong);
     box-shadow: var(--shadow-md);
+    transform: translateY(-3px);
   }
 
-  &.reverse {
-    .project-image-wrapper { order: 2; }
-    .project-info { order: 1; }
+  @media (max-width: 900px) {
+    flex-basis: calc((100% - var(--space-5)) / 2);
   }
 
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    padding: 1.25rem;
-
-    &.reverse {
-      .project-image-wrapper { order: 0; }
-      .project-info { order: 0; }
-    }
+  @media (max-width: 600px) {
+    flex-basis: 85%;              // peek the next tile to signal there is more
+    scroll-snap-align: center;
   }
 }
 
@@ -55,13 +74,13 @@
     left: 0;
     width: 35%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.09), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.09), transparent);
     transform: translateX(-100%) skewX(-15deg);
     pointer-events: none;
     z-index: 1;
   }
 
-  &:hover {
+  .project-slide:hover & {
     border-color: var(--color-accent-border-strong);
     box-shadow: var(--shadow-md);
 
@@ -73,13 +92,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 200px;
-    padding: 2.5rem;
+    min-height: 160px;
+    padding: 2rem;
 
     .project-image {
       width: auto;
-      max-height: 72px;
-      max-width: 220px;
+      max-height: 64px;
+      max-width: 200px;
       aspect-ratio: auto;
       filter: none;
       object-fit: contain;
@@ -95,7 +114,7 @@
   filter: grayscale(20%);
   transition: filter var(--transition-base), transform var(--transition-base);
 
-  &:hover {
+  .project-slide:hover & {
     filter: grayscale(0%);
     transform: scale(1.02);
   }
@@ -104,18 +123,15 @@
 .project-info {
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-  background-color: var(--color-scrim);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-radius: var(--radius-md);
-  padding: 1.25rem 1.5rem;
+  gap: 0.6rem;
+  flex: 1;  // fill the tile so links align to the bottom across uneven cards
 }
 
 .project-meta {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.75rem;
 }
 
 .project-index {
@@ -127,26 +143,33 @@
 
 .project-status {
   font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--color-muted);
+  text-align: right;
 }
 
 .project-name {
-  font-size: 1.5rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--color-text);
+  line-height: 1.3;
 
   a { transition: color var(--transition-fast); }
   a:hover { color: var(--color-accent-text); }
 }
 
 .project-desc {
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   color: var(--color-muted);
-  line-height: 1.7;
+  line-height: 1.65;
   text-align: left;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-tags {
@@ -157,8 +180,8 @@
 
 .project-tag {
   font-family: 'Space Mono', monospace;
-  font-size: 0.72rem;
-  padding: 0.2rem 0.55rem;
+  font-size: 0.7rem;
+  padding: 0.18rem 0.5rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
   color: var(--color-muted);
@@ -169,6 +192,8 @@
   align-items: center;
   gap: 1rem;
   flex-wrap: wrap;
+  margin-top: auto;  // pin links to the bottom of the tile
+  padding-top: 0.25rem;
 }
 
 .project-link {
@@ -185,7 +210,7 @@
   &:hover { color: var(--color-accent-hover); }
 
   &--demo {
-    padding: 0.45rem 1rem;
+    padding: 0.4rem 0.9rem;
     background-color: var(--color-accent-solid);
     color: var(--color-on-accent);
     border-radius: var(--radius-sm);
@@ -196,5 +221,74 @@
       color: var(--color-on-accent);
       transform: translateY(-1px);
     }
+  }
+}
+
+// ── Carousel controls ──────────────────────────────────────────────────────
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.carousel-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  transition: border-color var(--transition-fast), color var(--transition-fast),
+              background-color var(--transition-fast), transform var(--transition-fast);
+
+  &:hover:not(:disabled) {
+    border-color: var(--color-accent);
+    color: var(--color-accent-text);
+    background-color: var(--color-accent-light);
+    transform: translateY(-2px);
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.carousel-dot {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;   // 24px tap target while the visible dot stays small
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  background: transparent;
+
+  &::before {
+    content: '';
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background-color: var(--color-border);
+    transition: background-color var(--transition-fast), transform var(--transition-fast);
+  }
+
+  &:hover::before { background-color: var(--color-accent-border-strong); }
+
+  &.active::before {
+    background-color: var(--color-accent-solid);
+    transform: scale(1.3);
   }
 }
