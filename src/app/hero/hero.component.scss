@@ -364,6 +364,7 @@
 }
 
 .hero-photo-frame {
+  position: relative;
   width: 290px;
   height: 380px;
   border-radius: 16px;
@@ -388,10 +389,16 @@
   object-fit: cover;
   object-position: top center;
   display: block;
-  transition: transform var(--transition-base);
+  transition: transform var(--transition-base), opacity 0.8s var(--ease-out);
 
   .hero-photo-frame:hover & {
     transform: scale(1.03);
+  }
+
+  // Crossfaded out once the 3D portrait is on screen (kept in the DOM as the
+  // reduced-motion / load-failure fallback).
+  &--faded {
+    opacity: 0;
   }
 }
 

@@ -67,7 +67,18 @@
       <span class="hero-float-shape hero-float-shape--3"></span>
       <span class="hero-float-shape hero-float-shape--4"></span>
       <div class="hero-photo-frame">
-        <img [src]="subDescriptor().imgPath" alt="Manfredi Piraino" class="hero-photo" width="290" height="380" fetchpriority="high" />
+        <img
+          [src]="subDescriptor().imgPath"
+          alt="Manfredi Piraino"
+          class="hero-photo"
+          [class.hero-photo--faded]="portraitReady()"
+          width="290"
+          height="380"
+          fetchpriority="high"
+        />
+        @if (subDescriptor().portraitModelPath; as modelPath) {
+          <app-hero-portrait-3d [modelPath]="modelPath" (ready)="portraitReady.set(true)" />
+        }
       </div>
     </div>
 
