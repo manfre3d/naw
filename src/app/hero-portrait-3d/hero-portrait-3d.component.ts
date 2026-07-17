@@ -34,8 +34,10 @@ export class HeroPortrait3dComponent implements OnDestroy {
   // in on the face. The rest of the body falls out the bottom of the frame.
   showFraction = input(0.58);
 
-  // Emitted once the model is on screen, so the hero can crossfade the <img> out.
-  readonly ready = output<void>();
+  // Emitted only when the 3D portrait cannot be shown (reduced motion, no
+  // WebGL, or the model failed to load) so the hero can reveal the <img>
+  // fallback. On success nothing is emitted and the photo is never rendered.
+  readonly fallback = output<void>();
 
   private canvasRef = viewChild<ElementRef<HTMLCanvasElement>>('canvas');
 
@@ -61,7 +63,10 @@ export class HeroPortrait3dComponent implements OnDestroy {
   constructor() {
     afterNextRender(() => {
       if (!this.isBrowser) return;
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        this.fallback.emit();
+        return;
+      }
       this.zone.runOutsideAngular(() => this.init());
     });
   }
@@ -105,7 +110,14 @@ export class HeroPortrait3dComponent implements OnDestroy {
     let W = frame.clientWidth || 290;
     let H = frame.clientHeight || 380;
 
-    const renderer = new THREE.WebGLRenderer({ canvas: canvasEl, alpha: true, antialias: true });
+    let renderer: THREE.WebGLRenderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas: canvasEl, alpha: true, antialias: true });
+    } catch {
+      // No WebGL — reveal the photo fallback.
+      this.zone.run(() => this.fallback.emit());
+      return;
+    }
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setSize(W, H, false);
     renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -154,8 +166,11 @@ export class HeroPortrait3dComponent implements OnDestroy {
     // Theme-aware exposure/key (mirrors scene-background reading data-theme).
     const applyTheme = () => {
       const dark = document.documentElement.dataset['theme'] === 'dark';
-      renderer.toneMappingExposure = dark ? 0.95 : 1.15;
+      renderer.toneMappingExposure = dark ? 1.0 : 1.15;
       key.intensity = dark ? 2.0 : 2.4;
+      // Strong rim in dark mode so the dark blazer separates from the near-black
+      // background; subtle in light mode where contrast is already high.
+      rim.intensity = dark ? 3.0 : 1.0;
     };
     applyTheme();
     this.themeObs = new MutationObserver(applyTheme);
@@ -203,12 +218,11 @@ export class HeroPortrait3dComponent implements OnDestroy {
         group.add(obj);
         this.model = obj;
         canvasEl.classList.add('is-ready');
-        this.zone.run(() => this.ready.emit());
       },
       undefined,
       (err) => {
-        // Leave the canvas transparent so the underlying <img> shows through.
         console.warn('[hero-portrait-3d] model load failed', err);
+        this.zone.run(() => this.fallback.emit());
       },
     );
 

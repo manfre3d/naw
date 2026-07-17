@@ -389,16 +389,10 @@
   object-fit: cover;
   object-position: top center;
   display: block;
-  transition: transform var(--transition-base), opacity 0.8s var(--ease-out);
+  transition: transform var(--transition-base);
 
   .hero-photo-frame:hover & {
     transform: scale(1.03);
-  }
-
-  // Crossfaded out once the 3D portrait is on screen (kept in the DOM as the
-  // reduced-motion / load-failure fallback).
-  &--faded {
-    opacity: 0;
   }
 }
 

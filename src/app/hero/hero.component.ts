@@ -16,7 +16,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export class HeroComponent {
   subDescriptor = input.required<HeroSection>();
   displayedText = signal('');
-  portraitReady = signal(false);
+
+  // The photo is a fallback: shown only when there's no 3D model configured or
+  // the 3D portrait reports it can't render (reduced motion / no WebGL / load
+  // error). It is never fetched or shown during a successful 3D render.
+  private portraitFailed = signal(false);
+  showPhoto = computed(() => this.portraitFailed() || !this.subDescriptor().portraitModelPath);
+  onPortraitFallback(): void {
+    this.portraitFailed.set(true);
+  }
 
   nameWords = computed(() =>
     this.subDescriptor().primaryHeaderText.split(' ').map(word => word.split(''))
