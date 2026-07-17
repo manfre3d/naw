@@ -1,0 +1,32 @@
+// Fills .hero-photo-frame (position: relative) and overlays the sibling <img>.
+// A real layout box (not display:contents) so the canvas's parentElement is a
+// measurable element for the Resize/Intersection observers.
+:host {
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+// Transparent (photo shows through) until the model loads, then fades in.
+// A soft bottom mask lets the figure dissolve into the frame instead of being
+// hard-cropped at the hips.
+.portrait-canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.8s var(--ease-out);
+  -webkit-mask-image: linear-gradient(to bottom, #000 70%, transparent 97%);
+  mask-image: linear-gradient(to bottom, #000 70%, transparent 97%);
+
+  &.is-ready {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .portrait-canvas {
+    transition: none;
+  }
+}

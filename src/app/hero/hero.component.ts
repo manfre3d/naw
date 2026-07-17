@@ -1,13 +1,14 @@
 import { Component, ChangeDetectionStrategy, input, signal, computed, afterNextRender } from '@angular/core';
 import { HeroSection } from '../models/descriptor.model';
 import { MagneticHoverDirective } from '../directives/magnetic-hover.directive';
+import { HeroPortrait3dComponent } from '../hero-portrait-3d/hero-portrait-3d.component';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-hero',
   standalone: true,
-  imports: [MagneticHoverDirective],
+  imports: [MagneticHoverDirective, HeroPortrait3dComponent],
   templateUrl: './hero.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrl: './hero.component.scss'
@@ -15,6 +16,15 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 export class HeroComponent {
   subDescriptor = input.required<HeroSection>();
   displayedText = signal('');
+
+  // The photo is a fallback: shown only when there's no 3D model configured or
+  // the 3D portrait reports it can't render (reduced motion / no WebGL / load
+  // error). It is never fetched or shown during a successful 3D render.
+  private portraitFailed = signal(false);
+  showPhoto = computed(() => this.portraitFailed() || !this.subDescriptor().portraitModelPath);
+  onPortraitFallback(): void {
+    this.portraitFailed.set(true);
+  }
 
   nameWords = computed(() =>
     this.subDescriptor().primaryHeaderText.split(' ').map(word => word.split(''))

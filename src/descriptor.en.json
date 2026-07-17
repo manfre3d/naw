@@ -20,6 +20,7 @@
       "type": "HERO",
       "style": "SECTION",
       "imgPath": "assets/profesional_profile_picture_mp.jpg",
+      "portraitModelPath": "assets/models/portrait.glb",
       "primaryHeaderText": "Manfredi Piraino",
       "bio": "Consultant Software Engineer at Blue Reply. I build enterprise-grade applications with Angular, Spring Boot, and cloud microservices.",
       "availableForWork": true,

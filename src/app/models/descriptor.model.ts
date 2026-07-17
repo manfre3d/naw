@@ -21,6 +21,7 @@ export interface HeroSection {
   type: 'HERO';
   style: string;
   imgPath: string;
+  portraitModelPath?: string;
   primaryHeaderText: string;
   bio: string;
   availableForWork: boolean;
