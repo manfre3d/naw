@@ -16,12 +16,12 @@
 .edu-card {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), inset 0 1px 0 var(--color-ring);
   position: relative;
   overflow: hidden;
   transition: border-color var(--transition-base), box-shadow var(--transition-base),

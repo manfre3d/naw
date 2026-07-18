@@ -97,8 +97,8 @@ export class SceneBackgroundComponent implements OnDestroy {
     camera.position.z = 22;
 
     // Constellation scene — nodes + dynamic connections
-    const NODE_COUNT = 350;
-    const MAX_LINES  = 1500;
+    const NODE_COUNT = 240;
+    const MAX_LINES  = 1200;
     const BASE_CONN_DIST = 5.5;
 
     const nodePos = new Float32Array(NODE_COUNT * 3);
@@ -114,10 +114,10 @@ export class SceneBackgroundComponent implements OnDestroy {
     const nodeGeo = new THREE.BufferGeometry();
     nodeGeo.setAttribute('position', new THREE.BufferAttribute(nodePos, 3));
 
-    this.nodeTex = makeSpriteTexture(32, 212, 102, 138);
+    this.nodeTex = makeSpriteTexture(32, 14, 130, 172);
     const nodeMat = new THREE.PointsMaterial({
-      color: 0xD4668A, size: 0.18, sizeAttenuation: true,
-      transparent: true, opacity: 0.85, depthWrite: false,
+      color: 0x0E82AC, size: 0.16, sizeAttenuation: true,
+      transparent: true, opacity: 0.6, depthWrite: false,
       blending: THREE.AdditiveBlending,
       map: this.nodeTex as unknown as THREE.Texture,
       alphaTest: 0.05,
@@ -133,8 +133,8 @@ export class SceneBackgroundComponent implements OnDestroy {
 
     let mxT = 0, myT = 0, mxC = 0, myC = 0;
     let camZ = 22, connDist = BASE_CONN_DIST, opacityMul = 1;
-    const baseNodeOpacity = { light: 0.9,  dark: 1.0 };
-    const baseLineOpacity = { light: 0.3,  dark: 0.30 };
+    const baseNodeOpacity = { light: 0.55, dark: 0.62 };
+    const baseLineOpacity = { light: 0.14, dark: 0.16 };
     // Neutral, not accent-tinted — keeps the pink accent legible (section
     // labels, badges) against the web instead of both competing on hue.
     const baseLineColor   = { light: 0x9AA0AC, dark: 0x9CA3AF };
@@ -207,7 +207,7 @@ export class SceneBackgroundComponent implements OnDestroy {
       // 4. Theme-aware material colors, tinted + faded per active section
       const dark = document.documentElement.dataset['theme'] === 'dark';
       const themeKey = dark ? 'dark' : 'light';
-      const baseColor = dark ? 0xE07899 : 0xD4668A;
+      const baseColor = dark ? 0x2CC0DE : 0x0E82AC;
       nodeMat.color.setHex(baseColor).offsetHSL(target.hueShift / 360, 0, 0);
       nodeMat.opacity = baseNodeOpacity[themeKey] * opacityMul;
       lineMat.color.setHex(baseLineColor[themeKey]).offsetHSL(target.hueShift / 360, 0, 0);

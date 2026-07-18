@@ -5,66 +5,67 @@
   min-height: 100dvh; // avoids mobile address-bar clipping; vh above is the fallback
   display: flex;
   align-items: center;
-  padding: 7rem 1.5rem 5rem;
+  padding: calc(var(--header-h) + 3.5rem) 1.5rem 4rem;
   overflow: hidden;
 }
 
-// ── Two-column grid ───────────────────────────────────────────────────────────
-.hero-layout {
-  max-width: 960px;
-  margin: 0 auto;
-  width: 100%;
+// ── Bento grid ────────────────────────────────────────────────────────────────
+.hero-bento {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: var(--content-max);
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 5rem;
-  align-items: center;
+  gap: 14px;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-areas:
+    "id id id id id id id id pt pt pt pt"
+    "id id id id id id id id pt pt pt pt"
+    "st st st st st st st st pt pt pt pt";
 
+  // Mobile: lead with the 3D portrait, then the identity text, then the proof band
   @media (max-width: 860px) {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    grid-template-areas: "pt" "id" "st";
   }
 }
 
-// ── Left: text ────────────────────────────────────────────────────────────────
-.hero-text {
-  position: relative;
+.hero-identity { grid-area: id; }
+.hero-stats    { grid-area: st; }
+.hero-portrait { grid-area: pt; }
+
+// ── Identity tile ─────────────────────────────────────────────────────────────
+.hero-identity {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.5rem;
+  gap: 1.1rem;
+  padding: 2.25rem;
 
-  @media (max-width: 860px) {
-    align-items: center;
-    text-align: center;
-    order: 2;
-  }
+  @media (max-width: 520px) { padding: 1.6rem; }
 }
 
-// Staggered entrance — first impression on load (above the fold, so not tied
-// to the scroll-reveal observer). Excludes .hero-name, which GSAP animates
-// character-by-character instead.
-.hero-text > *:not(.hero-name) {
+// Staggered entrance — first impression on load (above the fold). Excludes
+// .hero-name, which GSAP animates character-by-character instead.
+.hero-identity > *:not(.hero-name) {
   animation: hero-rise 0.7s var(--ease-out) both;
 }
 @for $i from 1 through 7 {
-  .hero-text > *:not(.hero-name):nth-child(#{$i}) {
+  .hero-identity > *:not(.hero-name):nth-child(#{$i}) {
     animation-delay: #{0.05 + ($i - 1) * 0.07}s;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
-  .hero-text > *:not(.hero-name) { animation: none; }
+  .hero-identity > *:not(.hero-name) { animation: none; }
 }
 
 @keyframes hero-rise {
   from { opacity: 0; transform: translateY(18px); }
   to   { opacity: 1; transform: none; }
 }
-
 @keyframes hero-fade {
-  from { opacity: 0; transform: scale(0.97); }
+  from { opacity: 0; transform: scale(0.98); }
   to   { opacity: 1; transform: none; }
 }
 
@@ -73,9 +74,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.28rem 0.8rem;
+  padding: 0.3rem 0.8rem;
   border: 1px solid var(--color-accent-border);
   border-radius: 999px;
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--color-accent-text);
   background-color: var(--color-accent-light);
@@ -83,8 +85,8 @@
 }
 
 .badge-dot {
-  width: 6px;
-  height: 6px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background-color: var(--color-status-available);
   flex-shrink: 0;
@@ -93,17 +95,19 @@
 
 @keyframes pulse-dot {
   0%, 100% { box-shadow: 0 0 0 0   color-mix(in srgb, var(--color-status-available) 45%, transparent); }
-  50%       { box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-status-available)  0%, transparent); }
+  50%      { box-shadow: 0 0 0 5px color-mix(in srgb, var(--color-status-available)  0%, transparent); }
 }
 
 // Name — the typographic anchor
 .hero-name {
-  font-size: clamp(2.4rem, 5vw, 3.8rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.2vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.035em;
   color: var(--color-text);
-  line-height: 1.08;
+  line-height: 1.03;
   margin: 0;
+  text-wrap: balance;
 }
 
 // Wraps one full word — inline-block with nowrap so the browser can only
@@ -129,7 +133,7 @@
   .hero-name-char { opacity: 1; }
 }
 
-// Typing role — sakura accent #1
+// Typing role — iris accent
 .hero-role-row {
   display: flex;
   align-items: center;
@@ -137,73 +141,32 @@
 }
 
 .hero-role {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
   color: var(--color-accent-text);
-  letter-spacing: 0.03em;
+  letter-spacing: 0.02em;
 }
 
 .hero-cursor {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: var(--text-sm);
-  color: var(--color-accent-text);
+  color: var(--color-accent);
   margin-left: 2px;
   animation: blink 1s step-end infinite;
 }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
+  50%      { opacity: 0; }
 }
 
 // Short bio
 .hero-bio {
-  font-size: 0.975rem;
+  font-size: 1.0rem;
   color: var(--color-muted);
-  line-height: 1.75;
-  max-width: 400px;
+  line-height: 1.7;
+  max-width: 46ch;
   margin: 0;
-
-  @media (max-width: 860px) {
-    max-width: 100%;
-  }
-}
-
-// Impact stats row
-.hero-stats {
-  display: flex;
-  gap: 2rem;
-  flex-wrap: wrap;
-
-  @media (max-width: 860px) {
-    justify-content: center;
-    gap: 1.5rem;
-  }
-}
-
-.hero-stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-}
-
-.stat-value {
-  font-size: 1.35rem;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -0.02em;
-  background: linear-gradient(135deg, var(--color-text) 40%, var(--color-accent));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.stat-label {
-  font-family: 'Space Mono', monospace;
-  font-size: 0.75rem;
-  color: var(--color-muted);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
 }
 
 // CTAs
@@ -211,176 +174,70 @@
   display: flex;
   gap: 0.75rem;
   flex-wrap: wrap;
-
-  @media (max-width: 860px) {
-    justify-content: center;
-  }
+  margin-top: 0.4rem;
 }
 
-// Primary: dark/editorial — hover reveals sakura + shimmer
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  padding: 0.65rem 1.4rem;
-  background-color: var(--color-text);
-  color: var(--color-bg);
-  border-radius: var(--radius-md);
-  font-weight: 600;
-  font-size: 0.875rem;
-  position: relative;
-  overflow: hidden;
-  transition: background-color var(--transition-fast), transform var(--transition-fast);
+// CTA buttons (.btn-primary / .btn-outline) are shared primitives in styles.scss
 
-  i { font-size: 0.78rem; }
-
-  &::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.22) 50%, transparent 100%);
-    transform: translateX(-100%) skewX(-15deg);
-    pointer-events: none;
-  }
-
-  &:hover {
-    background-color: var(--color-accent-solid);
-    color: var(--color-on-accent);
-    transform: translateY(-2px);
-
-    &::after { animation: shine-pass 0.45s ease forwards; }
-  }
-}
-
-// Outline: neutral, hover sakura
-.btn-outline {
-  padding: 0.65rem 1.4rem;
-  border: 1px solid var(--color-border);
-  color: var(--color-text);
-  border-radius: var(--radius-md);
-  font-weight: 500;
-  font-size: 0.875rem;
-  transition: border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
-
-  &:hover {
-    border-color: var(--color-accent);
-    color: var(--color-accent-text);
-    transform: translateY(-2px);
-  }
-}
-
-// Social icons (styles from global)
 .hero-socials {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.6rem;
 }
 
-// ── Right: photo + floating accent shapes ────────────────────────────────────
-.hero-visual {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  animation: hero-fade 0.9s var(--ease-out) 0.15s both;
+// ── KPI proof band ────────────────────────────────────────────────────────────
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 0;
 
-  @media (max-width: 860px) {
-    order: 1;
+  @media (max-width: 640px) {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-// Floating geometric accents — pure CSS, no JS
-.hero-float-shape {
-  position: absolute;
-  pointer-events: none;
-  border-radius: 50%;
-  animation-timing-function: ease-in-out;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-  opacity: 0;
-  animation: hero-fade 0.9s var(--ease-out) 0.6s both,
-             float-1 3.2s ease-in-out 0.6s infinite alternate;
+.hero-stat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.25rem;
+  padding: 1.25rem 1.35rem;
 }
 
-.hero-float-shape--1 {
-  width: 12px; height: 12px;
-  background-color: var(--color-accent);
-  opacity: 0.7;
-  top: 8%;
-  right: 2%;
-  animation: hero-fade 0.9s var(--ease-out) 0.7s both, float-1 3.4s ease-in-out 0.7s infinite alternate;
+.stat-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+  font-variant-numeric: tabular-nums;
+  margin: 0;
 }
 
-.hero-float-shape--2 {
-  width: 8px; height: 8px;
-  background-color: var(--color-accent);
-  opacity: 0.45;
-  bottom: 20%;
-  left: 0%;
-  animation: hero-fade 0.9s var(--ease-out) 1s both, float-2 2.8s ease-in-out 1s infinite alternate;
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 
-.hero-float-shape--3 {
-  width: 14px; height: 14px;
-  background-color: transparent;
-  border: 2px solid var(--color-accent-border-strong);
-  border-radius: 3px;
-  top: 78%;
-  right: 4%;
-  animation: hero-fade 0.9s var(--ease-out) 0.9s both, float-3 3.8s ease-in-out 0.9s infinite alternate;
-}
+// ── Portrait tile ─────────────────────────────────────────────────────────────
+.hero-portrait {
+  padding: 0;
+  overflow: hidden;
+  min-height: 420px;
+  animation: hero-fade 0.9s var(--ease-out) 0.15s both;
 
-.hero-float-shape--4 {
-  width: 6px; height: 6px;
-  background-color: var(--color-accent);
-  opacity: 0.5;
-  top: 45%;
-  left: 2%;
-  animation: hero-fade 0.9s var(--ease-out) 1.2s both, float-4 4.2s ease-in-out 1.2s infinite alternate;
-}
-
-@keyframes float-1 {
-  from { transform: translate(0, 0); }
-  to   { transform: translate(6px, -14px); }
-}
-@keyframes float-2 {
-  from { transform: translate(0, 0); }
-  to   { transform: translate(-10px, 8px); }
-}
-@keyframes float-3 {
-  from { transform: translate(0, 0) rotate(0deg); }
-  to   { transform: translate(8px, 12px) rotate(60deg); }
-}
-@keyframes float-4 {
-  from { transform: translate(0, 0); }
-  to   { transform: translate(-8px, -10px); }
-}
-
-@media (max-width: 860px) {
-  .hero-float-shape { display: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .hero-float-shape { animation: none; opacity: 0; display: none; }
+  @media (max-width: 860px) { min-height: clamp(360px, 58vh, 460px); }
+  @media (prefers-reduced-motion: reduce) { animation: none; }
 }
 
 .hero-photo-frame {
-  position: relative;
-  width: 290px;
-  height: 380px;
-  border-radius: 16px;
-  overflow: hidden;
-  border: 1px solid var(--color-border);
-  outline: 2px solid var(--color-accent-border);
-  outline-offset: 5px;
-  box-shadow:
-    0 12px 48px rgba(0, 0, 0, 0.12),
-    0 0 70px var(--color-accent-glow),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-
-  @media (max-width: 860px) {
-    width: 200px;
-    height: 260px;
-  }
+  position: absolute;
+  inset: 0;
 }
 
 .hero-photo {
@@ -391,16 +248,49 @@
   display: block;
   transition: transform var(--transition-base);
 
-  .hero-photo-frame:hover & {
-    transform: scale(1.03);
-  }
+  .hero-portrait:hover & { transform: scale(1.03); }
+}
+
+// The 3D portrait component fills the tile
+.hero-portrait app-hero-portrait-3d {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
+// Accent rim + "3D" affordance
+.hero-portrait::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px var(--color-accent-border),
+              inset 0 -46px 60px -34px color-mix(in srgb, var(--color-accent) 40%, transparent);
+}
+
+.hero-portrait-tag {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  z-index: 2;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-text);
+  background: color-mix(in srgb, var(--color-surface) 72%, transparent);
+  border: 1px solid var(--color-accent-border);
+  border-radius: 999px;
+  padding: 0.25rem 0.6rem;
+  backdrop-filter: blur(6px);
 }
 
 // ── Scroll cue ────────────────────────────────────────────────────────────────
 .scroll-cue {
   position: absolute;
   left: 50%;
-  bottom: 1.75rem;
+  bottom: 1.5rem;
   transform: translateX(-50%);
   display: inline-flex;
   align-items: center;

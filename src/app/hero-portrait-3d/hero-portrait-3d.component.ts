@@ -138,10 +138,14 @@ export class HeroPortrait3dComponent implements OnDestroy {
 
     const key = new THREE.DirectionalLight(0xffffff, 2.2);
     key.position.set(2, 2.5, 3);
-    const rim = new THREE.DirectionalLight(0xffffff, 1.0);
-    rim.position.set(-3, 1, -2);
-    const ambient = new THREE.AmbientLight(0xffffff, 0.3);
-    scene.add(key, rim, ambient);
+    // Soft fill opposite the key — lifts the shadow side of the face/hair.
+    const fill = new THREE.DirectionalLight(0xffffff, 0.55);
+    fill.position.set(-2.5, 0.5, 2);
+    // Teal accent rim — separates the figure and ties it to the Deep Teal palette.
+    const rim = new THREE.DirectionalLight(0x2CC0DE, 1.0);
+    rim.position.set(-3, 1.5, -2.5);
+    const ambient = new THREE.AmbientLight(0xffffff, 0.32);
+    scene.add(key, fill, rim, ambient);
 
     const group = new THREE.Group();
     scene.add(group);
@@ -168,9 +172,10 @@ export class HeroPortrait3dComponent implements OnDestroy {
       const dark = document.documentElement.dataset['theme'] === 'dark';
       renderer.toneMappingExposure = dark ? 1.0 : 1.15;
       key.intensity = dark ? 2.0 : 2.4;
-      // Strong rim in dark mode so the dark blazer separates from the near-black
-      // background; subtle in light mode where contrast is already high.
-      rim.intensity = dark ? 3.0 : 1.0;
+      fill.intensity = dark ? 0.4 : 0.6;
+      // Teal rim: strong in dark mode to separate the figure from the near-black
+      // background and echo the accent; subtler in light mode.
+      rim.intensity = dark ? 2.8 : 1.3;
     };
     applyTheme();
     this.themeObs = new MutationObserver(applyTheme);
@@ -227,15 +232,19 @@ export class HeroPortrait3dComponent implements OnDestroy {
     );
 
     // ── Render loop ──────────────────────────────────────────────────────────
+    // Resting portrait orientation — a 3/4 turn reads more dynamic than dead-on.
+    const BASE_YAW = 0.24;    // ~ +14° yaw (turn direction)
+    const BASE_PITCH = 0.05;  // slight upward tilt (confident chin-up)
     this.tickFn = () => {
       if (!this.running) return;
       this.rafId = requestAnimationFrame(this.tickFn!);
       const t = performance.now() * 0.001;
       pxC += (pxT - pxC) * 0.05;
       pyC += (pyT - pyC) * 0.05;
-      // Mouse-follow rotation + always-on idle drift so it's never fully still.
-      group.rotation.y = pxC * 0.6 + Math.sin(t * 0.5) * 0.08;
-      group.rotation.x = pyC * 0.35 + Math.sin(t * 0.7) * 0.04;
+      // Resting 3/4 pose — a flattering angle vs. a flat, dead-on portrait, with
+      // a slight chin-up for confidence. Mouse-follow + idle drift modulate it.
+      group.rotation.y = BASE_YAW + pxC * 0.55 + Math.sin(t * 0.5) * 0.07;
+      group.rotation.x = BASE_PITCH + pyC * 0.3 + Math.sin(t * 0.7) * 0.035;
       group.position.y = Math.sin(t * 0.8) * 0.04;
       renderer.render(scene, camera);
     };

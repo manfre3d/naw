@@ -17,7 +17,7 @@ export class ThemeService {
       if (!isPlatformBrowser(this.platformId)) return;
       this.doc.documentElement.setAttribute('data-theme', theme);
       this.doc.querySelector('meta[name="theme-color"]')
-        ?.setAttribute('content', theme === 'dark' ? '#0D0D1A' : '#FAFAF8');
+        ?.setAttribute('content', theme === 'dark' ? '#08131A' : '#F5F8FA');
       localStorage.setItem('theme', theme);
     });
   }
