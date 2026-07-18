@@ -122,6 +122,12 @@ export interface ProjectElement {
   tags?: string[];
   status?: string;
   logoCard?: boolean;
+  category?: string;  // matches a ProjectGroup id — drives the segmented filter
+}
+
+export interface ProjectGroup {
+  id: string;
+  label: string;
 }
 
 export interface ProjectsSection {
@@ -131,6 +137,7 @@ export interface ProjectsSection {
   label: string;
   title: string;
   linkLabel: string;
+  groups?: ProjectGroup[];  // optional segmented filter (e.g. Client Work / Side Projects)
   elements: ProjectElement[];
 }
 

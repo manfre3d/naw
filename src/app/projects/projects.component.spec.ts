@@ -10,16 +10,24 @@ const mockSection: ProjectsSection = {
   label: 'Work',
   title: 'Featured Work',
   linkLabel: 'View on GitHub',
+  groups: [
+    { id: 'work', label: 'Client Work' },
+    { id: 'personal', label: 'Side Projects' }
+  ],
   elements: [
-    { img: 'a.jpg', name: 'Alpha', description: 'First', tags: ['Angular'], status: 'Live', link: 'https://example.com/a' },
-    { img: 'b.jpg', name: 'Beta', description: 'Second' },
-    { img: 'c.jpg', name: 'Gamma', description: 'Third', liveUrl: 'https://example.com/c' }
+    { img: 'a.jpg', name: 'Alpha', description: 'First', status: 'Enterprise', category: 'work' },
+    { img: 'b.jpg', name: 'Beta', description: 'Second', status: 'Enterprise', category: 'work' },
+    { img: 'c.jpg', name: 'Gamma', description: 'Third', category: 'personal', link: 'https://example.com/c', liveUrl: 'https://example.com/c' },
+    { img: 'd.jpg', name: 'Delta', description: 'Fourth', category: 'personal', link: 'https://example.com/d' }
   ]
 };
 
 describe('ProjectsComponent', () => {
   let component: ProjectsComponent;
   let fixture: ComponentFixture<ProjectsComponent>;
+
+  const slideNames = () =>
+    Array.from(fixture.nativeElement.querySelectorAll('.project-name')).map((el: any) => el.textContent.trim());
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -37,9 +45,23 @@ describe('ProjectsComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('renders one slide per project', () => {
+  it('renders a toggle button per group and defaults to the first group', () => {
+    const toggles = fixture.nativeElement.querySelectorAll('.group-toggle-btn');
+    expect(toggles.length).toBe(2);
+    expect(component.activeGroup()).toBe('work');
+  });
+
+  it('renders only the active group\'s slides', () => {
     const slides = fixture.nativeElement.querySelectorAll('.project-slide');
-    expect(slides.length).toBe(mockSection.elements.length);
+    expect(slides.length).toBe(2);
+    expect(slideNames()).toEqual(['Alpha', 'Beta']);
+  });
+
+  it('switching group filters the slides', () => {
+    component.setGroup('personal');
+    fixture.detectChanges();
+    expect(component.activeGroup()).toBe('personal');
+    expect(slideNames()).toEqual(['Gamma', 'Delta']);
   });
 
   it('starts on the first page with sane defaults', () => {

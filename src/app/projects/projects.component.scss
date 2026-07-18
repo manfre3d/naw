@@ -1,3 +1,34 @@
+// ── Segmented group filter (Client Work / Side Projects) ────────────────────
+.group-toggle {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  margin-bottom: 1.75rem;
+  background-color: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.group-toggle-btn {
+  padding: 0.45rem 1.1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+  color: var(--color-muted);
+  transition: background-color var(--transition-fast), color var(--transition-fast);
+
+  &:hover:not(.active) { color: var(--color-text); }
+
+  &.active {
+    background-color: var(--color-accent-solid);
+    color: var(--color-on-accent);
+    box-shadow: var(--shadow-sm);
+  }
+}
+
 .projects-carousel {
   position: relative;
 }
@@ -63,28 +94,11 @@
   overflow: hidden;
   border: 1px solid var(--color-border);
   box-shadow: var(--shadow-sm);
-  position: relative;
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
-
-  // Shine sweep on hover
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 35%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.09), transparent);
-    transform: translateX(-100%) skewX(-15deg);
-    pointer-events: none;
-    z-index: 1;
-  }
 
   .project-slide:hover & {
     border-color: var(--color-accent-border-strong);
     box-shadow: var(--shadow-md);
-
-    &::before { animation: shine-pass 0.65s ease forwards; }
   }
 
   &.logo-card {
@@ -224,46 +238,51 @@
   }
 }
 
-// ── Carousel controls ──────────────────────────────────────────────────────
-.carousel-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
+// ── Carousel arrows (flank the track edges — the classic carousel affordance) ─
 .carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border: 1px solid var(--color-border);
   border-radius: 50%;
   background-color: var(--color-surface);
-  color: var(--color-muted);
-  font-size: 0.85rem;
+  color: var(--color-accent-text);
+  font-size: 0.95rem;
+  box-shadow: var(--shadow-md);
   transition: border-color var(--transition-fast), color var(--transition-fast),
-              background-color var(--transition-fast), transform var(--transition-fast);
+              background-color var(--transition-fast);
+
+  &--prev { left: -0.75rem; }
+  &--next { right: -0.75rem; }
 
   &:hover:not(:disabled) {
     border-color: var(--color-accent);
-    color: var(--color-accent-text);
-    background-color: var(--color-accent-light);
-    transform: translateY(-2px);
+    background-color: var(--color-accent-solid);
+    color: var(--color-on-accent);
   }
 
   &:disabled {
-    opacity: 0.4;
+    opacity: 0.35;
     cursor: default;
   }
+
+  // On phones the arrows would cover the single peeked tile — rely on swipe + dots.
+  @media (max-width: 600px) { display: none; }
 }
 
+// ── Carousel pagination dots ────────────────────────────────────────────────
 .carousel-dots {
   display: flex;
   align-items: center;
-  gap: 0.25rem;
+  justify-content: center;
+  gap: 0.35rem;
+  margin-top: 1.5rem;
 }
 
 .carousel-dot {
@@ -278,17 +297,19 @@
 
   &::before {
     content: '';
-    width: 0.5rem;
-    height: 0.5rem;
+    width: 0.6rem;
+    height: 0.6rem;
     border-radius: 50%;
-    background-color: var(--color-border);
-    transition: background-color var(--transition-fast), transform var(--transition-fast);
+    background-color: var(--color-muted);
+    opacity: 0.45;
+    transition: background-color var(--transition-fast), opacity var(--transition-fast), transform var(--transition-fast);
   }
 
-  &:hover::before { background-color: var(--color-accent-border-strong); }
+  &:hover::before { opacity: 0.8; }
 
   &.active::before {
     background-color: var(--color-accent-solid);
-    transform: scale(1.3);
+    opacity: 1;
+    transform: scale(1.35);
   }
 }

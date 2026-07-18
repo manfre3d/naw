@@ -2,9 +2,26 @@
   <p class="section-label">{{ subDescriptor().label }}</p>
   <h2 class="section-title">{{ subDescriptor().title }}</h2>
 
+  @if (groups().length) {
+    <div class="group-toggle" role="group" aria-label="Filter projects">
+      @for (g of groups(); track g.id) {
+        <button type="button" class="group-toggle-btn" [class.active]="activeGroup() === g.id"
+          [attr.aria-pressed]="activeGroup() === g.id" (click)="setGroup(g.id)">
+          {{ g.label }}
+        </button>
+      }
+    </div>
+  }
+
   <div class="projects-carousel" role="region" aria-roledescription="carousel" [attr.aria-label]="subDescriptor().title">
+    @if (pages() > 1) {
+      <button type="button" class="carousel-btn carousel-btn--prev" [disabled]="activePage() === 0" (click)="prev()" aria-label="Previous projects">
+        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+      </button>
+    }
+
     <ul #track class="projects-track" tabindex="0">
-      @for (project of subDescriptor().elements; track project.name; let i = $index) {
+      @for (project of filteredProjects(); track project.name; let i = $index) {
         <li class="project-slide spotlight-glow" appSpotlight>
           <div class="project-image-wrapper" [class.logo-card]="project.logoCard">
             <img [src]="project.img" [alt]="project.name" class="project-image" loading="lazy" />
@@ -49,21 +66,19 @@
     </ul>
 
     @if (pages() > 1) {
-      <div class="carousel-controls">
-        <button type="button" class="carousel-btn" [disabled]="activePage() === 0" (click)="prev()" aria-label="Previous projects">
-          <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
-        </button>
-        <div class="carousel-dots" role="group" aria-label="Project pages">
-          @for (page of pageList(); track page) {
-            <button type="button" class="carousel-dot" [class.active]="activePage() === page"
-              [attr.aria-current]="activePage() === page ? 'true' : null"
-              [attr.aria-label]="'Go to page ' + (page + 1)" (click)="goTo(page)"></button>
-          }
-        </div>
-        <button type="button" class="carousel-btn" [disabled]="activePage() >= pages() - 1" (click)="next()" aria-label="Next projects">
-          <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-        </button>
-      </div>
+      <button type="button" class="carousel-btn carousel-btn--next" [disabled]="activePage() >= pages() - 1" (click)="next()" aria-label="Next projects">
+        <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </button>
     }
   </div>
+
+  @if (pages() > 1) {
+    <div class="carousel-dots" role="group" aria-label="Project pages">
+      @for (page of pageList(); track page) {
+        <button type="button" class="carousel-dot" [class.active]="activePage() === page"
+          [attr.aria-current]="activePage() === page ? 'true' : null"
+          [attr.aria-label]="'Go to page ' + (page + 1)" (click)="goTo(page)"></button>
+      }
+    </div>
+  }
 </div>

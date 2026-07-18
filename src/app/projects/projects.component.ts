@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy, input, ElementRef, inject, afterNextRender, signal, computed, viewChild } from '@angular/core';
+import { Component, ChangeDetectionStrategy, input, ElementRef, inject, afterNextRender, signal, computed, effect, viewChild, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { ProjectsSection } from '../models/descriptor.model';
 import { SpotlightDirective } from '../directives/spotlight.directive';
 import { gsap } from 'gsap';
@@ -16,7 +17,18 @@ export class ProjectsComponent {
   subDescriptor = input.required<ProjectsSection>();
 
   private readonly el = inject(ElementRef<HTMLElement>);
+  private readonly platformId = inject(PLATFORM_ID);
   private readonly track = viewChild<ElementRef<HTMLUListElement>>('track');
+
+  readonly groups = computed(() => this.subDescriptor().groups ?? []);
+  private readonly groupOverride = signal<string | null>(null);
+  readonly activeGroup = computed(() => this.groupOverride() ?? this.groups()[0]?.id ?? '');
+
+  readonly filteredProjects = computed(() => {
+    const els = this.subDescriptor().elements;
+    const group = this.activeGroup();
+    return this.groups().length && group ? els.filter((e) => e.category === group) : els;
+  });
 
   readonly pages = signal(1);
   readonly activePage = signal(0);
@@ -53,7 +65,22 @@ export class ProjectsComponent {
         }
       );
     });
+
+    // Switching group changes the slide count — reset to the first page and
+    // re-measure once the filtered list has rendered.
+    effect(() => {
+      this.activeGroup();
+      if (!isPlatformBrowser(this.platformId)) return;
+      requestAnimationFrame(() => {
+        const el = this.track()?.nativeElement;
+        if (el) el.scrollTo({ left: 0, behavior: 'auto' });
+        this.activePage.set(0);
+        this.measure();
+      });
+    });
   }
+
+  setGroup(id: string): void { this.groupOverride.set(id); }
 
   prev(): void { this.scrollToPage(this.activePage() - 1); }
   next(): void { this.scrollToPage(this.activePage() + 1); }
