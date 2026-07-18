@@ -143,3 +143,13 @@
   flex-wrap: wrap;
   gap: var(--space-2);
 }
+
+// Lift the secondary-skill chips off the page background — the global
+// .badge-chip--muted (surface-2 fill) reads too flat against --color-bg here.
+.row-skills .badge-chip {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
