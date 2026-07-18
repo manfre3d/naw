@@ -29,7 +29,10 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build -- --base-href=/naw/
+        run: npm run build -- --base-href=/
+
+      - name: Add CNAME
+        run: echo 'manfredipiraino.com' > dist/naw/browser/CNAME
 
       - uses: actions/upload-pages-artifact@v3
         with:
