@@ -7,6 +7,14 @@
   align-items: center;
   padding: calc(var(--header-h) + 3.5rem) 1.5rem 4rem;
   overflow: hidden;
+
+  // Mobile: don't force a full-viewport hero — keeps the portrait from eating the
+  // whole screen so the name and the section below stay within reach.
+  @media (max-width: 860px) {
+    min-height: 0;
+    align-items: stretch;
+    padding: calc(var(--header-h) + 1.25rem) 1.1rem 2.5rem;
+  }
 }
 
 // ── Bento grid ────────────────────────────────────────────────────────────────
@@ -231,7 +239,7 @@
   min-height: 420px;
   animation: hero-fade 0.9s var(--ease-out) 0.15s both;
 
-  @media (max-width: 860px) { min-height: clamp(360px, 58vh, 460px); }
+  @media (max-width: 860px) { min-height: clamp(260px, 40vh, 340px); }
   @media (prefers-reduced-motion: reduce) { animation: none; }
 }
 
