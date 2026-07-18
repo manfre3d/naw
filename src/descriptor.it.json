@@ -236,11 +236,16 @@
       "label": "Lavori",
       "title": "Lavori in Evidenza",
       "linkLabel": "Vedi su GitHub",
+      "groups": [
+        { "id": "work", "label": "Su Commissione" },
+        { "id": "personal", "label": "Progetti Personali" }
+      ],
       "elements": [
         {
           "img": "assets/avio_ej200_engine.jpg",
           "name": "EJ200 Eurofighter Engine App",
           "status": "Enterprise · Avio Aero / GE Aerospace",
+          "category": "work",
           "description": "Applicativo critico per il motore EJ200 dell'Eurofighter. Migrazione da architettura monolitica a microservizi e sviluppo di nuove funzionalità in collaborazione con team cross-funzionali di uno dei principali gruppi aerospaziali europei.",
           "tags": ["Angular", "Spring Boot", "Java", "Microservizi", "Docker"]
         },
@@ -248,6 +253,7 @@
           "img": "assets/reale_mutua_office.jpg",
           "name": "Progetto Vites — Piattaforma Assicurativa",
           "status": "Enterprise · Reale Mutua Assicurazioni",
+          "category": "work",
           "description": "Generatore di interfacce JSON-configurable integrato con microservizi Spring Boot, con riduzione >50% dei tempi di implementazione frontend. Fulcro del programma di trasformazione digitale della più antica compagnia assicurativa italiana.",
           "tags": ["Angular", "TypeScript", "Spring Boot", "Java", "REST APIs"]
         },
@@ -255,6 +261,7 @@
           "img": "assets/bper_banca_hq.jpg",
           "name": "Middleware ESB — Core Banking",
           "status": "Enterprise · BPER Banca",
+          "category": "work",
           "description": "Layer ESB per il routing di messaggi tra sistemi core bancari via Apache Camel e Spring Boot. Gestione code Kafka, CI/CD su OpenShift via Jenkins, monitoraggio in produzione con Kibana e Dynatrace.",
           "tags": ["Apache Camel", "Kafka", "Spring Boot", "OpenShift", "Jenkins", "Kibana"]
         },
@@ -262,6 +269,7 @@
           "img": "assets/double_o_agent_it.jpg",
           "name": "Double-O Agent",
           "status": "Open Source · Live",
+          "category": "personal",
           "description": "Demo spy-noir costruita attorno a un agente IA che svolge le missioni meno glamour della contabilità delle piccole imprese, dà la caccia alle fatture doppie e legge i dati dalle fatture in PDF, trasmettendo ogni mossa a un cruscotto mentre lavora. HQ (Angular) avvia e osserva le missioni. Control (NestJS) esegue il loop dell'agente con tool e trasmette il feed via SSE.",
           "tags": ["Angular", "NestJS", "TypeScript", "Agenti IA", "OpenAI", "PostgreSQL", "SSE"],
           "link": "https://github.com/manfre3d/double-o-agent",
@@ -271,6 +279,7 @@
           "img": "assets/screenshot_aipocondriaco.jpg",
           "name": "AiPocondriaco",
           "status": "Open Source · Live",
+          "category": "personal",
           "description": "AI companion ipocondriaco satirico. L'utente descrive i sintomi via chat in streaming con Google Gemini, riceve una valutazione teatrale del proprio stato di salute e un ritratto AI della condizione immaginaria. Demo disponibile senza API key.",
           "tags": ["Angular", "Node.js", "Express", "Google Gemini", "PostgreSQL", "TypeScript"],
           "link": "https://github.com/manfre3d/AiPocondriaco",
@@ -280,6 +289,7 @@
           "img": "assets/py_tts_home.jpg",
           "name": "py-tts",
           "status": "Open Source · Live",
+          "category": "personal",
           "description": "Convertitore documento-audio con supporto per PDF, DOCX e TXT. Upload drag-and-drop, progresso in tempo reale via SSE, otto voci, pulizia testo opzionale con GPT-4o-mini, REST API e player WaveSurfer.js con seek e controllo velocità.",
           "tags": ["Python", "Flask", "gTTS", "OpenAI", "Bootstrap", "WaveSurfer.js"],
           "link": "https://github.com/manfre3d/py-tts",
