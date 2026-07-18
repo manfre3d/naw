@@ -50,13 +50,41 @@ AppComponent
 
 - SCSS throughout; design tokens (CSS custom properties, light + `[data-theme="dark"]` blocks) and global styles live in `src/styles.scss`
 - No CSS framework — `styles.scss` opens with a minimal reset (Bootstrap-reboot essentials); layout is plain flex/grid
-- Icons: Font Awesome 6 via CDN kit script in `src/index.html`; fonts: Google Fonts (Inter, Space Mono) via CDN
+- Icons: Font Awesome 6 via CDN kit script in `src/index.html`; fonts: Google Fonts (Space Grotesk, Inter, JetBrains Mono) via CDN, exposed as `--font-display` / `--font-body` / `--font-mono`
 - Accent used as text must be `--color-accent-text` (AA contrast), never raw `--color-accent`
+- Shared primitives in `styles.scss`: `.tile` (bento surface, + `.tile--hover`), `.btn-primary` / `.btn-outline`, `.badge-chip`, `.section-label` / `.section-title`, `.spotlight-glow`, `.shine-sweep` — reuse these before writing new component styles
+- `src/index.html` carries a pre-paint theme script (sets `data-theme` before hydration to avoid a flash) and a localized landing preloader — keep both in sync with `ThemeService` / `LanguageService`
+
+### 3D assets
+
+The hero portrait (`src/assets/models/portrait.glb`) is lazy-loaded and decoded with `MeshoptDecoder` + `KHR_mesh_quantization` + `EXT_texture_webp` (all supported by the pinned three.js). Optimize any new/replacement model before committing — keep the geometry, shrink the textures:
+
+```bash
+npx @gltf-transform/cli optimize in.glb out.glb \
+  --compress meshopt --texture-compress webp --texture-size 2048 --no-simplify
+```
+
+`--no-simplify` preserves fine detail (face/hair); the size win comes from texture resize + WebP + Meshopt. The model is lazy-loaded, so it never counts against the `initial` bundle budget — but keep it lean.
 
 ### Subagents
 
 - **`DocsExplorer`** (`.claude/agents/DocsExplorer.md`) — documentation lookup specialist. Use proactively when needing up-to-date docs for any library or framework used in this project (Angular, Bootstrap, etc.). Fetches via Context7 MCP first, falls back to web search.
 - **`SiteAuditor`** (`.claude/agents/SiteAuditor.md`) — read-only quality audit (bundle budgets, dead assets, a11y/SEO invariants). Use before deploys or after UI/content/dependency changes; checklists live in the `site-quality-audit` skill.
+
+### Skills
+
+Invoke the matching skill before the work it covers.
+
+Project skills (`.claude/skills/`):
+- **`modern-best-practice-angular-components`** — writing or refactoring components (signals, `input()`/`output()`, native control flow, `afterNextRender`, no needless lifecycle hooks). The codebase is already fully on these patterns; match them.
+- **`scss-best-practices`** — component SCSS and `styles.scss` tokens (naming, token discipline, dark mode, responsive, a11y). Colour stays in tokens; components never hard-code it.
+- **`threejs-3d-animations`** — the `scene-background` and `hero-portrait-3d` components (scene setup, RAF loops, SSR guards, GPU disposal, reduced-motion bails).
+- **`site-quality-audit`** — before deploys / after UI/content/dependency changes (bundle budgets, dead or oversized assets, a11y/SEO/i18n). Backs the `SiteAuditor` subagent.
+
+Built-in skills that fit this repo:
+- **`frontend-design`** — before any visual redesign or new UI direction (palette, type, layout, one signature element). Ground choices in the subject; avoid templated defaults.
+- **`artifact-design`** — when producing a self-contained HTML preview/mockup as an Artifact (e.g. comparing palettes or hero layouts before touching component code).
+- **`run`** / **`verify`** — drive the running app (dev server on `:4200`) to confirm a change works, not just that it compiles.
 
 ### Improvement roadmap
 
