@@ -237,8 +237,8 @@
       "title": "Lavori in Evidenza",
       "linkLabel": "Vedi su GitHub",
       "groups": [
-        { "id": "work", "label": "Su Commissione" },
-        { "id": "personal", "label": "Progetti Personali" }
+        { "id": "personal", "label": "Progetti Personali" },
+        { "id": "work", "label": "Su Commissione" }
       ],
       "elements": [
         {
