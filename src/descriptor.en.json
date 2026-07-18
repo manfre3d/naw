@@ -237,8 +237,8 @@
       "title": "Featured Work",
       "linkLabel": "View on GitHub",
       "groups": [
-        { "id": "work", "label": "Client Work" },
-        { "id": "personal", "label": "Side Projects" }
+        { "id": "personal", "label": "Side Projects" },
+        { "id": "work", "label": "Client Work" }
       ],
       "elements": [
         {
