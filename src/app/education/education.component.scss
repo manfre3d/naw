@@ -7,8 +7,10 @@
 
 .edu-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, 1fr);  // balanced 2×2 — avoids the orphaned full-width last card
   gap: 1.25rem;
+
+  @media (max-width: 640px) { grid-template-columns: 1fr; }
 }
 
 .edu-card {
@@ -56,7 +58,7 @@
 .edu-body { display: flex; flex-direction: column; gap: 0.35rem; }
 
 .edu-degree {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--color-text);
   line-height: 1.3;
