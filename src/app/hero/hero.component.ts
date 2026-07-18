@@ -3,7 +3,6 @@ import { HeroSection } from '../models/descriptor.model';
 import { MagneticHoverDirective } from '../directives/magnetic-hover.directive';
 import { HeroPortrait3dComponent } from '../hero-portrait-3d/hero-portrait-3d.component';
 import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 @Component({
   selector: 'app-hero',
@@ -39,7 +38,6 @@ export class HeroComponent {
       }
       this.startTyping();
       this.animateName();
-      this.initParallax();
     });
   }
 
@@ -51,17 +49,6 @@ export class HeroComponent {
       { rotateX: 90, opacity: 0, y: 20, transformOrigin: '50% 0%' },
       { rotateX: 0, opacity: 1, y: 0, duration: 0.6, stagger: 0.045, ease: 'back.out(1.5)', delay: 0.2 }
     );
-  }
-
-  private initParallax(): void {
-    gsap.registerPlugin(ScrollTrigger);
-    const frame = document.querySelector('.hero-photo-frame');
-    if (!frame) return;
-    gsap.to(frame, {
-      yPercent: -12,
-      ease: 'none',
-      scrollTrigger: { trigger: '.hero-wrapper', start: 'top top', end: 'bottom top', scrub: true }
-    });
   }
 
   private startTyping(): void {

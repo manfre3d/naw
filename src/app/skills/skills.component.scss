@@ -9,7 +9,7 @@
   display: flex;
   align-items: center;
   gap: var(--space-4);
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.12em;
@@ -39,9 +39,9 @@
   flex-direction: column;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-lg);
   padding: var(--space-5);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-sm), inset 0 1px 0 var(--color-ring);
   transition: border-color var(--transition-base), box-shadow var(--transition-base),
               transform var(--transition-base);
 
@@ -67,7 +67,7 @@
 }
 
 .core-meta {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -83,7 +83,7 @@
 }
 
 .core-note {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   line-height: 1.5;
   color: var(--color-muted);
@@ -94,7 +94,7 @@
   margin-top: auto;
   padding-top: var(--space-3);
   border-top: 1px solid var(--color-border);
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   color: var(--color-accent-text);
   text-decoration: none;
@@ -125,7 +125,7 @@
 }
 
 .row-name {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: var(--text-xs);
   text-transform: uppercase;
   letter-spacing: 0.12em;

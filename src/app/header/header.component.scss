@@ -16,7 +16,7 @@
 }
 
 .nav-brand {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 1rem;
   font-weight: 700;
   color: var(--color-text);
@@ -84,7 +84,7 @@
   border: none;
   padding: 0.35rem 0.5rem;
   font-size: 0.75rem;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-weight: 700;
   letter-spacing: 0.08em;
   color: var(--color-muted);

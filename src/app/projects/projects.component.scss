@@ -14,7 +14,7 @@
   border: none;
   border-radius: var(--radius-sm);
   background: transparent;
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.03em;
   color: var(--color-muted);
@@ -149,14 +149,14 @@
 }
 
 .project-index {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.72rem;
   color: var(--color-accent-text);
   letter-spacing: 0.1em;
 }
 
 .project-status {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -193,7 +193,7 @@
 }
 
 .project-tag {
-  font-family: 'Space Mono', monospace;
+  font-family: var(--font-mono);
   font-size: 0.7rem;
   padding: 0.18rem 0.5rem;
   border: 1px solid var(--color-border);
